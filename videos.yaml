@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 1
+  lastBJ: 2
 videos:
   BJ1:
     bj: BJ1
@@ -24,6 +24,29 @@ videos:
     createdAt: '2026-10-06T09:04:44.833Z'
     viewCount: 14
     likeCount: 3
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ2:
+    bj: BJ2
+    title: 从某视频平台转载过来的图文内容
+    upId: Inrsoft
+    upName: Intsoft(w1e1r1r2)
+    slug: tech
+    tags:
+      - 转载
+      - 科技
+    description: 关于 360 诡异的拦截点
+    duration: 20
+    originalName: Record_2026-10-06-20-16-46.mp4
+    size: 14421438
+    storedChunks:
+      - v_Record_2026-10-06-20-16-46_chunk0.bin
+    totalChunks: 1
+    cover: null
+    createdAt: '2026-10-06T12:20:53.349Z'
+    viewCount: 0
+    likeCount: 0
     coinCount: 0
     favoriteCount: 0
     danmakuCount: 0
