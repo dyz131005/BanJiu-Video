@@ -1,0 +1,24 @@
+meta:
+  lastBJ: 1
+videos:
+  BJ1:
+    bj: BJ1
+    title: 斑鸠OS 首个测试视频
+    upId: bantest
+    upName: 斑鸠
+    slug: tech
+    tags: []
+    description: ''
+    duration: 10
+    originalName: _test.mp4
+    size: 788493
+    storedChunks:
+      - v__test_chunk0.bin
+    totalChunks: 1
+    cover: null
+    createdAt: '2026-10-06T08:40:13.700Z'
+    viewCount: 0
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
