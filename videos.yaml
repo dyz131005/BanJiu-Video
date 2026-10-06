@@ -1,0 +1,29 @@
+meta:
+  lastBJ: 1
+videos:
+  BJ1:
+    bj: BJ1
+    title: 空盘记
+    upId: dyz
+    upName: 邓元章
+    slug: tech
+    tags:
+      - Windows
+      - 软件
+      - Microsoft
+      - 测试
+      - 作死
+    description: ''
+    duration: 78
+    originalName: ”空盘记“.mp4
+    size: 12955358
+    storedChunks:
+      - v__空盘记__chunk0.bin
+    totalChunks: 1
+    cover: null
+    createdAt: '2026-10-06T09:04:44.833Z'
+    viewCount: 0
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
