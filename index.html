@@ -1,591 +1,4301 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark" style="color-scheme: dark;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>斑鸠视频 BanJiu Video</title>
-    <!-- 站点图标：默认使用仓库根目录的 icon.ico -->
     <link rel="icon" href="icon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <style>
-        :root {
-            --bg: #0f1115;
-            --bg-soft: #14171c;
-            --card: #171a21;
-            --card-hover: #1d2129;
-            --border: #232833;
-            --text: #e8ecf3;
-            --text-dim: #9aa3b2;
-            --accent: #ff4757;
-            --accent-2: #ff7a45;
-            --accent-grad: linear-gradient(135deg, #ff4757, #ff7a45);
-            --danger: #ff4757;
-            --success: #2ed573;
-            --radius: 14px;
-            --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&amp;family=ZCOOL+KuaiLe&amp;display=swap" rel="stylesheet">
+    <style id="lingxi-css">
+        /*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
+@layer properties {
+    @supports (((-webkit-hyphens: none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))) {
+        *,:before,:after,::backdrop {
+            --tw-translate-x:0;
+            --tw-translate-y: 0;
+            --tw-translate-z: 0;
+            --tw-rotate-x: initial;
+            --tw-rotate-y: initial;
+            --tw-rotate-z: initial;
+            --tw-skew-x: initial;
+            --tw-skew-y: initial;
+            --tw-space-y-reverse: 0;
+            --tw-border-style: solid;
+            --tw-gradient-position: initial;
+            --tw-gradient-from: #0000;
+            --tw-gradient-via: #0000;
+            --tw-gradient-to: #0000;
+            --tw-gradient-stops: initial;
+            --tw-gradient-via-stops: initial;
+            --tw-gradient-from-position: 0%;
+            --tw-gradient-via-position: 50%;
+            --tw-gradient-to-position: 100%;
+            --tw-leading: initial;
+            --tw-font-weight: initial;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-color: initial;
+            --tw-shadow-alpha: 100%;
+            --tw-inset-shadow: 0 0 #0000;
+            --tw-inset-shadow-color: initial;
+            --tw-inset-shadow-alpha: 100%;
+            --tw-ring-color: initial;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-inset-ring-color: initial;
+            --tw-inset-ring-shadow: 0 0 #0000;
+            --tw-ring-inset: initial;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-outline-style: solid;
+            --tw-backdrop-blur: initial;
+            --tw-backdrop-brightness: initial;
+            --tw-backdrop-contrast: initial;
+            --tw-backdrop-grayscale: initial;
+            --tw-backdrop-hue-rotate: initial;
+            --tw-backdrop-invert: initial;
+            --tw-backdrop-opacity: initial;
+            --tw-backdrop-saturate: initial;
+            --tw-backdrop-sepia: initial;
+            --tw-duration: initial
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    }
+}
 
-        /* ===== 顶部导航 ===== */
-        header {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            background: rgba(15, 17, 21, 0.92);
-            backdrop-filter: blur(10px);
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo {
-            display: flex; align-items: center; gap: 12px; text-decoration: none;
-            font-size: 1.35rem; font-weight: 800; color: var(--text);
-        }
-        .logo img, .logo .logo-icon { width: 34px; height: 34px; border-radius: 8px; }
-        .logo .logo-text b { background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .nav-right { display: flex; align-items: center; gap: 14px; }
-        .nav-link {
-            color: var(--text-dim); text-decoration: none; font-weight: 500; font-size: 0.95rem;
-            transition: color 0.2s; cursor: pointer; background: none; border: none; font-family: inherit;
-        }
-        .nav-link:hover { color: var(--text); }
+@layer theme {
+    :root,:host {
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --color-black: #000;
+        --color-white: #fff;
+        --spacing: .25rem;
+        --container-md: 28rem;
+        --container-2xl: 42rem;
+        --container-3xl: 48rem;
+        --text-xs: .75rem;
+        --text-xs--line-height: calc(1 / .75);
+        --text-sm: .875rem;
+        --text-sm--line-height: calc(1.25 / .875);
+        --text-base: 1rem;
+        --text-base--line-height: 1.5 ;
+        --text-lg: 1.125rem;
+        --text-lg--line-height: calc(1.75 / 1.125);
+        --text-xl: 1.25rem;
+        --text-xl--line-height: calc(1.75 / 1.25);
+        --font-weight-normal: 400;
+        --font-weight-medium: 500;
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
+        --leading-snug: 1.375;
+        --leading-relaxed: 1.625;
+        --radius-sm: .25rem;
+        --radius-md: .375rem;
+        --shadow-lg: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;
+        --animate-spin: spin 1s linear infinite;
+        --animate-pulse: pulse 2s cubic-bezier(.4, 0, .6, 1) infinite;
+        --aspect-video: 16 / 9;
+        --default-transition-duration: .15s;
+        --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+        --default-font-family: var(--font-sans);
+        --default-mono-font-family: var(--font-mono)
+    }
+}
 
-        /* ===== 默认头像：昵称第一个字符的圆形 ===== */
-        .avatar-circle {
-            width: 40px; height: 40px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: #fff; font-weight: 700; font-size: 1.15rem;
-            user-select: none; flex-shrink: 0;
-            border: 2px solid rgba(255,255,255,0.15);
-        }
-        .btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 10px 22px; border: none; border-radius: 9px;
-            font-weight: 600; font-size: 0.95rem; cursor: pointer;
-            background: var(--accent-grad); color: #fff; transition: transform 0.15s, box-shadow 0.15s;
-            font-family: inherit;
-        }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(255,71,87,0.3); }
-        .btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
-        .btn-ghost:hover { border-color: var(--accent); color: var(--accent); box-shadow: none; }
-        .btn-sm { padding: 7px 14px; font-size: 0.85rem; }
+@layer base {
+    *,:after,:before,::backdrop {
+        box-sizing: border-box;
+        border: 0 solid;
+        margin: 0;
+        padding: 0
+    }
 
-        /* ===== Hero ===== */
-        .hero {
-            min-height: 62vh;
-            display: flex; align-items: center; justify-content: center;
-            text-align: center; padding: 120px 20px 60px;
-            background:
-                radial-gradient(1000px 400px at 20% -10%, rgba(255,71,87,0.18), transparent 60%),
-                radial-gradient(900px 400px at 80% -10%, rgba(255,122,69,0.14), transparent 60%),
-                var(--bg);
-            position: relative;
-        }
-        .hero h1 {
-            font-size: 3.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 18px;
-        }
-        .hero h1 b { background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .hero p { color: var(--text-dim); font-size: 1.15rem; max-width: 560px; margin: 0 auto 30px; }
+    ::file-selector-button {
+        box-sizing: border-box;
+        border: 0 solid;
+        margin: 0;
+        padding: 0
+    }
 
-        /* ===== 视频区（未实现占位） ===== */
-        section.block { padding: 60px 0; }
-        .section-title {
-            font-size: 1.6rem; font-weight: 700; margin-bottom: 24px;
-            display: flex; align-items: center; gap: 12px;
-        }
-        .section-title .bar { width: 4px; height: 22px; border-radius: 2px; background: var(--accent-grad); }
-        .coming-soon {
-            border: 2px dashed var(--border); border-radius: var(--radius);
-            padding: 60px 30px; text-align: center; color: var(--text-dim);
-        }
-        .coming-soon i { font-size: 2.6rem; margin-bottom: 16px; display: block; color: var(--accent); }
-        .coming-soon h3 { font-size: 1.3rem; color: var(--text); margin-bottom: 8px; }
-        .video-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
-        }
-        .video-card {
-            background: var(--card); border-radius: var(--radius); overflow: hidden;
-            border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
-        }
-        .video-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: #2c3340; }
-        .video-thumb { aspect-ratio: 16/9; background: var(--bg-soft); display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 2rem; }
-        .video-info { padding: 14px; }
-        .video-info h4 { font-size: 0.98rem; font-weight: 600; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .video-info .meta { font-size: 0.82rem; color: var(--text-dim); }
+    html,: host {
+        -webkit-text-size-adjust:100%;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        line-height: 1.5;
+        font-family: var(--default-font-family,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+        font-feature-settings: var(--default-font-feature-settings,normal);
+        font-variation-settings: var(--default-font-variation-settings,normal);
+        -webkit-tap-highlight-color: transparent
+    }
 
-        /* ===== 关于 ===== */
-        .about { background: var(--bg-soft); }
-        .about p { color: var(--text-dim); max-width: 720px; }
+    hr {
+        height: 0;
+        color: inherit;
+        border-top-width: 1px
+    }
 
-        footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-dim); font-size: 0.9rem; }
+    abbr: where([title]) {
+        -webkit-text-decoration:underline dotted;
+        text-decoration: underline dotted
+    }
 
-        /* ===== 弹窗 ===== */
-        .modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6); z-index: 3000; justify-content: center; align-items: center;
-        }
-        .modal.active { display: flex; }
-        .modal-content {
-            background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-            padding: 32px; width: 90%; max-width: 440px; box-shadow: var(--shadow);
-        }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
-        .modal-header h2 { font-size: 1.4rem; }
-        .modal-close { background: none; border: none; font-size: 1.5rem; color: var(--text-dim); cursor: pointer; }
-        .modal-close:hover { color: var(--text); }
-        .tab-buttons { display: flex; gap: 10px; margin-bottom: 22px; }
-        .tab-btn { flex: 1; padding: 11px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text-dim); font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.15s; }
-        .tab-btn.active { background: var(--accent-grad); color: #fff; border-color: transparent; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; margin-bottom: 7px; font-weight: 500; font-size: 0.9rem; color: var(--text-dim); }
-        .form-control {
-            width: 100%; padding: 12px 14px; background: var(--bg); color: var(--text);
-            border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.95rem;
-            transition: border-color 0.2s;
-        }
-        .form-control:focus { outline: none; border-color: var(--accent); }
-        .btn-block { width: 100%; justify-content: center; margin-top: 6px; }
-        .feedback-status { display: none; padding: 11px 14px; border-radius: 8px; margin-bottom: 16px; font-size: 0.9rem; font-weight: 600; text-align: center; }
-        .feedback-status.success { display: block; background: rgba(46,213,115,0.14); color: var(--success); border: 1px solid rgba(46,213,115,0.3); }
-        .feedback-status.error { display: block; background: rgba(255,71,87,0.14); color: var(--danger); border: 1px solid rgba(255,71,87,0.3); }
-        .feedback-status.info { display: block; background: rgba(90,140,255,0.14); color: #5a8cff; border: 1px solid rgba(90,140,255,0.3); }
+    h1,h2,h3,h4,h5,h6 {
+        font-size: inherit;
+        font-weight: inherit
+    }
 
-        /* 个人中心 */
-        .profile-box { display: flex; align-items: center; gap: 16px; padding: 18px; background: var(--bg); border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; }
-        .profile-box .avatar-circle { width: 56px; height: 56px; font-size: 1.5rem; }
-        .profile-name { font-size: 1.15rem; font-weight: 700; }
-        .profile-meta { font-size: 0.85rem; color: var(--text-dim); margin-top: 2px; }
-        .linked-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; background: rgba(46,213,115,0.15); color: var(--success); font-size: 0.8rem; font-weight: 600; margin-top: 6px; }
-        .link-row { display: flex; gap: 10px; }
+    a {
+        color: inherit;
+        -webkit-text-decoration: inherit;
+        text-decoration: inherit
+    }
 
-        .loading-small { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(0,0,0,0.15); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; }
-        @keyframes spin { to { transform: rotate(360deg); } }
+    b,strong {
+        font-weight: bolder
+    }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .video-grid { grid-template-columns: 1fr 1fr; }
+    code,kbd,samp,pre {
+        font-family: var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+        font-feature-settings: var(--default-mono-font-feature-settings,normal);
+        font-variation-settings: var(--default-mono-font-variation-settings,normal);
+        font-size: 1em
+    }
+
+    small {
+        font-size: 80%
+    }
+
+    sub,sup {
+        vertical-align: baseline;
+        font-size: 75%;
+        line-height: 0;
+        position: relative
+    }
+
+    sub {
+        bottom: -.25em
+    }
+
+    sup {
+        top: -.5em
+    }
+
+    table {
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse
+    }
+
+    :-moz-focusring:where(:not(iframe)) {
+        outline: auto
+    }
+
+    progress {
+        vertical-align: baseline
+    }
+
+    summary {
+        display: list-item
+    }
+
+    ol,ul,menu {
+        list-style: none
+    }
+
+    img,svg,video,canvas,audio,iframe,embed,object {
+        vertical-align: middle;
+        display: block
+    }
+
+    img,video {
+        max-width: 100%;
+        height: auto
+    }
+
+    button,input,select,optgroup,textarea {
+        font: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        opacity: 1;
+        background-color: #0000;
+        border-radius: 0
+    }
+
+    ::file-selector-button {
+        font: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        opacity: 1;
+        background-color: #0000;
+        border-radius: 0
+    }
+
+    :where(select: is([multiple],[size])) optgroup {
+        font-weight:bolder
+    }
+
+    :where(select: is([multiple],[size])) optgroup option {
+        padding-inline-start:20px
+    }
+
+    ::file-selector-button {
+        margin-inline-end:4px}
+
+    ::placeholder {
+        opacity: 1
+    }
+
+    @supports (not ((-webkit-appearance: -apple-pay-button))) or (contain-intrinsic-size:1px) {
+        ::placeholder {
+            color:currentColor
         }
-        @media (max-width: 520px) {
-            .video-grid { grid-template-columns: 1fr; }
-            .nav-right .nav-link.hide-sm { display: none; }
+
+        @supports (color: color-mix(in lab,red,red)) {
+            ::placeholder {
+                color:color-mix(in oklab,currentcolor 50%,transparent)
+            }
         }
+    }
+
+    textarea {
+        resize: vertical
+    }
+
+    ::-webkit-search-decoration {
+        -webkit-appearance: none
+    }
+
+    ::-webkit-date-and-time-value {
+        min-height: 1lh;
+        text-align: inherit
+    }
+
+    ::-webkit-datetime-edit {
+        display: inline-flex
+    }
+
+    ::-webkit-datetime-edit-fields-wrapper {
+        padding: 0
+    }
+
+    ::-webkit-datetime-edit {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-year-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-month-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-day-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-hour-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-minute-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-second-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-millisecond-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-meridiem-field {
+        padding-block:0}
+
+    ::-webkit-calendar-picker-indicator {
+        line-height: 1
+    }
+
+    :-moz-ui-invalid {
+        box-shadow: none
+    }
+
+    button,input: where([type=button],[type=reset],[type=submit]) {
+        -webkit-appearance:button;
+        -moz-appearance: button;
+        appearance: button
+    }
+
+    ::file-selector-button {
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button
+    }
+
+    ::-webkit-inner-spin-button {
+        height: auto
+    }
+
+    ::-webkit-outer-spin-button {
+        height: auto
+    }
+
+    [hidden]: where(:not([hidden=until-found])) {
+        display:none!important
+    }
+
+    * {
+        box-sizing: border-box
+    }
+
+    html,body,#root {
+        height: 100%
+    }
+
+    body {
+        background: var(--bg);
+        color: var(--text-1);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        margin: 0;
+        font-size: 14px;
+        transition: background .2s,color .2s
+    }
+
+    .lx-brand-en {
+        font-family: var(--font-display);
+        letter-spacing: .04em
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none
+    }
+
+    button {
+        cursor: pointer;
+        font-family: inherit
+    }
+
+    input,textarea,select {
+        color: inherit;
+        font-family: inherit
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        background-clip: content-box;
+        border: 2px solid #0000;
+        border-radius: 6px
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--text-3);
+        background-clip: content-box
+    }
+
+    ::-webkit-scrollbar-track {
+        background: 0 0
+    }
+}
+
+@layer components {
+    .lx-card {
+        background: var(--bg-elev);
+        border: 1px solid var(--border);
+        border-radius: var(--radius)
+    }
+
+    .lx-divider {
+        background: var(--border);
+        height: 1px;
+        margin: 8px 0
+    }
+
+    .lx-btn {
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+        background: var(--bg-elev);
+        height: 36px;
+        color: var(--text-1);
+        white-space: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        padding: 0 14px;
+        font-size: 14px;
+        line-height: 1;
+        transition: background .15s,border-color .15s,color .15s;
+        display: inline-flex
+    }
+
+    .lx-btn:hover {
+        background: var(--bg-soft);
+        border-color: var(--text-3)
+    }
+
+    .lx-btn:disabled {
+        opacity: .5;
+        cursor: not-allowed
+    }
+
+    .lx-btn svg {
+        width: 16px;
+        height: 16px
+    }
+
+    .lx-btn-primary {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff
+    }
+
+    .lx-btn-primary:hover {
+        background: var(--brand-strong);
+        border-color: var(--brand-strong)
+    }
+
+    .lx-btn-accent {
+        background: var(--brand-soft);
+        border-color: var(--brand);
+        color: var(--brand)
+    }
+
+    .lx-btn-accent:hover {
+        background: var(--brand-soft);
+        border-color: var(--brand)
+    }
+
+    .lx-btn-ghost {
+        color: var(--text-2);
+        background: 0 0;
+        border-color: #0000
+    }
+
+    .lx-btn-ghost:hover {
+        background: var(--bg-soft);
+        color: var(--text-1);
+        border-color: #0000
+    }
+
+    .lx-btn-sm {
+        height: 30px;
+        padding: 0 10px;
+        font-size: 13px
+    }
+
+    .lx-btn-sm svg {
+        width: 14px;
+        height: 14px
+    }
+
+    .action-btn {
+        height: 38px;
+        color: var(--text-2);
+        background: 0 0;
+        border: none;
+        border-radius: 999px;
+        align-items: center;
+        gap: 6px;
+        padding: 0 14px;
+        font-size: 14px;
+        transition: background .15s,color .15s;
+        display: inline-flex
+    }
+
+    .action-btn:hover {
+        background: var(--bg-soft);
+        color: var(--text-1)
+    }
+
+    .action-btn svg {
+        width: 20px;
+        height: 20px
+    }
+
+    .action-btn-active {
+        color: var(--brand)
+    }
+
+    .lx-input {
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+        background: var(--bg-elev);
+        outline: none;
+        width: 100%;
+        height: 40px;
+        padding: 0 12px;
+        font-size: 14px;
+        transition: border-color .15s,box-shadow .15s
+    }
+
+    .lx-input:focus {
+        border-color: var(--brand);
+        box-shadow: 0 0 0 2px var(--brand-soft)
+    }
+
+    .lx-input::placeholder {
+        color: var(--text-3)
+    }
+
+    textarea.lx-input {
+        resize: vertical;
+        height: auto;
+        padding: 10px 12px;
+        line-height: 1.6
+    }
+
+    select.lx-input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding-right: 30px
+    }
+
+    .lx-chip {
+        background: var(--bg-soft);
+        height: 28px;
+        color: var(--text-2);
+        border: 1px solid #0000;
+        border-radius: 999px;
+        align-items: center;
+        gap: 4px;
+        padding: 0 12px;
+        font-size: 13px;
+        transition: background .15s,color .15s,border-color .15s;
+        display: inline-flex
+    }
+
+    .lx-chip:hover {
+        color: var(--brand);
+        border-color: var(--brand)
+    }
+
+    .lx-chip-active {
+        background: var(--brand-soft);
+        color: var(--brand);
+        border-color: var(--brand)
+    }
+
+    .lx-badge {
+        border-radius: 4px;
+        align-items: center;
+        height: 18px;
+        padding: 0 6px;
+        font-size: 11px;
+        line-height: 1;
+        display: inline-flex
+    }
+
+    .lx-badge-level {
+        background: var(--brand);
+        color: #fff
+    }
+
+    .user-badge {
+        white-space: nowrap;
+        border: 1px solid #0000;
+        border-radius: 999px;
+        align-items: center;
+        gap: 3px;
+        max-width: 220px;
+        padding: 0 6px;
+        font-size: 11px;
+        line-height: 18px;
+        display: inline-flex
+    }
+
+    .user-badge svg {
+        flex-shrink: 0;
+        width: 12px;
+        height: 12px
+    }
+
+    .user-badge-dot {
+        flex-shrink: 0;
+        display: inline-flex
+    }
+
+    .badged-avatar {
+        flex-shrink: 0;
+        line-height: 0;
+        display: inline-flex;
+        position: relative
+    }
+
+    .avatar-badge {
+        color: #fff;
+        box-shadow: 0 0 0 2px var(--bg-elev);
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        display: inline-flex;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(0)
+    }
+
+    .avatar-badge-yellow {
+        background: #f0a81e
+    }
+
+    .avatar-badge-blue {
+        background: #5aa9f0
+    }
+
+    .user-badge-label {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        align-items: center;
+        max-width: 220px;
+        font-size: 12px;
+        line-height: 18px;
+        display: inline-flex;
+        overflow: hidden
+    }
+
+    .user-badge-label-yellow {
+        color: #e8940c
+    }
+
+    .user-badge-label-blue {
+        color: #1a72c8
+    }
+
+    :root[data-theme=dark] .user-badge-label-yellow {
+        color: #f6c445
+    }
+
+    :root[data-theme=dark] .user-badge-label-blue {
+        color: #6cb6f5
+    }
+
+    .user-badge-md {
+        padding: 0 8px;
+        font-size: 12px;
+        line-height: 20px
+    }
+
+    .user-badge-md svg {
+        width: 14px;
+        height: 14px
+    }
+
+    .user-badge-text {
+        text-overflow: ellipsis;
+        overflow: hidden
+    }
+
+    .user-badge-yellow {
+        color: #a8710a;
+        background: #f5ba2a29;
+        border-color: #f5ba2a73
+    }
+
+    .user-badge-blue {
+        color: #1a72c8;
+        background: #2f8feb24;
+        border-color: #2f8feb6b
+    }
+
+    :root[data-theme=dark] .user-badge-yellow {
+        color: #f6c445
+    }
+
+    :root[data-theme=dark] .user-badge-blue {
+        color: #6cb6f5
+    }
+
+    .quality-badge {
+        color: #fff;
+        white-space: nowrap;
+        background: linear-gradient(135deg,#ff7a45,#f5483d);
+        border-radius: 4px;
+        align-items: center;
+        padding: 0 6px;
+        font-size: 11px;
+        line-height: 18px;
+        display: inline-flex
+    }
+
+    .cover-quality {
+        line-height: 16px;
+        position: absolute;
+        bottom: 6px;
+        left: 6px
+    }
+
+    .lx-skeleton {
+        background: var(--bg-soft);
+        border-radius: var(--radius-sm);
+        animation: 1.4s ease-in-out infinite lx-pulse
+    }
+
+    @keyframes lx-pulse {
+        0%,to {
+            opacity: 1
+        }
+
+        50% {
+            opacity: .5
+        }
+    }
+
+    .lx-fade-in {
+        animation: .2s both lx-fade
+    }
+
+    @keyframes lx-fade {
+        0% {
+            opacity: 0
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    .lx-modal-mask {
+        z-index: 1000;
+        background: #0c100e73;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0
+    }
+
+    .lx-dropdown {
+        background: var(--bg-elev);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        min-width: 160px;
+        box-shadow: var(--shadow-lg);
+        z-index: 900;
+        padding: 6px;
+        position: absolute
+    }
+
+    .lx-dropdown-item {
+        width: 100%;
+        color: var(--text-1);
+        border-radius: var(--radius-sm);
+        text-align: left;
+        background: 0 0;
+        border: none;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        font-size: 14px;
+        display: flex
+    }
+
+    .lx-dropdown-item:hover {
+        background: var(--brand-soft);
+        color: var(--brand)
+    }
+
+    .lx-dropdown-item svg {
+        width: 16px;
+        height: 16px
+    }
+
+    .lx-follow {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff
+    }
+
+    .lx-follow:hover {
+        background: var(--brand-strong);
+        border-color: var(--brand-strong)
+    }
+
+    .lx-followed {
+        background: var(--bg-soft);
+        color: var(--text-2)
+    }
+
+    .video-card-cover {
+        aspect-ratio: 16/9;
+        border-radius: var(--radius);
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        width: 100%;
+        position: relative;
+        overflow: hidden
+    }
+
+    .video-card-cover img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        display: block
+    }
+
+    .video-card-title {
+        color: var(--text-1);
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin: 8px 0 6px;
+        font-size: 15px;
+        line-height: 1.42;
+        display: -webkit-box;
+        overflow: hidden
+    }
+
+    .video-card:hover .video-card-title {
+        color: var(--brand)
+    }
+
+    .cover-stat {
+        color: #fff;
+        text-shadow: 0 1px 2px #0000008c;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+        display: flex;
+        position: absolute;
+        bottom: 8px;
+        left: 8px
+    }
+
+    .cover-stat span {
+        align-items: center;
+        gap: 3px;
+        display: inline-flex
+    }
+
+    .cover-stat svg {
+        width: 12px;
+        height: 12px
+    }
+
+    .cover-duration {
+        color: #fff;
+        background: #0000009e;
+        border-radius: 4px;
+        padding: 0 5px;
+        font-size: 11px;
+        line-height: 16px;
+        position: absolute;
+        bottom: 6px;
+        right: 6px
+    }
+
+    .cover-tag {
+        background: var(--brand);
+        color: #fff;
+        border-radius: 4px;
+        padding: 0 6px;
+        font-size: 11px;
+        line-height: 18px;
+        position: absolute;
+        top: 6px;
+        left: 6px
+    }
+
+    .player-shell {
+        border-radius: var(--radius);
+        aspect-ratio: 16/9;
+        background: #000;
+        width: 100%;
+        position: relative;
+        overflow: hidden
+    }
+
+    .player-shell:fullscreen {
+        aspect-ratio: auto;
+        border-radius: 0;
+        height: 100vh
+    }
+
+    .player-shell-web-fullscreen {
+        z-index: 1200;
+        aspect-ratio: auto;
+        border-radius: 0;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0
+    }
+
+    .player-shell .player-art,.player-shell .art-video-player {
+        width: 100%;
+        height: 100%
+    }
+
+    .danmaku-layer {
+        pointer-events: none;
+        z-index: 20;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+
+    .player-overlay-actions {
+        z-index: 70;
+        align-items: center;
+        gap: 6px;
+        transition: opacity .2s;
+        display: flex;
+        position: absolute;
+        top: 10px;
+        right: 12px
+    }
+
+    .player-overlay-hidden {
+        opacity: 0;
+        pointer-events: none
+    }
+
+    .player-overlay-btn {
+        color: #fff;
+        background: #00000073;
+        border: none;
+        border-radius: 999px;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        height: 28px;
+        padding: 0 9px;
+        font-size: 12px;
+        line-height: 1;
+        display: inline-flex
+    }
+
+    .player-overlay-btn:hover {
+        background: #000000ad
+    }
+
+    .player-overlay-btn svg {
+        width: 15px;
+        height: 15px
+    }
+
+    .player-uhd-badge {
+        color: #fff;
+        letter-spacing: .5px;
+        background: linear-gradient(135deg,#ff7a45,#f5483d);
+        border-radius: 999px;
+        align-items: center;
+        height: 28px;
+        padding: 0 10px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1;
+        display: inline-flex
+    }
+
+    .player-quality {
+        position: relative
+    }
+
+    .player-quality-menu {
+        border-radius: var(--radius-sm);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        z-index: 80;
+        background: #101214f0;
+        min-width: 156px;
+        padding: 6px;
+        position: absolute;
+        top: 34px;
+        right: 0;
+        box-shadow: 0 12px 28px #00000073
+    }
+
+    .player-quality-title {
+        color: #ffffff8c;
+        padding: 2px 8px 6px;
+        font-size: 11px
+    }
+
+    .player-quality-item {
+        color: #fff;
+        text-align: left;
+        background: 0 0;
+        border: none;
+        border-radius: 6px;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 7px 8px;
+        font-size: 12px;
+        display: flex
+    }
+
+    .player-quality-item:hover {
+        background: #ffffff1a
+    }
+
+    .player-quality-item.is-active {
+        color: var(--brand)
+    }
+
+    .player-quality-hint {
+        color: #ffffff73;
+        border-top: 1px solid #ffffff14;
+        margin-top: 2px;
+        padding: 6px 8px 2px;
+        font-size: 11px;
+        line-height: 1.5
+    }
+
+    .player-quality-tag {
+        color: #fff;
+        background: linear-gradient(135deg,#ff7a45,#f5483d);
+        border-radius: 4px;
+        padding: 0 5px;
+        font-size: 10px;
+        font-style: normal;
+        line-height: 15px
+    }
+
+    .player-error {
+        z-index: 90;
+        color: #fff;
+        text-align: center;
+        background: #000000d9;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        padding: 0 24px;
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0
+    }
+
+    .danmaku-send-bar {
+        background: var(--bg-elev);
+        border: 1px solid var(--border);
+        border-radius: 0 0 var(--radius) var(--radius);
+        border-top: none;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        display: flex
+    }
+
+    .danmaku-panel {
+        border-radius: var(--radius);
+        background: var(--bg-elev);
+        border: 1px solid var(--border);
+        width: 268px;
+        box-shadow: var(--shadow-lg);
+        z-index: 80;
+        color: var(--text-1);
+        padding: 14px;
+        font-size: 13px;
+        position: absolute;
+        top: 48px;
+        right: 12px
+    }
+
+    .danmaku-panel label {
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        display: flex
+    }
+
+    .danmaku-panel input[type=range] {
+        width: 128px;
+        accent-color: var(--brand)
+    }
+
+    .rank-item {
+        border-radius: var(--radius-sm);
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        transition: background .15s;
+        display: flex
+    }
+
+    .rank-item:hover {
+        background: var(--bg-soft)
+    }
+
+    .rank-index {
+        text-align: center;
+        width: 20px;
+        color: var(--text-3);
+        font-size: 13px
+    }
+
+    .rank-index-top {
+        color: var(--brand)
+    }
+
+    .comment-item {
+        border-bottom: 1px solid var(--border);
+        gap: 12px;
+        padding: 14px 0;
+        display: flex
+    }
+
+    .comment-reply {
+        border-radius: var(--radius-sm);
+        background: var(--bg-soft);
+        margin-top: 10px;
+        padding: 10px 12px
+    }
+
+    .lx-tabs {
+        scrollbar-width: none;
+        gap: 2px;
+        display: flex;
+        overflow-x: auto
+    }
+
+    .lx-tabs::-webkit-scrollbar {
+        display: none
+    }
+
+    .lx-tab {
+        color: var(--text-2);
+        white-space: nowrap;
+        background: 0 0;
+        border: none;
+        padding: 10px 14px;
+        font-size: 15px;
+        transition: color .15s;
+        position: relative
+    }
+
+    .lx-tab:hover,.lx-tab-active {
+        color: var(--brand)
+    }
+
+    .lx-tab-active:after {
+        content: "";
+        background: var(--brand);
+        width: 20px;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%)
+    }
+
+    .partition-dot {
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        display: inline-block
+    }
+
+    .lx-article {
+        max-width: 780px;
+        color: var(--text-1);
+        overflow-wrap: break-word;
+        font-size: 16px;
+        line-height: 1.85
+    }
+
+    .lx-article>:first-child {
+        margin-top: 0
+    }
+
+    .lx-article p {
+        margin: 16px 0
+    }
+
+    .lx-article h2,.lx-article h3,.lx-article h4,.lx-article h5,.lx-article h6 {
+        margin: 34px 0 14px;
+        scroll-margin-top: 88px;
+        font-weight: 600;
+        line-height: 1.4
+    }
+
+    .lx-article h2 {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 8px;
+        font-size: 23px
+    }
+
+    .lx-article h3 {
+        font-size: 19px
+    }
+
+    .lx-article h4 {
+        font-size: 17px
+    }
+
+    .lx-article h5,.lx-article h6 {
+        color: var(--text-2);
+        font-size: 15px
+    }
+
+    .lx-article ul,.lx-article ol {
+        margin: 14px 0;
+        padding-left: 26px
+    }
+
+    .lx-article ul {
+        list-style: outside
+    }
+
+    .lx-article ol {
+        list-style: decimal
+    }
+
+    .lx-article li {
+        margin: 6px 0
+    }
+
+    .lx-article li: :marker {
+        color:var(--text-3)
+    }
+
+    .lx-article blockquote {
+        border-left: 3px solid var(--brand);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        background: var(--bg-soft);
+        color: var(--text-2);
+        margin: 18px 0;
+        padding: 10px 16px
+    }
+
+    .lx-article blockquote p {
+        margin: 6px 0
+    }
+
+    .lx-article hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 30px 0
+    }
+
+    .lx-article a {
+        color: var(--brand);
+        border-bottom: 1px solid var(--brand-soft);
+        text-decoration: none
+    }
+
+    .lx-article a: hover {
+        border-bottom-color:var(--brand)
+    }
+
+    .lx-article :not(pre)>code {
+        border: 1px solid var(--border);
+        background: var(--bg-soft);
+        color: var(--brand-strong);
+        border-radius: 4px;
+        padding: 2px 6px;
+        font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,Courier New,monospace;
+        font-size: .88em
+    }
+
+    .lx-code {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--bg-soft);
+        margin: 18px 0;
+        overflow: hidden
+    }
+
+    .lx-code-head {
+        border-bottom: 1px solid var(--border);
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        color: var(--text-3);
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 12px;
+        font-size: 11px;
+        display: flex
+    }
+
+    .lx-code-head button {
+        color: var(--text-3);
+        letter-spacing: 0;
+        text-transform: none;
+        cursor: pointer;
+        background: 0 0;
+        border: none;
+        font-size: 11px;
+        transition: color .15s
+    }
+
+    .lx-code-head button: hover {
+        color:var(--brand)
+    }
+
+    .lx-code pre {
+        margin: 0;
+        padding: 14px 16px;
+        font-size: 13.5px;
+        line-height: 1.7;
+        overflow-x: auto
+    }
+
+    .lx-code code {
+        white-space: pre;
+        font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,Courier New,monospace
+    }
+
+    .lx-table-wrap {
+        margin: 18px 0;
+        overflow-x: auto
+    }
+
+    .lx-table-wrap table {
+        border-collapse: collapse;
+        min-width: 100%;
+        font-size: 14px
+    }
+
+    .lx-table-wrap th,.lx-table-wrap td {
+        border: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+        padding: 9px 14px
+    }
+
+    .lx-table-wrap th {
+        background: var(--bg-soft);
+        font-weight: 600
+    }
+
+    .lx-figure {
+        margin: 20px 0
+    }
+
+    .lx-figure img {
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        cursor: zoom-in;
+        max-width: 100%;
+        display: block
+    }
+
+    .lx-figure figcaption {
+        text-align: center;
+        color: var(--text-3);
+        margin-top: 8px;
+        font-size: 13px
+    }
+
+    .lx-lightbox {
+        z-index: 90;
+        cursor: zoom-out;
+        background: #000000d1;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0
+    }
+
+    .lx-lightbox img {
+        border-radius: var(--radius-sm);
+        max-width: 100%;
+        max-height: 100%
+    }
+
+    .lx-article-outline {
+        font-size: 13px
+    }
+
+    .lx-article-outline a {
+        border-left: 2px solid var(--border);
+        color: var(--text-2);
+        padding: 4px 0 4px 10px;
+        text-decoration: none;
+        transition: color .15s,border-color .15s;
+        display: block
+    }
+
+    .lx-article-outline a: hover {
+        color:var(--brand)
+    }
+
+    .lx-article-outline a.lx-outline-active {
+        color: var(--brand);
+        border-left-color: var(--brand)
+    }
+
+    .kind-badge {
+        color: #fff;
+        background: #0f9d7aeb;
+        border-radius: 4px;
+        align-items: center;
+        gap: 3px;
+        padding: 0 6px;
+        font-size: 11px;
+        line-height: 18px;
+        display: inline-flex;
+        position: absolute;
+        top: 6px;
+        left: 6px
+    }
+
+    .kind-badge svg {
+        width: 11px;
+        height: 11px
+    }
+}
+
+@layer utilities {
+    .pointer-events-none {
+        pointer-events: none
+    }
+
+    .invisible {
+        visibility: hidden
+    }
+
+    .absolute {
+        position: absolute
+    }
+
+    .fixed {
+        position: fixed
+    }
+
+    .relative {
+        position: relative
+    }
+
+    .sticky {
+        position: sticky
+    }
+
+    .inset-0 {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0
+    }
+
+    .-top-1 {
+        top: calc(var(--spacing) * -1)
+    }
+
+    .top-0 {
+        top: 0
+    }
+
+    .top-1\/2 {
+        top: 50%
+    }
+
+    .top-3 {
+        top: calc(var(--spacing) * 3)
+    }
+
+    .top-20 {
+        top: calc(var(--spacing) * 20)
+    }
+
+    .top-\[44px\] {
+        top: 44px
+    }
+
+    .top-\[46px\] {
+        top: 46px
+    }
+
+    .top-\[48px\] {
+        top: 48px
+    }
+
+    .top-\[76px\] {
+        top: 76px
+    }
+
+    .-right-1 {
+        right: calc(var(--spacing) * -1)
+    }
+
+    .right-0 {
+        right: 0
+    }
+
+    .right-2 {
+        right: calc(var(--spacing) * 2)
+    }
+
+    .right-3 {
+        right: calc(var(--spacing) * 3)
+    }
+
+    .right-5 {
+        right: calc(var(--spacing) * 5)
+    }
+
+    .bottom-0 {
+        bottom: 0
+    }
+
+    .bottom-1\.5 {
+        bottom: calc(var(--spacing) * 1.5)
+    }
+
+    .bottom-3 {
+        bottom: calc(var(--spacing) * 3)
+    }
+
+    .left-0 {
+        left: 0
+    }
+
+    .left-2\.5 {
+        left: calc(var(--spacing) * 2.5)
+    }
+
+    .left-3 {
+        left: calc(var(--spacing) * 3)
+    }
+
+    .z-50 {
+        z-index: 50
+    }
+
+    .z-\[2000\] {
+        z-index: 2000
+    }
+
+    .container {
+        width: 100%
+    }
+
+    @media(min-width: 40rem) {
+        .container {
+            max-width:40rem
+        }
+    }
+
+    @media(min-width: 48rem) {
+        .container {
+            max-width:48rem
+        }
+    }
+
+    @media(min-width: 64rem) {
+        .container {
+            max-width:64rem
+        }
+    }
+
+    @media(min-width: 80rem) {
+        .container {
+            max-width:80rem
+        }
+    }
+
+    @media(min-width: 96rem) {
+        .container {
+            max-width:96rem
+        }
+    }
+
+    .mx-1 {
+        margin-inline:var(--spacing)}
+
+    .mx-2 {
+        margin-inline: calc(var(--spacing) * 2)
+    }
+
+    .mx-auto {
+        margin-inline:auto}
+
+    .my-4 {
+        margin-block:calc(var(--spacing) * 4)}
+
+    .my-8 {
+        margin-block: calc(var(--spacing) * 8)
+    }
+
+    .-mt-10 {
+        margin-top: calc(var(--spacing) * -10)
+    }
+
+    .mt-0\.5 {
+        margin-top: calc(var(--spacing) * .5)
+    }
+
+    .mt-1 {
+        margin-top: var(--spacing)
+    }
+
+    .mt-1\.5 {
+        margin-top: calc(var(--spacing) * 1.5)
+    }
+
+    .mt-2 {
+        margin-top: calc(var(--spacing) * 2)
+    }
+
+    .mt-3 {
+        margin-top: calc(var(--spacing) * 3)
+    }
+
+    .mt-4 {
+        margin-top: calc(var(--spacing) * 4)
+    }
+
+    .mt-5 {
+        margin-top: calc(var(--spacing) * 5)
+    }
+
+    .mt-6 {
+        margin-top: calc(var(--spacing) * 6)
+    }
+
+    .mt-7 {
+        margin-top: calc(var(--spacing) * 7)
+    }
+
+    .mt-8 {
+        margin-top: calc(var(--spacing) * 8)
+    }
+
+    .mr-1 {
+        margin-right: var(--spacing)
+    }
+
+    .\!mb-0 {
+        margin-bottom: 0!important
+    }
+
+    .-mb-px {
+        margin-bottom: -1px
+    }
+
+    .mb-1\.5 {
+        margin-bottom: calc(var(--spacing) * 1.5)
+    }
+
+    .mb-2 {
+        margin-bottom: calc(var(--spacing) * 2)
+    }
+
+    .mb-3 {
+        margin-bottom: calc(var(--spacing) * 3)
+    }
+
+    .mb-4 {
+        margin-bottom: calc(var(--spacing) * 4)
+    }
+
+    .ml-1 {
+        margin-left: var(--spacing)
+    }
+
+    .ml-2 {
+        margin-left: calc(var(--spacing) * 2)
+    }
+
+    .ml-auto {
+        margin-left: auto
+    }
+
+    .line-clamp-1 {
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden
+    }
+
+    .line-clamp-2 {
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden
+    }
+
+    .block {
+        display: block
+    }
+
+    .flex {
+        display: flex
+    }
+
+    .grid {
+        display: grid
+    }
+
+    .hidden {
+        display: none
+    }
+
+    .inline {
+        display: inline
+    }
+
+    .inline-block {
+        display: inline-block
+    }
+
+    .inline-flex {
+        display: inline-flex
+    }
+
+    .table {
+        display: table
+    }
+
+    .aspect-\[1000\/280\] {
+        aspect-ratio: 1000/280
+    }
+
+    .aspect-video {
+        aspect-ratio: var(--aspect-video)
+    }
+
+    .h-1\.5 {
+        height: calc(var(--spacing) * 1.5)
+    }
+
+    .h-3 {
+        height: calc(var(--spacing) * 3)
+    }
+
+    .h-3\.5 {
+        height: calc(var(--spacing) * 3.5)
+    }
+
+    .h-4 {
+        height: calc(var(--spacing) * 4)
+    }
+
+    .h-5 {
+        height: calc(var(--spacing) * 5)
+    }
+
+    .h-6 {
+        height: calc(var(--spacing) * 6)
+    }
+
+    .h-7 {
+        height: calc(var(--spacing) * 7)
+    }
+
+    .h-8 {
+        height: calc(var(--spacing) * 8)
+    }
+
+    .h-9 {
+        height: calc(var(--spacing) * 9)
+    }
+
+    .h-10 {
+        height: calc(var(--spacing) * 10)
+    }
+
+    .h-16 {
+        height: calc(var(--spacing) * 16)
+    }
+
+    .h-\[38px\] {
+        height: 38px
+    }
+
+    .h-\[42px\] {
+        height: 42px
+    }
+
+    .h-\[46px\] {
+        height: 46px
+    }
+
+    .h-\[52px\] {
+        height: 52px
+    }
+
+    .h-\[56px\] {
+        height: 56px
+    }
+
+    .h-\[60px\] {
+        height: 60px
+    }
+
+    .h-\[68px\] {
+        height: 68px
+    }
+
+    .h-\[70px\] {
+        height: 70px
+    }
+
+    .h-\[74px\] {
+        height: 74px
+    }
+
+    .h-\[140px\] {
+        height: 140px
+    }
+
+    .h-\[180px\] {
+        height: 180px
+    }
+
+    .h-fit {
+        height: fit-content
+    }
+
+    .h-full {
+        height: 100%
+    }
+
+    .max-h-\[70vh\] {
+        max-height: 70vh
+    }
+
+    .max-h-\[86vh\] {
+        max-height: 86vh
+    }
+
+    .max-h-\[88vh\] {
+        max-height: 88vh
+    }
+
+    .max-h-\[240px\] {
+        max-height: 240px
+    }
+
+    .max-h-\[300px\] {
+        max-height: 300px
+    }
+
+    .max-h-\[420px\] {
+        max-height: 420px
+    }
+
+    .max-h-\[calc\(100vh-100px\)\] {
+        max-height: calc(100vh - 100px)
+    }
+
+    .min-h-\[420px\] {
+        min-height: 420px
+    }
+
+    .min-h-screen {
+        min-height: 100vh
+    }
+
+    .w-1\.5 {
+        width: calc(var(--spacing) * 1.5)
+    }
+
+    .w-2\/3 {
+        width: 66.6667%
+    }
+
+    .w-3 {
+        width: calc(var(--spacing) * 3)
+    }
+
+    .w-3\.5 {
+        width: calc(var(--spacing) * 3.5)
+    }
+
+    .w-4 {
+        width: calc(var(--spacing) * 4)
+    }
+
+    .w-5 {
+        width: calc(var(--spacing) * 5)
+    }
+
+    .w-6 {
+        width: calc(var(--spacing) * 6)
+    }
+
+    .w-7 {
+        width: calc(var(--spacing) * 7)
+    }
+
+    .w-8 {
+        width: calc(var(--spacing) * 8)
+    }
+
+    .w-10 {
+        width: calc(var(--spacing) * 10)
+    }
+
+    .w-11 {
+        width: calc(var(--spacing) * 11)
+    }
+
+    .w-11\/12 {
+        width: 91.6667%
+    }
+
+    .w-44 {
+        width: calc(var(--spacing) * 44)
+    }
+
+    .w-\[68px\] {
+        width: 68px
+    }
+
+    .w-\[74px\] {
+        width: 74px
+    }
+
+    .w-\[82px\] {
+        width: 82px
+    }
+
+    .w-\[92px\] {
+        width: 92px
+    }
+
+    .w-\[100px\] {
+        width: 100px
+    }
+
+    .w-\[104px\] {
+        width: 104px
+    }
+
+    .w-\[106px\] {
+        width: 106px
+    }
+
+    .w-\[110px\] {
+        width: 110px
+    }
+
+    .w-\[120px\] {
+        width: 120px
+    }
+
+    .w-\[132px\] {
+        width: 132px
+    }
+
+    .w-\[172px\] {
+        width: 172px
+    }
+
+    .w-\[188px\] {
+        width: 188px
+    }
+
+    .w-\[200px\] {
+        width: 200px
+    }
+
+    .w-\[220px\] {
+        width: 220px
+    }
+
+    .w-\[240px\] {
+        width: 240px
+    }
+
+    .w-\[268px\] {
+        width: 268px
+    }
+
+    .w-\[640px\] {
+        width: 640px
+    }
+
+    .w-full {
+        width: 100%
+    }
+
+    .w-px {
+        width: 1px
+    }
+
+    .max-w-2xl {
+        max-width: var(--container-2xl)
+    }
+
+    .max-w-3xl {
+        max-width: var(--container-3xl)
+    }
+
+    .max-w-\[70\%\] {
+        max-width: 70%
+    }
+
+    .max-w-\[260px\] {
+        max-width: 260px
+    }
+
+    .max-w-\[400px\] {
+        max-width: 400px
+    }
+
+    .max-w-\[420px\] {
+        max-width: 420px
+    }
+
+    .max-w-\[460px\] {
+        max-width: 460px
+    }
+
+    .max-w-\[480px\] {
+        max-width: 480px
+    }
+
+    .max-w-\[520px\] {
+        max-width: 520px
+    }
+
+    .max-w-\[560px\] {
+        max-width: 560px
+    }
+
+    .max-w-\[640px\] {
+        max-width: 640px
+    }
+
+    .max-w-\[720px\] {
+        max-width: 720px
+    }
+
+    .max-w-\[860px\] {
+        max-width: 860px
+    }
+
+    .max-w-\[1000px\] {
+        max-width: 1000px
+    }
+
+    .max-w-\[1120px\] {
+        max-width: 1120px
+    }
+
+    .max-w-\[1200px\] {
+        max-width: 1200px
+    }
+
+    .max-w-\[1280px\] {
+        max-width: 1280px
+    }
+
+    .max-w-\[1400px\] {
+        max-width: 1400px
+    }
+
+    .max-w-\[1600px\] {
+        max-width: 1600px
+    }
+
+    .max-w-\[1700px\] {
+        max-width: 1700px
+    }
+
+    .max-w-md {
+        max-width: var(--container-md)
+    }
+
+    .min-w-0 {
+        min-width: 0
+    }
+
+    .min-w-\[16px\] {
+        min-width: 16px
+    }
+
+    .min-w-\[52px\] {
+        min-width: 52px
+    }
+
+    .min-w-\[260px\] {
+        min-width: 260px
+    }
+
+    .min-w-\[680px\] {
+        min-width: 680px
+    }
+
+    .min-w-\[720px\] {
+        min-width: 720px
+    }
+
+    .flex-1 {
+        flex: 1
+    }
+
+    .shrink-0 {
+        flex-shrink: 0
+    }
+
+    .-translate-y-1\/2 {
+        --tw-translate-y: -50% ;
+        translate: var(--tw-translate-x) var(--tw-translate-y)
+    }
+
+    .rotate-180 {
+        rotate: 180deg
+    }
+
+    .transform {
+        transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,)
+    }
+
+    .animate-pulse {
+        animation: var(--animate-pulse)
+    }
+
+    .animate-spin {
+        animation: var(--animate-spin)
+    }
+
+    .cursor-grab {
+        cursor: grab
+    }
+
+    .cursor-not-allowed {
+        cursor: not-allowed
+    }
+
+    .cursor-pointer {
+        cursor: pointer
+    }
+
+    .touch-none {
+        touch-action: none
+    }
+
+    .resize {
+        resize: both
+    }
+
+    .resize-y {
+        resize: vertical
+    }
+
+    .\[scrollbar-width\: none\] {
+        scrollbar-width:none
+    }
+
+    .grid-cols-2 {
+        grid-template-columns: repeat(2,minmax(0,1fr))
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(3,minmax(0,1fr))
+    }
+
+    .flex-col {
+        flex-direction: column
+    }
+
+    .flex-row-reverse {
+        flex-direction: row-reverse
+    }
+
+    .flex-wrap {
+        flex-wrap: wrap
+    }
+
+    .\!items-start {
+        align-items: flex-start!important
+    }
+
+    .items-baseline {
+        align-items: baseline
+    }
+
+    .items-center {
+        align-items: center
+    }
+
+    .items-end {
+        align-items: flex-end
+    }
+
+    .items-start {
+        align-items: flex-start
+    }
+
+    .justify-between {
+        justify-content: space-between
+    }
+
+    .justify-center {
+        justify-content: center
+    }
+
+    .justify-end {
+        justify-content: flex-end
+    }
+
+    .gap-0\.5 {
+        gap: calc(var(--spacing) * .5)
+    }
+
+    .gap-1 {
+        gap: var(--spacing)
+    }
+
+    .gap-1\.5 {
+        gap: calc(var(--spacing) * 1.5)
+    }
+
+    .gap-2 {
+        gap: calc(var(--spacing) * 2)
+    }
+
+    .gap-2\.5 {
+        gap: calc(var(--spacing) * 2.5)
+    }
+
+    .gap-3 {
+        gap: calc(var(--spacing) * 3)
+    }
+
+    .gap-4 {
+        gap: calc(var(--spacing) * 4)
+    }
+
+    .gap-5 {
+        gap: calc(var(--spacing) * 5)
+    }
+
+    .gap-6 {
+        gap: calc(var(--spacing) * 6)
+    }
+
+    .gap-7 {
+        gap: calc(var(--spacing) * 7)
+    }
+
+    :where(.space-y-1>:not(:last-child)) {
+        --tw-space-y-reverse: 0;
+        margin-block-start:calc(var(--spacing) * var(--tw-space-y-reverse));margin-block-end: calc(var(--spacing) * calc(1 - var(--tw-space-y-reverse)))
+    }
+
+    :where(.space-y-3>:not(:last-child)) {
+        --tw-space-y-reverse: 0;
+        margin-block-start:calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)))
+    }
+
+    :where(.space-y-5>:not(:last-child)) {
+        --tw-space-y-reverse: 0;
+        margin-block-start:calc(calc(var(--spacing) * 5) * var(--tw-space-y-reverse));margin-block-end: calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-y-reverse)))
+    }
+
+    .gap-x-2\.5 {
+        column-gap: calc(var(--spacing) * 2.5)
+    }
+
+    .gap-x-3 {
+        column-gap: calc(var(--spacing) * 3)
+    }
+
+    .gap-x-4 {
+        column-gap: calc(var(--spacing) * 4)
+    }
+
+    .gap-x-5 {
+        column-gap: calc(var(--spacing) * 5)
+    }
+
+    .gap-x-6 {
+        column-gap: calc(var(--spacing) * 6)
+    }
+
+    .gap-y-1 {
+        row-gap: var(--spacing)
+    }
+
+    .gap-y-2 {
+        row-gap: calc(var(--spacing) * 2)
+    }
+
+    .gap-y-3 {
+        row-gap: calc(var(--spacing) * 3)
+    }
+
+    .gap-y-4 {
+        row-gap: calc(var(--spacing) * 4)
+    }
+
+    .gap-y-5 {
+        row-gap: calc(var(--spacing) * 5)
+    }
+
+    .gap-y-6 {
+        row-gap: calc(var(--spacing) * 6)
+    }
+
+    .self-start {
+        align-self: flex-start
+    }
+
+    .truncate {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden
+    }
+
+    .overflow-hidden {
+        overflow: hidden
+    }
+
+    .overflow-x-auto {
+        overflow-x: auto
+    }
+
+    .overflow-y-auto {
+        overflow-y: auto
+    }
+
+    .scroll-smooth {
+        scroll-behavior: smooth
+    }
+
+    .rounded {
+        border-radius: .25rem
+    }
+
+    .rounded-\[4px\] {
+        border-radius: 4px
+    }
+
+    .rounded-\[var\(--radius\)\] {
+        border-radius: var(--radius)
+    }
+
+    .rounded-\[var\(--radius-sm\)\] {
+        border-radius: var(--radius-sm)
+    }
+
+    .rounded-full {
+        border-radius: 3.40282e38px
+    }
+
+    .rounded-md {
+        border-radius: var(--radius-md)
+    }
+
+    .rounded-t {
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem
+    }
+
+    .border {
+        border-style: var(--tw-border-style);
+        border-width: 1px
+    }
+
+    .border-2 {
+        border-style: var(--tw-border-style);
+        border-width: 2px
+    }
+
+    .border-t {
+        border-top-style: var(--tw-border-style);
+        border-top-width: 1px
+    }
+
+    .border-b {
+        border-bottom-style: var(--tw-border-style);
+        border-bottom-width: 1px
+    }
+
+    .border-b-2 {
+        border-bottom-style: var(--tw-border-style);
+        border-bottom-width: 2px
+    }
+
+    .border-l {
+        border-left-style: var(--tw-border-style);
+        border-left-width: 1px
+    }
+
+    .\!border-none {
+        --tw-border-style: none!important;
+        border-style: none!important
+    }
+
+    .border-dashed {
+        --tw-border-style: dashed;
+        border-style: dashed
+    }
+
+    .border-\[var\(--border\)\] {
+        border-color: var(--border)
+    }
+
+    .border-\[var\(--brand\)\] {
+        border-color: var(--brand)
+    }
+
+    .border-transparent {
+        border-color: #0000
+    }
+
+    .border-white\/40 {
+        border-color: #fff6
+    }
+
+    @supports (color: color-mix(in lab,red,red)) {
+        .border-white\/40 {
+            border-color:color-mix(in oklab,var(--color-white) 40%,transparent)
+        }
+    }
+
+    .bg-\[\#e5484d\] {
+        background-color: #e5484d
+    }
+
+    .bg-\[rgba\(229\,72\,77\,0\.12\)\] {
+        background-color: #e5484d1f
+    }
+
+    .bg-\[var\(--accent-soft\)\] {
+        background-color: var(--accent-soft)
+    }
+
+    .bg-\[var\(--bg-elev\)\] {
+        background-color: var(--bg-elev)
+    }
+
+    .bg-\[var\(--bg-soft\)\] {
+        background-color: var(--bg-soft)
+    }
+
+    .bg-\[var\(--border\)\] {
+        background-color: var(--border)
+    }
+
+    .bg-\[var\(--brand\)\] {
+        background-color: var(--brand)
+    }
+
+    .bg-\[var\(--brand-soft\)\] {
+        background-color: var(--brand-soft)
+    }
+
+    .bg-black\/45 {
+        background-color: #00000073
+    }
+
+    @supports (color: color-mix(in lab,red,red)) {
+        .bg-black\/45 {
+            background-color:color-mix(in oklab,var(--color-black) 45%,transparent)
+        }
+    }
+
+    .bg-black\/50 {
+        background-color: #00000080
+    }
+
+    @supports (color: color-mix(in lab,red,red)) {
+        .bg-black\/50 {
+            background-color:color-mix(in oklab,var(--color-black) 50%,transparent)
+        }
+    }
+
+    .bg-black\/70 {
+        background-color: #000000b3
+    }
+
+    @supports (color: color-mix(in lab,red,red)) {
+        .bg-black\/70 {
+            background-color:color-mix(in oklab,var(--color-black) 70%,transparent)
+        }
+    }
+
+    .bg-transparent {
+        background-color: #0000
+    }
+
+    .bg-gradient-to-t {
+        --tw-gradient-position: to top in oklab;
+        background-image: linear-gradient(var(--tw-gradient-stops))
+    }
+
+    .from-black\/70 {
+        --tw-gradient-from: #000000b3
+    }
+
+    @supports (color: color-mix(in lab,red,red)) {
+        .from-black\/70 {
+            --tw-gradient-from:color-mix(in oklab, var(--color-black) 70%, transparent)
+        }
+    }
+
+    .from-black\/70 {
+        --tw-gradient-stops: var(--tw-gradient-via-stops,var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))
+    }
+
+    .to-transparent {
+        --tw-gradient-to: transparent;
+        --tw-gradient-stops: var(--tw-gradient-via-stops,var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))
+    }
+
+    .object-cover {
+        object-fit: cover
+    }
+
+    .p-1 {
+        padding: var(--spacing)
+    }
+
+    .p-2 {
+        padding: calc(var(--spacing) * 2)
+    }
+
+    .p-3 {
+        padding: calc(var(--spacing) * 3)
+    }
+
+    .p-4 {
+        padding: calc(var(--spacing) * 4)
+    }
+
+    .p-5 {
+        padding: calc(var(--spacing) * 5)
+    }
+
+    .p-6 {
+        padding: calc(var(--spacing) * 6)
+    }
+
+    .px-1 {
+        padding-inline:var(--spacing)}
+
+    .px-1\.5 {
+        padding-inline: calc(var(--spacing) * 1.5)
+    }
+
+    .px-2 {
+        padding-inline:calc(var(--spacing) * 2)}
+
+    .px-3 {
+        padding-inline: calc(var(--spacing) * 3)
+    }
+
+    .px-4 {
+        padding-inline:calc(var(--spacing) * 4)}
+
+    .px-5 {
+        padding-inline: calc(var(--spacing) * 5)
+    }
+
+    .\!py-2 {
+        padding-block: calc(var(--spacing) * 2)!important
+    }
+
+    .\!py-3 {
+        padding-block: calc(var(--spacing) * 3)!important
+    }
+
+    .py-0\.5 {
+        padding-block: calc(var(--spacing) * .5)
+    }
+
+    .py-1 {
+        padding-block:var(--spacing)}
+
+    .py-1\.5 {
+        padding-block: calc(var(--spacing) * 1.5)
+    }
+
+    .py-2 {
+        padding-block:calc(var(--spacing) * 2)}
+
+    .py-2\.5 {
+        padding-block: calc(var(--spacing) * 2.5)
+    }
+
+    .py-3 {
+        padding-block:calc(var(--spacing) * 3)}
+
+    .py-4 {
+        padding-block: calc(var(--spacing) * 4)
+    }
+
+    .py-5 {
+        padding-block:calc(var(--spacing) * 5)}
+
+    .py-6 {
+        padding-block: calc(var(--spacing) * 6)
+    }
+
+    .py-8 {
+        padding-block:calc(var(--spacing) * 8)}
+
+    .py-10 {
+        padding-block: calc(var(--spacing) * 10)
+    }
+
+    .py-12 {
+        padding-block:calc(var(--spacing) * 12)}
+
+    .py-16 {
+        padding-block: calc(var(--spacing) * 16)
+    }
+
+    .py-20 {
+        padding-block:calc(var(--spacing) * 20)}
+
+    .pt-2 {
+        padding-top: calc(var(--spacing) * 2)
+    }
+
+    .pt-3 {
+        padding-top: calc(var(--spacing) * 3)
+    }
+
+    .pt-4 {
+        padding-top: calc(var(--spacing) * 4)
+    }
+
+    .pt-5 {
+        padding-top: calc(var(--spacing) * 5)
+    }
+
+    .pt-8 {
+        padding-top: calc(var(--spacing) * 8)
+    }
+
+    .pr-1 {
+        padding-right: var(--spacing)
+    }
+
+    .pb-1 {
+        padding-bottom: var(--spacing)
+    }
+
+    .pb-2 {
+        padding-bottom: calc(var(--spacing) * 2)
+    }
+
+    .pb-3 {
+        padding-bottom: calc(var(--spacing) * 3)
+    }
+
+    .pb-4 {
+        padding-bottom: calc(var(--spacing) * 4)
+    }
+
+    .pb-10 {
+        padding-bottom: calc(var(--spacing) * 10)
+    }
+
+    .\!pl-0 {
+        padding-left: 0!important
+    }
+
+    .pl-3 {
+        padding-left: calc(var(--spacing) * 3)
+    }
+
+    .pl-8 {
+        padding-left: calc(var(--spacing) * 8)
+    }
+
+    .text-center {
+        text-align: center
+    }
+
+    .text-left {
+        text-align: left
+    }
+
+    .text-right {
+        text-align: right
+    }
+
+    .font-mono {
+        font-family: var(--font-mono)
+    }
+
+    .\!text-base {
+        font-size: var(--text-base)!important;
+        line-height: var(--tw-leading,var(--text-base--line-height))!important
+    }
+
+    .text-base {
+        font-size: var(--text-base);
+        line-height: var(--tw-leading,var(--text-base--line-height))
+    }
+
+    .text-lg {
+        font-size: var(--text-lg);
+        line-height: var(--tw-leading,var(--text-lg--line-height))
+    }
+
+    .text-sm {
+        font-size: var(--text-sm);
+        line-height: var(--tw-leading,var(--text-sm--line-height))
+    }
+
+    .text-xl {
+        font-size: var(--text-xl);
+        line-height: var(--tw-leading,var(--text-xl--line-height))
+    }
+
+    .text-xs {
+        font-size: var(--text-xs);
+        line-height: var(--tw-leading,var(--text-xs--line-height))
+    }
+
+    .text-\[10px\] {
+        font-size: 10px
+    }
+
+    .text-\[11px\] {
+        font-size: 11px
+    }
+
+    .text-\[13px\] {
+        font-size: 13px
+    }
+
+    .text-\[15px\] {
+        font-size: 15px
+    }
+
+    .text-\[19px\] {
+        font-size: 19px
+    }
+
+    .text-\[20px\] {
+        font-size: 20px
+    }
+
+    .text-\[26px\] {
+        font-size: 26px
+    }
+
+    .leading-4 {
+        --tw-leading: calc(var(--spacing) * 4);
+        line-height: calc(var(--spacing) * 4)
+    }
+
+    .leading-none {
+        --tw-leading: 1;
+        line-height: 1
+    }
+
+    .leading-relaxed {
+        --tw-leading: var(--leading-relaxed);
+        line-height: var(--leading-relaxed)
+    }
+
+    .leading-snug {
+        --tw-leading: var(--leading-snug);
+        line-height: var(--leading-snug)
+    }
+
+    .font-bold {
+        --tw-font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-bold)
+    }
+
+    .font-medium {
+        --tw-font-weight: var(--font-weight-medium);
+        font-weight: var(--font-weight-medium)
+    }
+
+    .font-normal {
+        --tw-font-weight: var(--font-weight-normal);
+        font-weight: var(--font-weight-normal)
+    }
+
+    .font-semibold {
+        --tw-font-weight: var(--font-weight-semibold);
+        font-weight: var(--font-weight-semibold)
+    }
+
+    .break-words {
+        overflow-wrap: break-word
+    }
+
+    .break-all {
+        word-break: break-all
+    }
+
+    .whitespace-pre-wrap {
+        white-space: pre-wrap
+    }
+
+    .text-\[\#e5484d\] {
+        color: #e5484d
+    }
+
+    .text-\[var\(--accent\)\] {
+        color: var(--accent)
+    }
+
+    .text-\[var\(--brand\)\] {
+        color: var(--brand)
+    }
+
+    .text-\[var\(--coin\)\] {
+        color: var(--coin)
+    }
+
+    .text-\[var\(--text-1\)\] {
+        color: var(--text-1)
+    }
+
+    .text-\[var\(--text-2\)\] {
+        color: var(--text-2)
+    }
+
+    .text-\[var\(--text-3\)\] {
+        color: var(--text-3)
+    }
+
+    .text-white {
+        color: var(--color-white)
+    }
+
+    .text-white\/50 {
+        color: #ffffff80
+    }
+
+    @supports (color: color-mix(in lab,red,red)) {
+        .text-white\/50 {
+            color:color-mix(in oklab,var(--color-white) 50%,transparent)
+        }
+    }
+
+    .text-white\/70 {
+        color: #ffffffb3
+    }
+
+    @supports (color: color-mix(in lab,red,red)) {
+        .text-white\/70 {
+            color:color-mix(in oklab,var(--color-white) 70%,transparent)
+        }
+    }
+
+    .underline {
+        text-decoration-line: underline
+    }
+
+    .accent-\[var\(--brand\)\] {
+        accent-color: var(--brand)
+    }
+
+    .opacity-0 {
+        opacity: 0
+    }
+
+    .opacity-40 {
+        opacity: .4
+    }
+
+    .ring {
+        --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);
+        box-shadow: var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)
+    }
+
+    .ring-2 {
+        --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);
+        box-shadow: var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)
+    }
+
+    .ring-\[var\(--bg-elev\)\] {
+        --tw-ring-color: var(--bg-elev)
+    }
+
+    .outline {
+        outline-style: var(--tw-outline-style);
+        outline-width: 1px
+    }
+
+    .backdrop-blur {
+        --tw-backdrop-blur: blur(8px);
+        -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+        backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,)
+    }
+
+    .transition-all {
+        transition-property: all;
+        transition-timing-function: var(--tw-ease,var(--default-transition-timing-function));
+        transition-duration: var(--tw-duration,var(--default-transition-duration))
+    }
+
+    .transition-colors {
+        transition-property: color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to;
+        transition-timing-function: var(--tw-ease,var(--default-transition-timing-function));
+        transition-duration: var(--tw-duration,var(--default-transition-duration))
+    }
+
+    .transition-opacity {
+        transition-property: opacity;
+        transition-timing-function: var(--tw-ease,var(--default-transition-timing-function));
+        transition-duration: var(--tw-duration,var(--default-transition-duration))
+    }
+
+    .transition-transform {
+        transition-property: transform,translate,scale,rotate;
+        transition-timing-function: var(--tw-ease,var(--default-transition-timing-function));
+        transition-duration: var(--tw-duration,var(--default-transition-duration))
+    }
+
+    .duration-500 {
+        --tw-duration: .5s;
+        transition-duration: .5s
+    }
+
+    .outline-none {
+        --tw-outline-style: none;
+        outline-style: none
+    }
+
+    @media(hover: hover) {
+        .group-hover\:opacity-100:is(:where(.group):hover *) {
+            opacity:1
+        }
+    }
+
+    .placeholder\: text-\[var\(--text-3\)\]::placeholder {
+        color:var(--text-3)
+    }
+
+    .last\: border-none:last-child {
+        --tw-border-style:none;
+        border-style: none
+    }
+
+    .focus-within\: border-\[var\(--brand\)\]:focus-within {
+        border-color:var(--brand)
+    }
+
+    .focus-within\: bg-\[var\(--bg-elev\)\]:focus-within {
+        background-color:var(--bg-elev)
+    }
+
+    @media(hover: hover) {
+        .hover\:scale-\[1\.02\]:hover {
+            scale:1.02
+        }
+
+        .hover\:bg-\[var\(--bg-soft\)\]: hover {
+            background-color:var(--bg-soft)
+        }
+
+        .hover\:text-\[var\(--brand\)\]: hover {
+            color:var(--brand)
+        }
+
+        .hover\:text-\[var\(--text-1\)\]: hover {
+            color:var(--text-1)
+        }
+
+        .hover\:underline:hover {
+            text-decoration-line: underline
+        }
+
+        .hover\:opacity-90:hover {
+            opacity: .9
+        }
+
+        .hover\:shadow-\[var\(--shadow-lg\)\]: hover {
+            --tw-shadow:var(--shadow-lg);
+            box-shadow: var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)
+        }
+    }
+
+    .active\: cursor-grabbing:active {
+        cursor:grabbing
+    }
+
+    .disabled\: cursor-not-allowed:disabled {
+        cursor:not-allowed
+    }
+
+    .disabled\: opacity-60:disabled {
+        opacity:.6
+    }
+
+    @media(min-width: 40rem) {
+        .sm\:flex {
+            display:flex
+        }
+
+        .sm\:inline-flex {
+            display: inline-flex
+        }
+
+        .sm\:grid-cols-2 {
+            grid-template-columns: repeat(2,minmax(0,1fr))
+        }
+
+        .sm\:grid-cols-3 {
+            grid-template-columns: repeat(3,minmax(0,1fr))
+        }
+
+        .sm\:grid-cols-4 {
+            grid-template-columns: repeat(4,minmax(0,1fr))
+        }
+    }
+
+    @media(min-width: 48rem) {
+        .md\:flex {
+            display:flex
+        }
+
+        .md\:hidden {
+            display: none
+        }
+
+        .md\:max-w-\[420px\] {
+            max-width: 420px
+        }
+
+        .md\:grid-cols-2 {
+            grid-template-columns: repeat(2,minmax(0,1fr))
+        }
+
+        .md\:grid-cols-3 {
+            grid-template-columns: repeat(3,minmax(0,1fr))
+        }
+
+        .md\:grid-cols-\[1\.55fr_1fr\] {
+            grid-template-columns: 1.55fr 1fr
+        }
+
+        .md\:grid-cols-\[240px_minmax\(0\,1fr\)\] {
+            grid-template-columns: 240px minmax(0,1fr)
+        }
+
+        .md\:gap-5 {
+            gap: calc(var(--spacing) * 5)
+        }
+
+        .md\:border-r {
+            border-right-style: var(--tw-border-style);
+            border-right-width: 1px
+        }
+
+        .md\:border-b-0 {
+            border-bottom-style: var(--tw-border-style);
+            border-bottom-width: 0
+        }
+
+        .md\:text-xl {
+            font-size: var(--text-xl);
+            line-height: var(--tw-leading,var(--text-xl--line-height))
+        }
+    }
+
+    @media(min-width: 64rem) {
+        .lg\:col-span-2 {
+            grid-column:span 2/span 2
+        }
+
+        .lg\:ml-4 {
+            margin-left: calc(var(--spacing) * 4)
+        }
+
+        .lg\:block {
+            display: block
+        }
+
+        .lg\:flex {
+            display: flex
+        }
+
+        .lg\:hidden {
+            display: none
+        }
+
+        .lg\:grid-cols-2 {
+            grid-template-columns: repeat(2,minmax(0,1fr))
+        }
+
+        .lg\:grid-cols-\[212px_minmax\(0\,1fr\)\] {
+            grid-template-columns: 212px minmax(0,1fr)
+        }
+
+        .lg\:grid-cols-\[320px_1fr\] {
+            grid-template-columns: 320px 1fr
+        }
+
+        .lg\:grid-cols-\[minmax\(0\,1\.4fr\)_minmax\(0\,1fr\)\] {
+            grid-template-columns: minmax(0,1.4fr) minmax(0,1fr)
+        }
+
+        .lg\:grid-cols-\[minmax\(0\,1fr\)_300px\] {
+            grid-template-columns: minmax(0,1fr) 300px
+        }
+
+        .lg\:grid-cols-\[minmax\(0\,1fr\)_308px\] {
+            grid-template-columns: minmax(0,1fr) 308px
+        }
+
+        .lg\:grid-cols-\[minmax\(0\,1fr\)_336px\] {
+            grid-template-columns: minmax(0,1fr) 336px
+        }
+
+        .lg\:px-8 {
+            padding-inline:calc(var(--spacing) * 8)}
+    }
+
+    @media(min-width: 80rem) {
+        .xl\:flex {
+            display:flex
+        }
+
+        .xl\:grid-cols-3 {
+            grid-template-columns: repeat(3,minmax(0,1fr))
+        }
+
+        .xl\:grid-cols-4 {
+            grid-template-columns: repeat(4,minmax(0,1fr))
+        }
+
+        .xl\:grid-cols-5 {
+            grid-template-columns: repeat(5,minmax(0,1fr))
+        }
+
+        .xl\:grid-cols-6 {
+            grid-template-columns: repeat(6,minmax(0,1fr))
+        }
+
+        .xl\:grid-cols-7 {
+            grid-template-columns: repeat(7,minmax(0,1fr))
+        }
+
+        .xl\:grid-cols-\[minmax\(0\,1fr\)_336px\] {
+            grid-template-columns: minmax(0,1fr) 336px
+        }
+    }
+
+    @media(min-width: 96rem) {
+        .\32xl\:grid-cols-5 {
+            grid-template-columns:repeat(5,minmax(0,1fr))
+        }
+    }
+
+    .\[\&\: \:-webkit-scrollbar\]\:hidden::-webkit-scrollbar {
+        display:none
+    }
+}
+
+@font-face {
+    font-family: ZCOOL KuaiLe Local;
+    src: local(ZCOOL KuaiLe),local(站酷快乐体),local(ZCOOLKuaiLe-Regular);
+    font-display: swap
+}
+
+:root {
+    --font-body: "Noto Sans SC", "Noto Sans", "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    --font-display: "ZCOOL KuaiLe", "ZCOOL KuaiLe Local", "Noto Sans SC", "PingFang SC", sans-serif;
+    --brand: #17b26a;
+    --brand-strong: #0e9355;
+    --brand-soft: #17b26a1a;
+    --accent: #0f9d7a;
+    --accent-soft: #0f9d7a1a;
+    --coin: #c99700;
+    --bg: #f7f8f8;
+    --bg-elev: #fff;
+    --bg-soft: #f1f3f2;
+    --bg-hover: #e9eceb;
+    --header-bg: #fffffff0;
+    --text-1: #1b1f1d;
+    --text-2: #5b6360;
+    --text-3: #949c99;
+    --border: #e4e8e6;
+    --shadow: 0 1px 2px #1018140a;
+    --shadow-lg: 0 6px 20px #10181414;
+    --radius: 10px;
+    --radius-sm: 8px;
+    --radius-lg: 14px;
+    --header-h: 60px
+}
+
+html[data-theme=dark] {
+    --brand: #2ed47a;
+    --brand-strong: #46e08c;
+    --brand-soft: #2ed47a29;
+    --accent: #4fd1a5;
+    --accent-soft: #4fd1a524;
+    --coin: #e0b13c;
+    --bg: #0f1113;
+    --bg-elev: #16191a;
+    --bg-soft: #1d2122;
+    --bg-hover: #232a27;
+    --header-bg: #0f1113f0;
+    --text-1: #e8ecea;
+    --text-2: #a2aaa6;
+    --text-3: #6d7572;
+    --border: #262b2c;
+    --shadow: 0 1px 2px #0000004d;
+    --shadow-lg: 0 8px 24px #0006
+}
+
+@property --tw-translate-x {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0
+}
+
+@property --tw-translate-y {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0
+}
+
+@property --tw-translate-z {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0
+}
+
+@property --tw-rotate-x {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-rotate-y {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-rotate-z {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-skew-x {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-skew-y {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-space-y-reverse {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0
+}
+
+@property --tw-border-style {
+    syntax: "*";
+    inherits: false;
+    initial-value: solid
+}
+
+@property --tw-gradient-position {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-gradient-from {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #0000
+}
+
+@property --tw-gradient-via {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #0000
+}
+
+@property --tw-gradient-to {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #0000
+}
+
+@property --tw-gradient-stops {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-gradient-via-stops {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-gradient-from-position {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 0%
+}
+
+@property --tw-gradient-via-position {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 50%
+}
+
+@property --tw-gradient-to-position {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 100%
+}
+
+@property --tw-leading {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-font-weight {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000
+}
+
+@property --tw-shadow-color {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%
+}
+
+@property --tw-inset-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000
+}
+
+@property --tw-inset-shadow-color {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-inset-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%
+}
+
+@property --tw-ring-color {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-ring-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000
+}
+
+@property --tw-inset-ring-color {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-inset-ring-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000
+}
+
+@property --tw-ring-inset {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-ring-offset-width {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0
+}
+
+@property --tw-ring-offset-color {
+    syntax: "*";
+    inherits: false;
+    initial-value: #fff
+}
+
+@property --tw-ring-offset-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000
+}
+
+@property --tw-outline-style {
+    syntax: "*";
+    inherits: false;
+    initial-value: solid
+}
+
+@property --tw-backdrop-blur {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-brightness {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-contrast {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-grayscale {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-hue-rotate {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-invert {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-opacity {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-saturate {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-sepia {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-duration {
+    syntax: "*";
+    inherits: false
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes pulse {
+    50% {
+        opacity: .5
+    }
+}
+
     </style>
+    <style>
+        /* ===== 斑鸠视频自定义样式 ===== */
+        body { font-family: var(--font-body); }
+        .dmb-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 5; }
+        .dmb-item { position: absolute; left: 0; white-space: nowrap; font-size: 16px; font-weight: 600; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.6); will-change: transform; }
+        @keyframes dmbMove { from { transform: translateX(100vw); } to { transform: translateX(-110%); } }
+        .dmb-item.run { animation: dmbMove var(--dmb-dur,8s) linear forwards; }
+        .player-wrap { position: relative; background: #000; border-radius: var(--radius); overflow: hidden; }
+        .player-wrap video { width: 100%; aspect-ratio: 16/9; display: block; }
+        .pl-empty { width: 100%; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-3); gap: 10px; }
+        .progress-bar { width: 100%; height: 10px; background: var(--bg-soft); border-radius: 6px; overflow: hidden; }
+        .progress-bar .fill { height: 100%; background: var(--brand); transition: width 0.2s; }
+        .upload-step { font-size: 13px; color: var(--text-2); }
+        .stat-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-elev); color: var(--text-1); font-size: 14px; cursor: pointer; font-family: inherit; transition: all .15s; }
+        .stat-btn:hover { border-color: var(--brand); color: var(--brand); }
+        .stat-btn.active { background: var(--brand); color: #fff; border-color: transparent; }
+        .dmb-input { display: flex; gap: 8px; align-items: center; }
+        .dmb-input input { flex: 1; }
+        .auth-note { font-size: 13px; color: var(--text-2); }
+        .badged-avatar { display: inline-flex; align-items: center; }
+        .avatar-circle { display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: #fff; font-weight: 700; user-select: none; overflow: hidden; }
+        .space-head { display: flex; align-items: center; gap: 16px; }
+        .profile-modal-row { display: flex; align-items: center; gap: 14px; }
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 999; display: none; align-items: center; justify-content: center; }
+        .modal.open { display: flex; }
+        .modal-card { width: min(440px, 92vw); background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-lg); }
+        .field { margin-bottom: 14px; }
+        .field label { display: block; font-size: 13px; color: var(--text-2); margin-bottom: 6px; }
+        .field input, .field select, .field textarea { width: 100%; padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg-soft); color: var(--text-1); font-family: inherit; font-size: 14px; }
+        .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--brand); }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 999px; border: none; background: var(--brand); color: #fff; font-weight: 600; font-size: 14px; cursor: pointer; font-family: inherit; }
+        .btn:hover { background: var(--brand-strong); }
+        .btn-ghost { background: var(--bg-soft); color: var(--text-1); border: 1px solid var(--border); }
+        .btn-ghost:hover { border-color: var(--brand); color: var(--brand); background: var(--bg-soft); }
+        .btn-block { width: 100%; justify-content: center; }
+        .btn-sm { padding: 6px 14px; font-size: 13px; }
+        .status-box { display: none; padding: 10px 12px; border-radius: var(--radius-sm); margin-bottom: 12px; font-size: 13px; font-weight: 500; }
+        .status-box.ok { display: block; background: var(--brand-soft); color: var(--brand); }
+        .status-box.err { display: block; background: rgba(255,80,80,.14); color: #ff5a5a; }
+        .status-box.info { display: block; background: var(--accent-soft); color: var(--accent); }
+        .tab-btns { display: flex; gap: 8px; margin-bottom: 16px; }
+        .tab-btn { flex: 1; padding: 9px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-soft); color: var(--text-2); font-weight: 600; cursor: pointer; font-family: inherit; }
+        .tab-btn.active { background: var(--brand); color: #fff; border-color: transparent; }
+        .panel { display: none; }
+        .panel.active { display: block; }
+        .empty-hint { color: var(--text-3); font-size: 14px; text-align: center; padding: 60px 0; }
+        .bk-badge { display: inline-flex; align-items: center; background: var(--brand-soft); color: var(--brand); font-weight: 700; border-radius: 6px; padding: 2px 8px; font-size: 13px; }
+        .bj-chip { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-3); }
+        .tag-link { color: var(--text-2); }
+        .tag-link:hover { color: var(--brand); }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--bg-elev); border: 1px solid var(--border); color: var(--text-1); padding: 10px 18px; border-radius: 999px; box-shadow: var(--shadow-lg); z-index: 1200; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+        .toast.show { opacity: 1; }
+        .cover-placeholder { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--brand-soft), var(--accent-soft)); display: flex; align-items: center; justify-content: center; color: var(--text-3); }
+            .nav-link{color:var(--text-2);transition:color .15s;cursor:pointer;background:none;border:none;font-family:inherit;}
+        .nav-link:hover{color:var(--text-1);}
+        .nav-link.active{color:var(--brand);font-weight:600;}
+        .icon-link{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--text-2);transition:color .15s;width:46px;}
+        .icon-link:hover{color:var(--brand);}
+        .video-card{display:block;}
+        .rank-item-thumb{width:74px;height:42px;border-radius:var(--radius-sm);background:var(--bg-soft);border:1px solid var(--border);overflow:hidden;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;}
+        .rank-item-thumb img{width:100%;height:100%;object-fit:cover;}</style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo" id="logoLink">
-                    <img src="icon.ico" alt="logo" class="logo-icon" onerror="this.style.display='none'">
-                    <span class="logo-text"><b>斑鸠视频</b> BanJiu</span>
-                </a>
-                <div class="nav-right">
-                    <a href="#video" class="nav-link">视频</a>
-                    <a href="#about" class="nav-link hide-sm">关于</a>
-                    <span id="authArea">
-                        <!-- 未登录：登录/注册按钮；已登录：头像+昵称 -->
-                    </span>
+    <header class="sticky top-0 z-50 border-b" style="background: var(--header-bg); backdrop-filter: blur(10px);">
+        <div class="mx-auto flex h-16 max-w-[1700px] items-center gap-5 px-4 lg:px-8">
+            <a href="#/" class="flex items-baseline gap-2 shrink-0">
+                <img src="icon.ico" alt="logo" class="h-7 w-7 rounded-md self-center" onerror="this.style.display='none'">
+                <span class="text-[19px] font-bold" style="font-family:var(--font-display);">斑鸠视频</span>
+                <span class="text-[15px]" style="color:var(--text-2);font-family:var(--font-display);">BanJiu</span>
+            </a>
+            <nav class="hidden items-center gap-1 lg:flex" id="topNav">
+                <a href="#/" class="nav-link rounded-md px-3 py-2 text-[15px] font-medium" data-slug="home">首页</a>
+                <a href="#/following" class="nav-link rounded-md px-3 py-2 text-[15px]">动态</a>
+                <a href="#/ranking" class="nav-link rounded-md px-3 py-2 text-[15px]">排行榜</a>
+                <div class="relative">
+                    <button type="button" class="flex items-center gap-1 rounded-md px-3 py-2 text-[15px] nav-link" id="partBtn">分区<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button>
+                    <div id="partMenu" class="hidden absolute left-0 top-full mt-1 w-44 rounded-xl border bg-[var(--bg-elev)] p-1.5 shadow-lg" style="border-color:var(--border);"></div>
                 </div>
             </nav>
+            <form class="hidden min-w-0 flex-1 items-center md:flex md:max-w-[420px]" onsubmit="return false;">
+                <label class="flex h-10 min-w-0 flex-1 items-center gap-2 rounded-full border px-4 transition-colors" style="border-color:var(--border);background:var(--bg-soft);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" style="color:var(--text-3);"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.34-4.34"></path></svg>
+                    <input id="searchInput" class="h-full min-w-0 flex-1 bg-transparent text-sm outline-none" placeholder="搜索视频、UP 主" style="color:var(--text-1);">
+                </label>
+            </form>
+            <div class="ml-auto flex items-center gap-3 md:gap-4">
+                <nav class="hidden items-center gap-4 sm:flex" id="iconNav">
+                    <a href="#/favorites" class="icon-link" title="收藏"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg><span class="text-[11px]">收藏</span></a>
+                    <a href="#/history" class="icon-link" title="历史"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg><span class="text-[11px]">历史</span></a>
+                    <a href="#/messages" class="icon-link" title="消息"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg><span class="text-[11px]">消息</span></a>
+                </nav>
+                <button type="button" class="btn btn-sm hidden sm:inline-flex" onclick="go('#/upload')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.296 3.464 3.02 3.956"></path><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z"></path><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>投稿</button>
+                <span id="authArea"></span>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 overflow-x-auto border-t px-4 py-1.5 lg:hidden" style="border-color:var(--border);" id="mobileNav">
+            <a href="#/" class="shrink-0 py-1 text-sm nav-link" data-slug="home">首页</a>
+            <a href="#/following" class="shrink-0 py-1 text-sm nav-link">动态</a>
+            <a href="#/ranking" class="shrink-0 py-1 text-sm nav-link">排行榜</a>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>欢迎来到 <b>斑鸠视频</b></h1>
-                <p>斑鸠OS 生态下的弹幕视频社区，账号可关联主网站账号。</p>
-                <button class="btn" id="heroAuthBtn">登录 / 注册</button>
-            </div>
-        </section>
+    <main id="view" class="mx-auto max-w-[1700px] px-4 lg:px-8 pt-[76px] min-h-[70vh]"></main>
 
-        <section class="block" id="video">
-            <div class="container">
-                <div class="section-title"><span class="bar"></span> 视频列表</div>
-                <div class="coming-soon">
-                    <i class="fas fa-film"></i>
-                    <h3>视频功能建设中</h3>
-                    <p>播放、上传、弹幕等功能尚未实现，敬请期待。</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="block about" id="about">
-            <div class="container">
-                <div class="section-title"><span class="bar"></span> 关于本站</div>
-                <p>斑鸠视频（BanJiu Video）是一个基于 GitHub 存储的弹幕视频社区。本站账号体系独立，可关联你已有的主网站账号，关联后主网站账号与本站账号互通标识。</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>斑鸠视频 BanJiu Video · 数据存储于 <b>github.com/dyz131005/BanJiu-Video</b></p>
-            <p style="margin-top:6px;">© 2026 斑鸠工作室</p>
+    <footer class="border-t mt-12" style="border-color:var(--border);background:var(--bg-elev);">
+        <div class="mx-auto flex max-w-[1700px] flex-wrap items-center gap-4 px-4 py-6 text-xs lg:px-8" style="color:var(--text-3);">
+            <span class="flex items-baseline gap-2"><span class="text-[17px] font-bold" style="font-family:var(--font-display);color:var(--text-1);">斑鸠视频</span><span class="lx-brand-en">BanJiu</span></span>
+            <span id="footStats">稿件 0 · 弹幕 0 · 用户 0</span>
+            <span class="ml-auto flex flex-wrap gap-4">
+                <span>dyz版权所有 © 2026 Awnidnrdooiwds个人聚合站</span>
+                <a href="https://icp.gov.moe/?keyword=20269997" target="_blank" rel="noreferrer" class="hover:text-[var(--brand)]">萌ICP备20269997号</a>
+            </span>
         </div>
     </footer>
 
-    <!-- 登录 / 注册弹窗 -->
+    <!-- 登录/注册弹窗 -->
     <div class="modal" id="authModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-user-circle"></i> 账户</h2>
-                <button class="modal-close" id="closeAuthModal">&times;</button>
+        <div class="modal-card">
+            <div class="flex items-center justify-between mb-4"><h3 class="text-lg font-bold">账户</h3><button class="text-xl opacity-60 hover:opacity-100" onclick="closeAuth()">&times;</button></div>
+            <div class="tab-btns">
+                <button class="tab-btn active" data-p="login" onclick="switchAuthPanel('login')">登录</button>
+                <button class="tab-btn" data-p="reg" onclick="switchAuthPanel('reg')">注册</button>
             </div>
-            <div class="tab-buttons">
-                <button class="tab-btn active" data-tab="login">登录</button>
-                <button class="tab-btn" data-tab="register">注册</button>
+            <div class="panel active" id="loginPanel">
+                <div class="status-box" id="loginStatus"></div>
+                <div class="field"><label>用户名</label><input id="loginUsername" placeholder="本站用户名"></div>
+                <div class="field"><label>密码</label><input id="loginPassword" type="password" placeholder="密码"></div>
+                <button class="btn btn-block" onclick="doLogin()">登录</button>
             </div>
-            <div class="tab-content active" id="loginTab">
-                <div class="feedback-status" id="loginStatus"></div>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label>用户名</label>
-                        <input type="text" id="loginUsername" class="form-control" placeholder="请输入本站用户名" required>
-                    </div>
-                    <div class="form-group">
-                        <label>密码</label>
-                        <input type="password" id="loginPassword" class="form-control" placeholder="请输入密码" required>
-                    </div>
-                    <button type="submit" class="btn btn-block">登录</button>
-                </form>
-            </div>
-            <div class="tab-content" id="registerTab">
-                <div class="feedback-status" id="registerStatus"></div>
-                <form id="registerForm">
-                    <div class="form-group">
-                        <label>用户名</label>
-                        <input type="text" id="regUsername" class="form-control" placeholder="本站登录用户名" required>
-                    </div>
-                    <div class="form-group">
-                        <label>昵称（头像默认取第一个字）</label>
-                        <input type="text" id="regName" class="form-control" placeholder="例如：斑鸠" required>
-                    </div>
-                    <div class="form-group">
-                        <label>邮箱</label>
-                        <input type="email" id="regEmail" class="form-control" placeholder="请输入邮箱" required>
-                    </div>
-                    <div class="form-group">
-                        <label>密码</label>
-                        <input type="password" id="regPassword" class="form-control" placeholder="请输入密码" required>
-                    </div>
-                    <button type="submit" class="btn btn-block">注册</button>
-                </form>
+            <div class="panel" id="regPanel">
+                <div class="status-box" id="regStatus"></div>
+                <div class="field"><label>用户名</label><input id="regUsername" placeholder="登录用户名"></div>
+                <div class="field"><label>昵称（头像默认取第一个字）</label><input id="regName" placeholder="例如：斑鸠"></div>
+                <div class="field"><label>邮箱</label><input id="regEmail" type="email" placeholder="邮箱"></div>
+                <div class="field"><label>密码</label><input id="regPassword" type="password" placeholder="密码"></div>
+                <button class="btn btn-block" onclick="doRegister()">注册</button>
             </div>
         </div>
     </div>
 
-    <!-- 个人中心 / 关联主站账号弹窗 -->
+    <!-- 个人中心弹窗 -->
     <div class="modal" id="profileModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-id-card"></i> 个人中心</h2>
-                <button class="modal-close" id="closeProfileModal">&times;</button>
+        <div class="modal-card">
+            <div class="flex items-center justify-between mb-4"><h3 class="text-lg font-bold">个人中心</h3><button class="text-xl opacity-60 hover:opacity-100" onclick="closeProfile()">&times;</button></div>
+            <div class="profile-modal-row mb-4" id="profileBox"></div>
+            <div class="status-box" id="linkStatus"></div>
+            <div class="field"><label>关联主网站账号（输入主网站用户名）</label>
+                <div class="flex gap-2"><input id="linkMainInput" placeholder="例如：dyz"><button class="btn btn-sm" onclick="doLinkMain()">关联</button></div>
             </div>
-            <div class="profile-box" id="profileBox"></div>
-            <div class="feedback-status" id="linkStatus"></div>
-            <div class="form-group">
-                <label>关联主网站账号（输入主网站用户名）</label>
-                <div class="link-row">
-                    <input type="text" id="linkMainInput" class="form-control" placeholder="例如：dyz">
-                    <button class="btn btn-sm" id="linkMainBtn"><i class="fas fa-link"></i> 关联</button>
-                </div>
-            </div>
-            <button class="btn btn-ghost btn-block" id="logoutBtn">退出登录</button>
+            <button class="btn btn-ghost btn-block mt-2" onclick="doLogout()">退出登录</button>
         </div>
     </div>
 
+    <div class="toast" id="toast"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script>
-        // ============ 常量 ============
-        const ENCODED_API_KEY = "V分2分p分K分c分0分1分H分R分k分l分W分b分W分x分Z分T分T分B分K分b分1分p分F分W分T分R分l分R分T分F分W分U分2分s分5分V分F分Z分U分V分l分p分V分M分n分h分G分Z分D分F分a分S分W分J分6分U分l分Z分i分S分E分E分w分V分l分V分V分M分W分E分y分U分l分h分a分R分V分Z分Z分T分U分Z分a分S分1分Z分X分e分G分9分X分R0分5分W分V分W分x分K分U0分1分F分c分G分F分Z分M分V分Z分3分U分l分U分x分c分k分9分U分U分m分x分i分V分G分x分Z分W分V分d分w分Y分V分N分X分T分n分V分X分b分X分R分U分V分l分h分o分a分F分l分V分V分l分d分X分b分E5分W分Z分U分Z分k分U分m分J分H分a分D分N分a分R分V分J分h分V0分d分W分W分F分R分U分S分l分V分h分e分m分x分o分V分F分R分C分U1分Z分W分R分n分V分X分b分T分F分V分Y分m分x分a分R分F分R分s分V分m分t分k分Q分T0分9";
-        const GITHUB_USERNAME = "dyz131005";
-        const VIDEO_REPO = "BanJiu-Video";          // 本站所有配置/账号存储仓库
-        const MAIN_REPO = "dyz131005.github.io";    // 主网站仓库（用于关联主站账号）
-        const ACCOUNTS_FILE = "accounts.yaml";
+    // ================= 常量 =================
+    const ENCODED_API_KEY = "V分2分p分K分c分0分1分H分R分k分l分W分b分W分x分Z分T分T分B分K分b分1分p分F分W分T分R分l分R分T分F分W分U分2分s分5分V分F分Z分U分V分l分p分V分M分n分h分G分Z分D分F分a分S分W分J分6分U分l分Z分i分S分E分E分w分V分l分V分V分M分W分E分y分U分l分h分a分R分V分Z分Z分T分U分Z分a分S分1分Z分X分e分G分9分X分R0分5分W分V分W分x分K分U0分1分F分c分G分F分Z分M分V分Z分3分U分l分U分x分c分k分9分U分U分m分x分i分V分G分x分Z分W分V分d分w分Y分V分N分X分T分n分V分X分b分X分R分U分V分l分h分o分a分F分l分V分V分l分d分X分b分E5分W分Z分U分Z分k分U分m分J分H分a分D分N分a分R分V分J分h分V0分d分W分W分F分R分U分S分l分V分h分e分m分x分o分V分F分R分C分U1分Z分W分R分n分V分X分b分T分F分V分Y分m分x分a分R分F分R分s分V分m分t分k分Q分T0分9";
+    const GITHUB_USERNAME = "dyz131005";
+    const VIDEO_REPO = "BanJiu-Video";
+    const MAIN_REPO = "dyz131005.github.io";
+    const ACCOUNTS_FILE = "accounts.yaml";
+    const VIDEOS_FILE = "videos.yaml";
+    const DANMAKU_FILE = "danmaku.yaml";
+    const CHUNK_SIZE = 25 * 1024 * 1024;
+    const PARTITIONS = [
+        { slug: "animation", name: "动画", color: "#ff6685" }, { slug: "bangumi", name: "番剧", color: "#ff9f45" },
+        { slug: "game", name: "游戏", color: "#5fcbd1" }, { slug: "knowledge", name: "知识", color: "#4fb0ff" },
+        { slug: "tech", name: "科技", color: "#5fc8ff" }, { slug: "music", name: "音乐", color: "#ff6ea8" },
+        { slug: "dance", name: "舞蹈", color: "#ff9c5f" }, { slug: "film", name: "影视", color: "#9f8cff" },
+        { slug: "life", name: "生活", color: "#7fdca2" }, { slug: "guichu", name: "鬼畜", color: "#dcdc7f" },
+        { slug: "fashion", name: "时尚", color: "#ffb7d0" }, { slug: "ent", name: "娱乐", color: "#ff6e6e" },
+        { slug: "sports", name: "运动", color: "#6ee0b0" }
+    ];
 
-        let currentUser = null;
+    let currentUser = null;
+    const $ = id => document.getElementById(id);
 
-        // ============ 工具 ============
-        function decodeApiKey() {
-            try {
-                const withoutFen = ENCODED_API_KEY.replace(/分/g, '');
-                return atob(atob(atob(withoutFen)));
-            } catch (e) { console.error("API Key解码失败:", e); return null; }
+    // ================= 工具 =================
+    function decodeApiKey() {
+        try { return atob(atob(atob(ENCODED_API_KEY.replace(/分/g, '')))); }
+        catch (e) { console.error("API Key解码失败", e); return null; }
+    }
+    function escapeHtml(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+    function avatarHTML(name, size) {
+        const s = String(name || '?').trim(); const ch = escapeHtml(s.charAt(0) || '?');
+        let hue = 0; for (let i = 0; i < s.length; i++) hue = (hue * 31 + s.charCodeAt(i)) % 360;
+        const px = size || 32;
+        return `<span class="avatar-circle" style="width:${px}px;height:${px}px;background:hsl(${hue},65%,48%);font-size:${Math.max(10, Math.round(px * 0.42))}px;">${ch}</span>`;
+    }
+    function badgeAvatar(name, size) { return `<span class="badged-avatar">${avatarHTML(name, size)}</span>`; }
+    function go(h) { location.hash = h; }
+    function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 2600); }
+    function durFmt(s) { s = Math.max(0, Math.floor(s || 0)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60; return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(sec).padStart(2, '0'); }
+    function timeAgo(iso) { const d = new Date(iso); const diff = (Date.now() - d.getTime()) / 1000; if (diff < 3600) return Math.max(0, Math.floor(diff / 60)) + ' 分钟前'; if (diff < 86400) return Math.floor(diff / 3600) + ' 小时前'; return Math.floor(diff / 86400) + ' 天前'; }
+    function fileExt(name) { return (name || '').split('.').pop().toLowerCase(); }
+    function mimeFor(name) { const m = { mp4: 'video/mp4', webm: 'video/webm', mov: 'video/quicktime', m4v: 'video/mp4', avi: 'video/x-msvideo', mkv: 'video/x-matroska', flv: 'video/x-flv', ts: 'video/mp2t', ogg: 'video/ogg', ogv: 'video/ogg' }; return m[fileExt(name)] || 'video/mp4'; }
+
+    async function fetchYamlFile(filename, repo = VIDEO_REPO) {
+        const apiKey = decodeApiKey(); if (!apiKey) throw new Error("API Key解码失败");
+        const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${repo}/contents/${filename}`;
+        const r = await fetch(url, { headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3+json' } });
+        if (r.status === 404) return null;
+        if (!r.ok) throw new Error(`获取${filename}失败: ${r.status}`);
+        const ct = r.headers.get('content-type') || '';
+        if (ct.includes('raw')) return await r.text();
+        const data = await r.json();
+        if (data.encoding === 'base64' && data.content) { const b = atob(data.content.replace(/\n/g, '')); return new TextDecoder().decode(Uint8Array.from(b, c => c.charCodeAt(0))); }
+        if (data.download_url) { const raw = await fetch(data.download_url, { headers: { 'Authorization': `token ${apiKey}` } }); if (raw.ok) return await raw.text(); }
+        throw new Error(`无法解析${filename}内容`);
+    }
+    async function saveYamlFile(filename, content, message, repo = VIDEO_REPO) {
+        const apiKey = decodeApiKey(); if (!apiKey) throw new Error("API Key解码失败");
+        const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${repo}/contents/${filename}`;
+        let sha = null;
+        const ex = await fetch(url, { headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3+json' }, cache: 'no-store' });
+        if (ex.ok) { const d = await ex.json(); if (d.sha) sha = d.sha; }
+        const body = { message, content: btoa(unescape(encodeURIComponent(content))), sha };
+        if (sha) body.sha = sha;
+        const r = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (!r.ok) { const t = await r.text(); throw new Error(`保存${filename}失败: ${r.status} - ${t.substring(0, 120)}`); }
+        return true;
+    }
+    function arrayBufferToBase64(buffer) {
+        const bytes = new Uint8Array(buffer); let bin = '';
+        const cs = 8192;
+        for (let i = 0; i < bytes.length; i += cs) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + cs));
+        return btoa(bin);
+    }
+    async function computeGitBlobSha(buffer) {
+        const bytes = new Uint8Array(buffer);
+        const header = new TextEncoder().encode(`blob ${bytes.length}\0`);
+        const combined = new Uint8Array(header.length + bytes.length);
+        combined.set(header, 0); combined.set(bytes, header.length);
+        const digest = await crypto.subtle.digest('SHA-1', combined);
+        return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    // ================= 账号 =================
+    async function loadAccounts() { try { const c = await fetchYamlFile(ACCOUNTS_FILE); return c ? (jsyaml.load(c) || {}) : {}; } catch (e) { console.error(e); return {}; } }
+    async function saveAccounts(a) { await saveYamlFile(ACCOUNTS_FILE, jsyaml.dump(a), '更新斑鸠视频账号'); }
+    async function registerUser(u, n, e, p) { const a = await loadAccounts(); if (a[u]) throw new Error("用户名已存在"); a[u] = { name: n, email: e, password: p, createdAt: new Date().toISOString() }; await saveAccounts(a); return a[u]; }
+    async function loginUser(u, p) { const a = await loadAccounts(); const acc = a[u]; if (!acc) throw new Error("用户不存在"); if (acc.password !== p) throw new Error("密码错误"); return { ...acc, username: u }; }
+    async function mainUserExists(name) { try { const c = await fetchYamlFile(ACCOUNTS_FILE, MAIN_REPO); if (!c) return false; const a = jsyaml.load(c) || {}; return !!a[name]; } catch (e) { return false; } }
+    async function linkMainAccount(name) {
+        if (!currentUser) throw new Error("请先登录本站账号");
+        const t = (name || '').trim(); if (!t) throw new Error("请输入主网站用户名");
+        if (!(await mainUserExists(t))) throw new Error(`主网站用户 ${t} 不存在`);
+        const a = await loadAccounts(); a[currentUser.username].linkedMain = t; await saveAccounts(a);
+        currentUser.linkedMain = t; localStorage.setItem('currentUser', JSON.stringify(currentUser)); return t;
+    }
+
+    // ================= 视频索引（videos.yaml + BJ号） =================
+    async function loadVideos() {
+        try { const c = await fetchYamlFile(VIDEOS_FILE); if (!c) return { meta: { lastBJ: 0 }, videos: {} }; const d = jsyaml.load(c) || {}; return { meta: d.meta || { lastBJ: 0 }, videos: d.videos || {} }; }
+        catch (e) { console.error(e); return { meta: { lastBJ: 0 }, videos: {} }; }
+    }
+    async function saveVideos(d) { await saveYamlFile(VIDEOS_FILE, jsyaml.dump(d), '更新斑鸠视频索引'); }
+    function nextBJ(d) {
+        let max = d.meta.lastBJ || 0;
+        Object.keys(d.videos).forEach(k => { const n = parseInt(String(k).replace(/\D/g, ''), 10); if (!isNaN(n) && n > max) max = n; });
+        return 'BJ' + (max + 1);
+    }
+
+    // ================= 弹幕 =================
+    async function loadDanmaku() { try { const c = await fetchYamlFile(DANMAKU_FILE); return c ? (jsyaml.load(c) || {}) : {}; } catch (e) { return {}; } }
+    async function saveDanmaku(d) { await saveYamlFile(DANMAKU_FILE, jsyaml.dump(d), '更新弹幕'); }
+
+    // ================= 分片上传（参照网盘） =================
+    async function uploadChunkToRepo(chunkData, dir, chunkName, idx, total) {
+        const apiKey = decodeApiKey(); if (!apiKey) throw new Error("API Key解码失败");
+        const filePath = `files/${dir}/${encodeURIComponent(chunkName)}`;
+        const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${VIDEO_REPO}/contents/${filePath}`;
+        const base64Content = arrayBufferToBase64(chunkData);
+        let sha = null;
+        try { const ex = await fetch(url, { headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3+json' } }); if (ex.ok) { const d = await ex.json(); sha = d.sha; } } catch (e) {}
+        const body = { message: `上传视频分片: ${chunkName} (${idx + 1}/${total})`, content: base64Content }; if (sha) body.sha = sha;
+        const r = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (!r.ok) { const t = await r.text(); throw new Error(`上传分片失败: ${r.status} - ${t.substring(0, 100)}`); }
+        return await r.json();
+    }
+    async function verifyChunkOnServer(dir, chunkName, expectedSize, expectedBuffer) {
+        const apiKey = decodeApiKey(); if (!apiKey) throw new Error("API Key解码失败");
+        const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${VIDEO_REPO}/contents/files/${dir}/${encodeURIComponent(chunkName)}`;
+        const r = await fetch(url, { headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3+json' }, cache: 'no-store' });
+        if (!r.ok) throw new Error(`验证失败: 服务器返回状态码 ${r.status}`);
+        const d = await r.json();
+        if (d.type !== 'file') throw new Error(`验证失败: 服务器上未找到 ${chunkName}`);
+        if (d.size !== expectedSize) throw new Error(`验证失败: 大小不符（服务器 ${d.size} / 本地 ${expectedSize}）`);
+        if (typeof crypto !== 'undefined' && crypto.subtle) {
+            try { const es = await computeGitBlobSha(expectedBuffer); if (es !== d.sha) throw new Error('验证失败: 内容校验和不符'); }
+            catch (e) { if (e instanceof Error && e.message.indexOf('验证失败') === 0) throw e; }
         }
-
-        function escapeHtml(s) {
-            return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        return true;
+    }
+    async function uploadVideoShards(file, dir, onPhase) {
+        const ab = await file.arrayBuffer();
+        const total = Math.ceil(ab.byteLength / CHUNK_SIZE);
+        const base = (file.name.replace(/\.[^/.]+$/, '') || 'video').replace(/[^\w\u4e00-\u9fa5-]/g, '_');
+        const names = [];
+        for (let i = 0; i < total; i++) {
+            const start = i * CHUNK_SIZE, end = Math.min(start + CHUNK_SIZE, ab.byteLength);
+            const name = `v_${base}_chunk${i}.bin`;
+            names.push(name);
+            await uploadChunkToRepo(ab.slice(start, end), dir, name, i, total);
+            if (onPhase) onPhase({ type: 'transfer', ratio: (i + 1) / total });
         }
-
-        // 默认头像：昵称第一个字符 + 由昵称哈希决定颜色的圆形
-        function avatarHTML(name) {
-            const s = String(name || '?').trim();
-            const ch = escapeHtml(s.charAt(0) || '?');
-            let hue = 0;
-            for (let i = 0; i < s.length; i++) hue = (hue * 31 + s.charCodeAt(i)) % 360;
-            return `<div class="avatar-circle" style="background: hsl(${hue},72%,48%);">${ch}</div>`;
+        if (onPhase) onPhase({ type: 'verify' });
+        for (let i = 0; i < total; i++) {
+            const start = i * CHUNK_SIZE, end = Math.min(start + CHUNK_SIZE, ab.byteLength);
+            await verifyChunkOnServer(dir, names[i], end - start, ab.slice(start, end));
         }
+        if (onPhase) onPhase({ type: 'verified' });
+        return { totalChunks: total, chunkSize: CHUNK_SIZE, storedChunks: names, size: file.size };
+    }
 
-        async function fetchYamlFile(filename, repo = VIDEO_REPO) {
-            const apiKey = decodeApiKey();
-            if (!apiKey) throw new Error("API Key解码失败");
-            const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${repo}/contents/${filename}`;
-            const response = await fetch(url, {
-                headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3+json' }
-            });
-            if (response.status === 404) return null;
-            if (!response.ok) throw new Error(`获取${filename}失败: ${response.status}`);
-            const ct = response.headers.get('content-type') || '';
-            if (ct.includes('raw')) return await response.text();
-            const data = await response.json();
-            if (data.encoding === 'base64' && data.content) {
-                const bin = atob(data.content.replace(/\n/g, ''));
-                const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
-                return new TextDecoder().decode(bytes);
-            }
-            if (data.download_url) {
-                const raw = await fetch(data.download_url, { headers: { 'Authorization': `token ${apiKey}` } });
-                if (raw.ok) return await raw.text();
-            }
-            throw new Error(`无法解析${filename}的内容`);
-        }
+    // ================= 下载重建（分片合并） =================
+    async function downloadChunk(dir, storedName) {
+        const apiKey = decodeApiKey(); if (!apiKey) throw new Error("API Key解码失败");
+        const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${VIDEO_REPO}/contents/files/${dir}/${encodeURIComponent(storedName)}`;
+        const r = await fetch(url, { headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3+json' } });
+        if (!r.ok) throw new Error(`获取分片失败: ${r.status}`);
+        const info = await r.json();
+        if (info.type !== 'file') throw new Error('服务器返回的不是文件');
+        if (info.size === 0) return new ArrayBuffer(0);
+        if (info.content) { const bs = atob(info.content.replace(/\n/g, '')); const u8 = new Uint8Array(bs.length); for (let i = 0; i < bs.length; i++) u8[i] = bs.charCodeAt(i); return u8.buffer; }
+        if (!info.sha) throw new Error('无法获取分片 blob SHA');
+        const blobUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${VIDEO_REPO}/git/blobs/${info.sha}`;
+        const br = await fetch(blobUrl, { headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3.raw' } });
+        if (!br.ok) throw new Error(`下载分片失败: ${br.status}`);
+        const ct = br.headers.get('content-type') || '';
+        if (ct.indexOf('application/json') !== -1) throw new Error('服务器返回 JSON 而非内容');
+        return await br.arrayBuffer();
+    }
+    async function downloadAndMerge(dir, storedChunks) {
+        const parts = [];
+        for (const name of storedChunks) { const b = await downloadChunk(dir, name); parts.push(new Uint8Array(b)); }
+        const total = parts.reduce((s, p) => s + p.length, 0);
+        const out = new Uint8Array(total); let o = 0;
+        for (const p of parts) { out.set(p, o); o += p.length; }
+        return out.buffer;
+    }
 
-        async function saveYamlFile(filename, content, message, repo = VIDEO_REPO) {
-            const apiKey = decodeApiKey();
-            if (!apiKey) throw new Error("API Key解码失败");
-            const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${repo}/contents/${filename}`;
-            let sha = null;
-            const existing = await fetch(url, {
-                headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3+json' },
-                cache: 'no-store'
-            });
-            if (existing.ok) { const d = await existing.json(); if (d.sha) sha = d.sha; }
-            const base64 = btoa(unescape(encodeURIComponent(content)));
-            const body = { message: message, content: base64 };
-            if (sha) body.sha = sha;
-            const response = await fetch(url, {
-                method: 'PUT',
-                headers: { 'Authorization': `token ${apiKey}`, 'Content-Type': 'application/json' },
-                body: JSON.stringify(body)
-            });
-            if (!response.ok) {
-                const t = await response.text();
-                throw new Error(`保存${filename}失败: ${response.status} - ${t.substring(0, 120)}`);
-            }
-            return true;
-        }
+    // ================= 视频卡组件 =================
+    function videoCard(v) {
+        const up = v.upName || '未知UP主';
+        const cover = v.cover ? `<img alt="${escapeHtml(v.title)}" loading="lazy" src="${escapeHtml(v.cover)}"><div class="cover-stat"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>${v.viewCount || 0}</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path></svg>${v.commentCount || 0}</span></div><span class="cover-duration">${durFmt(v.duration)}</span>` :
+            `<div class="cover-placeholder"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg></div><div class="cover-stat"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>${v.viewCount || 0}</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path></svg>${v.commentCount || 0}</span></div><span class="cover-duration">${durFmt(v.duration)}</span>`;
+        return `<div class="video-card">
+            <a class="block" href="#/video/${encodeURIComponent(v.bj)}"><div class="video-card-cover">${cover}</div><h3 class="video-card-title">${escapeHtml(v.title)}</h3></a>
+            <div class="flex items-center justify-between gap-2">
+                <a class="flex min-w-0 items-center gap-1.5 text-xs hover:text-[var(--brand)]" href="#/space/${encodeURIComponent(v.upId || '')}" style="color:var(--text-3);">${badgeAvatar(up, 20)}<span class="truncate">${escapeHtml(up)}</span></a>
+                <span class="shrink-0 text-xs" style="color:var(--text-3);">${v.createdAt ? timeAgo(v.createdAt) : ''}</span>
+            </div>
+        </div>`;
+    }
+    function rankItem(v, idx) {
+        return `<a class="rank-item" href="#/video/${encodeURIComponent(v.bj)}">
+            <span class="rank-index ${idx <= 2 ? 'rank-index-top' : ''}">${idx + 1}</span>
+            <span class="rank-item-thumb">${v.cover ? `<img alt="" loading="lazy" src="${escapeHtml(v.cover)}">` : ''}</span>
+            <span class="min-w-0 flex-1"><span class="line-clamp-2 text-[13px] leading-snug">${escapeHtml(v.title)}</span><span class="mt-0.5 block text-[11px] text-[var(--text-3)]">${escapeHtml(v.upName || '')} · ${v.viewCount || 0}</span></span>
+        </a>`;
+    }
 
-        // ============ 账号体系（本站独立，存储于 BanJiu-Video/accounts.yaml） ============
-        async function loadAccounts() {
-            try {
-                const content = await fetchYamlFile(ACCOUNTS_FILE, VIDEO_REPO);
-                if (!content) return {};
-                return jsyaml.load(content) || {};
-            } catch (e) { console.error("加载本站账号失败:", e); return {}; }
-        }
-
-        async function saveAccounts(accounts) {
-            await saveYamlFile(ACCOUNTS_FILE, jsyaml.dump(accounts), '更新斑鸠视频账号', VIDEO_REPO);
-        }
-
-        async function registerUser(username, name, email, password) {
-            const accounts = await loadAccounts();
-            if (accounts[username]) throw new Error("用户名已存在");
-            accounts[username] = {
-                name: name,
-                email: email,
-                password: password,
-                createdAt: new Date().toISOString()
-            };
-            await saveAccounts(accounts);
-            return accounts[username];
-        }
-
-        async function loginUser(username, password) {
-            const accounts = await loadAccounts();
-            const acc = accounts[username];
-            if (!acc) throw new Error("用户不存在");
-            if (acc.password !== password) throw new Error("密码错误");
-            return { ...acc, username: username };
-        }
-
-        // 校验主网站账号是否存在
-        async function mainUserExists(mainUsername) {
-            try {
-                const content = await fetchYamlFile(ACCOUNTS_FILE, MAIN_REPO);
-                if (!content) return false;
-                const accounts = jsyaml.load(content) || {};
-                return !!accounts[mainUsername];
-            } catch (e) { return false; }
-        }
-
-        // 关联主网站账号（输入主网站用户名）
-        async function linkMainAccount(mainUsername) {
-            if (!currentUser) throw new Error("请先登录本站账号");
-            const target = (mainUsername || '').trim();
-            if (!target) throw new Error("请输入主网站用户名");
-            const exists = await mainUserExists(target);
-            if (!exists) throw new Error(`主网站用户 ${target} 不存在`);
-            const accounts = await loadAccounts();
-            accounts[currentUser.username].linkedMain = target;
-            await saveAccounts(accounts);
-            currentUser.linkedMain = target;
-            localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            return target;
-        }
-
-        // ============ UI ============
-        function showStatus(id, msg, type) {
-            const el = document.getElementById(id);
-            el.textContent = msg;
-            el.className = `feedback-status ${type}`;
-        }
-
-        function updateAuthUI() {
-            const area = document.getElementById('authArea');
-            if (currentUser) {
-                area.innerHTML = `
-                    <button class="nav-link" id="headerProfileBtn" style="display:flex;align-items:center;gap:8px;">
-                        ${avatarHTML(currentUser.name)}
-                        <span>${escapeHtml(currentUser.name)}</span>
-                    </button>
-                `;
-                document.getElementById('headerProfileBtn').addEventListener('click', openProfileModal);
-                document.getElementById('heroAuthBtn').style.display = 'none';
-            } else {
-                area.innerHTML = `<button class="btn btn-sm" id="headerAuthBtn"><i class="fas fa-user"></i> 登录 / 注册</button>`;
-                document.getElementById('headerAuthBtn').addEventListener('click', openAuthModal);
-                document.getElementById('heroAuthBtn').style.display = 'inline-flex';
-            }
-        }
-
-        function openAuthModal() { document.getElementById('authModal').classList.add('active'); }
-        function closeAuthModal() {
-            document.getElementById('authModal').classList.remove('active');
-            document.getElementById('loginForm').reset();
-            document.getElementById('registerForm').reset();
-            document.getElementById('loginStatus').style.display = 'none';
-            document.getElementById('registerStatus').style.display = 'none';
-        }
-
-        function openProfileModal() {
-            const box = document.getElementById('profileBox');
-            box.innerHTML = `
-                ${avatarHTML(currentUser.name)}
-                <div>
-                    <div class="profile-name">${escapeHtml(currentUser.name)}</div>
-                    <div class="profile-meta">@${escapeHtml(currentUser.username)} · ${escapeHtml(currentUser.email)}</div>
-                    ${currentUser.linkedMain
-                        ? `<span class="linked-badge"><i class="fas fa-link"></i> 已关联主站账号：${escapeHtml(currentUser.linkedMain)}</span>`
-                        : `<span class="linked-badge" style="background:rgba(255,71,87,0.14);color:var(--danger);"><i class="fas fa-unlink"></i> 未关联主站账号</span>`}
+    // ================= 页面渲染 =================
+    function renderPartitionBar() {
+        return `<div class="flex items-center gap-3 border-b py-3" style="border-color:var(--border);">
+            <div class="flex min-w-0 flex-1 items-center gap-6 overflow-x-auto"><button data-slug="recommend" class="shrink-0 text-[15px] font-medium nav-link" onclick="go('#/')" style="color:var(--brand);">推荐</button>
+            ${PARTITIONS.map(p => `<button data-slug="${p.slug}" class="shrink-0 text-[15px] nav-link" onclick="go('#/c/'+encodeURIComponent('${p.slug}'))">${p.name}</button>`).join('')}
+            </div>
+        </div>`;
+    }
+    function asyncPage(loader) {
+        const el = $('view'); el.innerHTML = '<div class="py-16 text-center" style="color:var(--text-3);">加载中…</div>';
+        loader(el).catch(e => { el.innerHTML = `<div class="py-16 text-center" style="color:var(--text-3);">加载失败：${escapeHtml(e.message)}</div>`; });
+    }
+    async function renderHome() {
+        const el = $('view');
+        const d = await loadVideos();
+        const videos = Object.values(d.videos).sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+        const ranked = [...videos].sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0));
+        const featured = videos.slice(0, 4);
+        el.innerHTML = `
+            ${renderPartitionBar()}
+            <div class="mt-4 flex flex-wrap items-center gap-2 text-sm" style="color:var(--text-2);">
+                ${currentUser ? `<span>欢迎回来，<b style="color:var(--text-1);">${escapeHtml(currentUser.name)}</b></span>` : `<span>登录后可以同步收藏夹、观看历史</span><button class="text-[var(--brand)]" onclick="openAuth()">登录</button><span style="color:var(--text-3);">/</span><button class="text-[var(--brand)]" onclick="openAuth('reg')">注册</button>`}
+            </div>
+            <div class="mt-5 grid gap-7 xl:grid-cols-[minmax(0,1fr)_336px]">
+                <div class="min-w-0">
+                    ${featured.length ? `<section class="lx-card overflow-hidden">
+                        <div class="grid md:grid-cols-[1.55fr_1fr]">
+                            <a class="relative block aspect-video overflow-hidden border-r" href="#/video/${encodeURIComponent(featured[0].bj)}" style="border-color:var(--border);">
+                                <div class="cover-placeholder h-full">${featured[0].cover ? `<img alt="" class="h-full w-full object-cover" src="${escapeHtml(featured[0].cover)}">` : '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg>'}</div>
+                                <span class="absolute left-3 top-3 flex items-center gap-1 rounded-[4px] px-2 py-0.5 text-xs text-white" style="background:var(--brand);">精选</span>
+                                <span class="absolute bottom-3 left-3 right-3 text-white"><span class="mb-1.5 flex items-center gap-2 text-xs">${badgeAvatar(featured[0].upName, 20)}${escapeHtml(featured[0].upName)}<span>${featured[0].viewCount || 0} 播放</span></span><span class="line-clamp-2 block text-lg font-medium md:text-xl" style="text-shadow:rgba(0,0,0,.6) 0 1px 6px;">${escapeHtml(featured[0].title)}</span></span>
+                            </a>
+                            <div class="flex flex-col justify-between gap-2 p-4">
+                                <div class="flex items-center justify-between"><h3 class="text-sm" style="color:var(--text-2);">推荐轮播</h3></div>
+                                <div class="flex flex-col gap-1">
+                                    ${featured.map((v, i) => `<a class="flex items-center gap-3 rounded p-2 hover:bg-[var(--bg-soft)]" href="#/video/${encodeURIComponent(v.bj)}">
+                                        <span class="w-4 text-center text-sm" style="color:${i === 0 ? 'var(--brand)' : 'var(--text-3)'};">${i + 1}</span>
+                                        <span class="relative h-[46px] w-[82px] shrink-0 overflow-hidden rounded border" style="border-color:var(--border);background:var(--bg-soft);">${v.cover ? `<img alt="" loading="lazy" class="h-full w-full object-cover" src="${escapeHtml(v.cover)}">` : ''}</span>
+                                        <span class="min-w-0 flex-1"><span class="line-clamp-2 text-[13px] leading-snug">${escapeHtml(v.title)}</span><span class="mt-0.5 block text-[11px] text-[var(--text-3)]">${escapeHtml(v.upName)} · ${v.viewCount || 0} 播放</span></span>
+                                    </a>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </section>` : '<section class="lx-card p-8 text-center" style="color:var(--text-3);">还没有视频，去 <a href="#/upload" class="text-[var(--brand)]">投稿</a> 第一个视频吧</section>'}
+                    <section class="mt-7">
+                        <div class="mb-3 flex items-center gap-2"><h2 class="text-base font-medium">推荐</h2><span class="text-xs" style="color:var(--text-3);">按热度与发布时间综合排序</span></div>
+                        ${videos.length ? `<div class="grid gap-x-4 gap-y-6 grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">${videos.map(videoCard).join('')}</div>` : '<div class="empty-hint">暂无视频</div>'}
+                    </section>
+                    ${PARTITIONS.filter(p => videos.some(v => v.slug === p.slug)).slice(0, 3).map(p => {
+                        const pv = videos.filter(v => v.slug === p.slug).slice(0, 5);
+                        return `<section class="mt-7"><div class="mb-3 flex items-center gap-2"><span class="partition-dot" style="background:${p.color};"></span><h2 class="text-base font-medium">${p.name}</h2><a class="ml-auto flex items-center gap-0.5 text-xs hover:text-[var(--brand)]" style="color:var(--text-3);" href="#/c/${p.slug}">查看更多<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></a></div><div class="grid grid-cols-2 gap-x-4 gap-y-5 md:grid-cols-3 xl:grid-cols-5">${pv.map(videoCard).join('')}</div></section>`;
+                    }).join('')}
                 </div>
-            `;
-            document.getElementById('linkStatus').style.display = 'none';
-            document.getElementById('linkMainInput').value = '';
-            document.getElementById('profileModal').classList.add('active');
+                <aside class="hidden flex-col gap-4 xl:flex">
+                    <section class="lx-card p-4">
+                        <div class="flex items-center justify-between"><h3 class="text-sm font-semibold">排行榜</h3><div class="flex gap-1"><button class="rounded px-2 py-0.5 text-xs text-[var(--text-3)]">日榜</button><button class="rounded px-2 py-0.5 text-xs text-[var(--brand)]" style="background:var(--brand-soft);">周榜</button><button class="rounded px-2 py-0.5 text-xs text-[var(--text-3)]">月榜</button></div></div>
+                        <div class="mt-2 flex gap-1"><span class="lx-chip lx-chip-active">播放</span></div>
+                        <div class="mt-3 flex flex-col gap-1">${ranked.slice(0, 8).map((v, i) => rankItem(v, i)).join('') || '<div class="text-xs p-4 text-center text-[var(--text-3)]">暂无数据</div>'}</div>
+                    </section>
+                    <section class="lx-card p-4"><h3 class="text-sm font-semibold">热门标签</h3><div class="mt-3 flex flex-wrap gap-2">${[...new Set(videos.flatMap(v => v.tags || []))].slice(0, 12).map(t => `<a class="lx-chip" href="#/search?keyword=${encodeURIComponent(t)}"># ${escapeHtml(t)}</a>`).join('') || '<div class="text-xs p-2 text-[var(--text-3)]">暂无标签</div>'}</div></section>
+                    <section class="lx-card p-4"><h3 class="text-sm font-semibold">推荐 UP 主</h3><div class="mt-3 flex flex-col gap-3">${[...new Map(videos.map(v => [v.upId, v])).values()].slice(0, 5).map(v => `<div class="flex items-center gap-3">${badgeAvatar(v.upName, 38)}<div class="min-w-0 flex-1"><a class="line-clamp-1 text-[13px] font-medium hover:text-[var(--brand)]" href="#/space/${encodeURIComponent(v.upId)}">${escapeHtml(v.upName)}</a><div class="text-[11px] text-[var(--text-3)]">${videos.filter(x => x.upId === v.upId).length} 投稿</div></div></div>`).join('') || '<div class="text-xs p-2 text-[var(--text-3)]">暂无 UP 主</div>'}</div></section>
+                </aside>
+            </div>`;
+    }
+
+    async function renderPartition(slug) {
+        const el = $('view'); const d = await loadVideos();
+        const p = PARTITIONS.find(x => x.slug === slug);
+        const list = Object.values(d.videos).filter(v => v.slug === slug).sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+        el.innerHTML = `${renderPartitionBar()}
+            <div class="mt-4"><div class="flex items-center gap-2"><span class="partition-dot" style="background:${(p && p.color) || 'var(--brand)'};"></span><h1 class="text-xl font-bold">${p ? p.name : '分区'}</h1></div></div>
+            <div class="mt-5">${list.length ? `<div class="grid gap-x-4 gap-y-6 grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">${list.map(videoCard).join('')}</div>` : '<div class="empty-hint">该分区暂无视频</div>'}</div>`;
+    }
+
+    async function renderVideo(bjId) {
+        const el = $('view'); const d = await loadVideos();
+        const v = d.videos[bjId];
+        if (!v) { el.innerHTML = '<div class="empty-hint">视频不存在（可能已被删除）</div>'; return; }
+        const others = Object.values(d.videos).filter(x => x.bj !== bjId).sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0)).slice(0, 8);
+        // 播放计数
+        if (!window._incremented) { window._incremented = {}; }
+        if (!window._incremented[bjId]) {
+            window._incremented[bjId] = 1;
+            d.videos[bjId].viewCount = (v.viewCount || 0) + 1; saveVideos(d).catch(() => {});
+            $('view').dataset.refresh = Date.now();
         }
-        function closeProfileModal() { document.getElementById('profileModal').classList.remove('active'); }
+        const saved = JSON.parse(localStorage.getItem('videoStats') || '{}');
+        const liked = saved[bjId] && saved[bjId].like; const coined = saved[bjId] && saved[bjId].coin; const faved = saved[bjId] && saved[bjId].fav;
+        el.innerHTML = `
+            ${renderPartitionBar()}
+            <div class="mt-5 grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+                <div class="min-w-0">
+                    <div class="player-wrap" id="playerWrap"><div class="pl-empty" id="plLoading"><span class="animate-spin inline-block w-6 h-6 border-2 border-t-transparent rounded-full" style="border-color:var(--brand);"></span><span>正在加载分片…</span></div></div>
+                    <div class="dmb-input mt-2"><input id="dmbText" class="h-9 min-w-0 flex-1 rounded-full border px-4 text-sm" placeholder="${currentUser ? '发个友善的弹幕见证当下' : '登录后可发送弹幕'}" style="border-color:var(--border);background:var(--bg-soft);color:var(--text-1);" ${currentUser ? '' : 'disabled'}><button class="btn btn-sm" onclick="sendDanmaku('${bjId}')" ${currentUser ? '' : 'disabled'} >发送</button></div>
+                    <h1 class="mt-4 text-xl font-bold">${escapeHtml(v.title)}</h1>
+                    <div class="mt-2 flex flex-wrap items-center gap-3">
+                        <a class="flex items-center gap-2" href="#/space/${encodeURIComponent(v.upId || '')}">${badgeAvatar(v.upName, 36)}<span><span class="text-sm font-medium block">${escapeHtml(v.upName)}</span><span class="text-xs block" style="color:var(--text-3);">@${escapeHtml(v.upId || '')}</span></span></a>
+                        <span class="text-xs" style="color:var(--text-3);">${v.viewCount || 0} 播放 · ${v.danmakuCount || 0} 弹幕 · ${v.createdAt ? timeAgo(v.createdAt) : ''}</span>
+                        <span class="ml-auto flex gap-2">
+                            <button class="stat-btn ${liked ? 'active' : ''}" onclick="toggleStat('${bjId}','like',this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="${liked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path></svg>赞 ${v.likeCount || 0}</button>
+                            <button class="stat-btn ${coined ? 'active' : ''}" onclick="toggleStat('${bjId}','coin',this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12"></path><path d="M12 12a4 4 0 0 0 0-8H9"></path><path d="M12 12a4 4 0 0 1 0 8h3"></path></svg>币 ${v.coinCount || 0}</button>
+                            <button class="stat-btn ${faved ? 'active' : ''}" onclick="toggleStat('${bjId}','fav',this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="${faved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>收藏</button>
+                        </span>
+                    </div>
+                    <div class="mt-3 flex flex-wrap items-center gap-2"><span class="bk-badge">${escapeHtml(v.bj)}</span>${(v.tags || []).map(t => `<a class="tag-link text-sm" href="#/search?keyword=${encodeURIComponent(t)}"># ${escapeHtml(t)}</a>`).join('')}</div>
+                    ${v.description ? `<div class="mt-3 text-sm whitespace-pre-wrap" style="color:var(--text-2);">${escapeHtml(v.description)}</div>` : ''}
+                    <div class="mt-6" id="dmbList" style="max-height:260px;overflow-y:auto;"><h3 class="text-base font-medium mb-2">弹幕 ${v.danmakuCount || 0}</h3><div class="text-sm" style="color:var(--text-3);">弹幕加载中…</div></div>
+                </div>
+                <aside class="flex flex-col gap-4">
+                    <section class="lx-card p-4"><h3 class="text-sm font-semibold">相关推荐</h3><div class="mt-3 flex flex-col gap-1">${others.length ? others.slice(0, 6).map(v => rankItem(v, 0).replace('class="rank-index ', 'class="rank-index hidden ')).join('') : '<div class="text-xs p-2 text-[var(--text-3)]">暂无相关</div>'}</div></section>
+                </aside>
+            </div>`;
+        // 加载分片播放
+        (async () => {
+            try {
+                const buf = await downloadAndMerge(bjId.replace(/\D/g, ''), v.storedChunks);
+                const blob = new Blob([buf], { type: mimeFor(v.originalName || v.title) });
+                const url = URL.createObjectURL(blob);
+                const wrap = $('playerWrap');
+                wrap.innerHTML = `<video controls autoplay playsinline class="w-full" id="videoEl" style="aspect-ratio:16/9;display:block;" src="${url}" poster="${v.cover ? escapeHtml(v.cover) : ''}"></video><div class="dmb-layer" id="dmbLayer"></div>`;
+                initDanmaku(bjId);
+            } catch (e) { $('plLoading').innerHTML = `<span>播放加载失败：${escapeHtml(e.message)}</span>`; }
+        })();
+        // 加载弹幕列表
+        (async () => {
+            const dm = await loadDanmaku();
+            const list = dm[bjId] || [];
+            const el2 = $('dmbList');
+            el2.innerHTML = `<h3 class="text-base font-medium mb-2">弹幕 ${list.length}</h3>${list.length ? list.slice(-30).map(x => `<div class="py-0.5 text-sm"><b style="color:var(--text-1);">${escapeHtml(x.user || '')}</b> <span style="color:var(--text-2);">${escapeHtml(x.text)}</span> <span class="text-xs" style="color:var(--text-3);">${durFmt(x.time)}</span></div>`).join('') : '<div class="text-sm" style="color:var(--text-3);">暂无弹幕</div>'}`;
+        })();
+    }
 
-        function logout() {
-            currentUser = null;
-            localStorage.removeItem('currentUser');
-            updateAuthUI();
-        }
+    // ================= 播放器 + 弹幕 =================
+    let _dmSpawned = new Set(); let _dmVideo = null;
+    async function initDanmaku(bjId) {
+        _dmSpawned = new Set();
+        const dm = await loadDanmaku(); const list = (dm[bjId] || []).sort((a, b) => a.time - b.time);
+        _dmVideo = $('videoEl'); if (!_dmVideo) return;
+        let queue = list.slice();
+        _dmVideo.ontimeupdate = () => {
+            if (!queue.length) return;
+            const t = _dmVideo.currentTime;
+            while (queue.length && queue[0].time <= t) {
+                const item = queue.shift();
+                if (!_dmSpawned.has(item.time + '|' + item.text)) {
+                    _dmSpawned.add(item.time + '|' + item.text);
+                    spawnDanmaku(item);
+                }
+            }
+        };
+    }
+    function spawnDanmaku(item) {
+        const layer = $('dmbLayer'); if (!layer) return;
+        const span = document.createElement('div');
+        span.className = 'dmb-item';
+        span.textContent = item.text;
+        if (item.color) span.style.color = item.color;
+        const topPct = 4 + (Math.random() * 26);
+        span.style.top = topPct + '%';
+        const dur = 6 + Math.random() * 3;
+        span.style.setProperty('--dmb-dur', dur + 's');
+        layer.appendChild(span);
+        requestAnimationFrame(() => { span.classList.add('run'); });
+        setTimeout(() => span.remove(), dur * 1000);
+    }
+    async function sendDanmaku(bjId) {
+        if (!currentUser) { toast('请先登录'); openAuth(); return; }
+        const input = $('dmbText'); const text = input.value.trim(); if (!text) return;
+        const time = _dmVideo ? _dmVideo.currentTime : 0;
+        const dm = await loadDanmaku();
+        if (!dm[bjId]) dm[bjId] = [];
+        dm[bjId].push({ time: Math.round(time * 100) / 100, text, user: currentUser.name, color: '#ffffff' });
+        await saveDanmaku(dm);
+        // 更新计数
+        const d = await loadVideos(); if (d.videos[bjId]) { d.videos[bjId].danmakuCount = (d.videos[bjId].danmakuCount || 0) + 1; await saveVideos(d); }
+        input.value = '';
+        // 立即发射
+        spawnDanmaku({ time, text, user: currentUser.name });
+        toast('弹幕已发送');
+    }
 
-        // ============ 事件绑定 ============
-        document.getElementById('heroAuthBtn').addEventListener('click', openAuthModal);
-        document.getElementById('closeAuthModal').addEventListener('click', closeAuthModal);
-        document.getElementById('authModal').addEventListener('click', function (e) { if (e.target === this) closeAuthModal(); });
-        document.getElementById('closeProfileModal').addEventListener('click', closeProfileModal);
-        document.getElementById('profileModal').addEventListener('click', function (e) { if (e.target === this) closeProfileModal(); });
+    // ================= 点赞/硬币/收藏 =================
+    async function toggleStat(bjId, kind, btn) {
+        if (!currentUser) { toast('请先登录'); openAuth(); return; }
+        const saved = JSON.parse(localStorage.getItem('videoStats') || '{}');
+        if (!saved[bjId]) saved[bjId] = {};
+        const was = saved[bjId][kind];
+        const d = await loadVideos(); const v = d.videos[bjId]; if (!v) return;
+        const key = { like: 'likeCount', coin: 'coinCount', fav: 'favoriteCount' }[kind];
+        if (was) { v[key] = Math.max(0, (v[key] || 0) - 1); delete saved[bjId][kind]; }
+        else { v[key] = (v[key] || 0) + 1; saved[bjId][kind] = true; }
+        localStorage.setItem('videoStats', JSON.stringify(saved));
+        await saveVideos(d);
+        btn.classList.toggle('active', !was);
+        const svg = btn.querySelector('svg'); if (svg) svg.setAttribute('fill', !was ? 'currentColor' : 'none');
+        const label = btn.childNodes[btn.childNodes.length - 1]; if (label) label.textContent = ' ' + v[key];
+        toast(was ? '已取消' : '操作成功');
+    }
 
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById(this.dataset.tab + 'Tab').classList.add('active');
+    // ================= 投稿 =================
+    async function renderUpload() {
+        const el = $('view');
+        if (!currentUser) { el.innerHTML = `<div class="empty-hint">请先 <button class="text-[var(--brand)]" onclick="openAuth()">登录</button> 后投稿</div>`; return; }
+        el.innerHTML = `
+            ${renderPartitionBar()}
+            <div class="mx-auto mt-6 max-w-3xl">
+                <h1 class="text-xl font-bold mb-4">投稿视频</h1>
+                <div class="lx-card p-5">
+                    <div class="status-box" id="upStatus"></div>
+                    <div class="field"><label>视频文件（自动分片上传到仓库，≤1GB）</label><input type="file" id="upFile" accept="video/*"></div>
+                    <div class="field"><label>标题</label><input id="upTitle" placeholder="视频标题"></div>
+                    <div class="field"><label>分区</label><select id="upPartition">${PARTITIONS.map(p => `<option value="${p.slug}">${p.name}</option>`).join('')}</select></div>
+                    <div class="field"><label>标签（逗号分隔）</label><input id="upTags" placeholder="例如：教程,Windows,斑鸠OS"></div>
+                    <div class="field"><label>简介</label><textarea id="upDesc" rows="3" placeholder="视频简介"></textarea></div>
+                    <div class="field"><label>封面图（可选，不选则用占位封面）</label><input type="file" id="upCover" accept="image/*"></div>
+                    <div class="hidden" id="upProgressBox">
+                        <div class="flex items-center justify-between text-sm mb-1"><span class="upload-step" id="upStep">准备中…</span><span class="upload-step" id="upPct">0%</span></div>
+                        <div class="progress-bar"><div class="fill" id="upFill" style="width:0%"></div></div>
+                    </div>
+                    <button class="btn btn-block mt-3" id="upBtn" onclick="doUpload()">开始上传</button>
+                </div>
+            </div>`;
+    }
+    async function doUpload() {
+        if (!currentUser) { toast('请先登录'); return; }
+        const file = $('upFile').files[0]; const title = $('upTitle').value.trim();
+        if (!file) { showUp('err', '请选择视频文件'); return; }
+        if (!title) { showUp('err', '请填写标题'); return; }
+        const slug = $('upPartition').value; const tags = $('upTags').value.split(/[,，]/).map(s => s.trim()).filter(Boolean);
+        const desc = $('upDesc').value.trim(); const coverFile = $('upCover').files[0];
+        const btn = $('upBtn'); btn.disabled = true;
+        $('upProgressBox').classList.remove('hidden');
+        showUp('info', '正在准备上传…');
+        try {
+            const d = await loadVideos();
+            const bj = nextBJ(d);
+            const dir = bj.replace(/\D/g, ''); // 分片目录 files/<数字>/
+            let duration = 0;
+            // 读取时长
+            try { const url = URL.createObjectURL(file); const tv = document.createElement('video'); tv.preload = 'metadata'; await new Promise((res, rej) => { tv.onloadedmetadata = res; tv.onerror = rej; tv.src = url; }); duration = tv.duration || 0; URL.revokeObjectURL(url); } catch (e) {}
+            // 分片上传
+            let coverPath = null;
+            const shardInfo = await uploadVideoShards(file, dir, (ph) => {
+                if (ph.type === 'transfer') { $('upStep').textContent = `分片上传 ${Math.round(ph.ratio * 100)}…`; $('upFill').style.width = Math.round(ph.ratio * 100) + '%'; $('upPct').textContent = Math.round(ph.ratio * 100) + '%'; }
+                else if (ph.type === 'verify') { $('upStep').textContent = '正在向服务器验证分片完整性…'; $('upFill').style.width = '99%'; }
+                else if (ph.type === 'verified') { $('upStep').textContent = '服务器验证通过'; $('upFill').style.width = '100%'; $('upPct').textContent = '100%'; }
             });
-        });
-
-        document.getElementById('loginForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const username = document.getElementById('loginUsername').value.trim();
-            const password = document.getElementById('loginPassword').value.trim();
-            showStatus('loginStatus', '登录中...', 'info');
-            try {
-                const user = await loginUser(username, password);
-                currentUser = user;
-                localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                updateAuthUI();
-                closeAuthModal();
-            } catch (error) {
-                showStatus('loginStatus', error.message, 'error');
+            // 封面（可选）
+            if (coverFile) {
+                const cbuf = await coverFile.arrayBuffer();
+                const cbase = (coverFile.name.replace(/\.[^/.]+$/, '') || 'cover').replace(/[^\w\u4e00-\u9fa5-]/g, '_');
+                const cname = `cover_${cbase}.${fileExt(coverFile.name)}`;
+                await uploadChunkToRepo(cbuf, dir, cname, 0, 1);
+                await verifyChunkOnServer(dir, cname, cbuf.byteLength, cbuf);
+                coverPath = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${VIDEO_REPO}/main/files/${dir}/${encodeURIComponent(cname)}`;
             }
-        });
+            // 写入 videos.yaml，BJ号递增
+            const entry = {
+                bj, title, upId: currentUser.username, upName: currentUser.name,
+                slug, tags, description: desc, duration: Math.round(duration),
+                originalName: file.name, size: file.size,
+                storedChunks: shardInfo.storedChunks, totalChunks: shardInfo.totalChunks,
+                cover: coverPath, createdAt: new Date().toISOString(),
+                viewCount: 0, likeCount: 0, coinCount: 0, favoriteCount: 0, danmakuCount: 0
+            };
+            d.videos[bj] = entry; d.meta.lastBJ = parseInt(bj.replace(/\D/g, ''), 10);
+            await saveVideos(d);
+            showUp('ok', `上传成功！你的视频编号：${bj}`);
+            setTimeout(() => go('#/video/' + encodeURIComponent(bj)), 800);
+        } catch (e) {
+            showUp('err', e.message); $('upFill').style.width = '0%';
+        } finally { btn.disabled = false; }
+    }
+    function showUp(type, msg) { const b = $('upStatus'); b.textContent = msg; b.className = 'status-box ' + type; }
 
-        document.getElementById('registerForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const username = document.getElementById('regUsername').value.trim();
-            const name = document.getElementById('regName').value.trim();
-            const email = document.getElementById('regEmail').value.trim();
-            const password = document.getElementById('regPassword').value.trim();
-            showStatus('registerStatus', '注册中...', 'info');
-            try {
-                const user = await registerUser(username, name, email, password);
-                currentUser = { ...user, username: username };
-                localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                updateAuthUI();
-                closeAuthModal();
-            } catch (error) {
-                showStatus('registerStatus', error.message, 'error');
-            }
-        });
+    // ================= 排行榜 =================
+    async function renderRanking() {
+        const el = $('view'); const d = await loadVideos();
+        const list = Object.values(d.videos).sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0));
+        el.innerHTML = `${renderPartitionBar()}
+            <div class="mt-5 grid gap-7 xl:grid-cols-[minmax(0,1fr)_336px]">
+                <div class="min-w-0"><section class="lx-card p-5"><h1 class="text-lg font-bold mb-4">排行榜</h1>${list.length ? list.slice(0, 20).map((v, i) => rankItem(v, i)).join('') : '<div class="empty-hint">暂无数据</div>'}</section></div>
+                <aside><section class="lx-card p-4"><h3 class="text-sm font-semibold">热门标签</h3><div class="mt-3 flex flex-wrap gap-2">${[...new Set(list.flatMap(v => v.tags || []))].slice(0, 12).map(t => `<a class="lx-chip" href="#/search?keyword=${encodeURIComponent(t)}"># ${escapeHtml(t)}</a>`).join('') || '<div class="text-xs p-2 text-[var(--text-3)]">暂无标签</div>'}</div></section></aside>
+            </div>`;
+    }
 
-        document.getElementById('linkMainBtn').addEventListener('click', async function () {
-            const btn = this;
-            const input = document.getElementById('linkMainInput');
-            showStatus('linkStatus', '关联中...', 'info');
-            btn.disabled = true;
-            try {
-                const linked = await linkMainAccount(input.value);
-                showStatus('linkStatus', `已关联主站账号：${linked}`, 'success');
-                input.value = '';
-                openProfileModal(); // 刷新个人中心
-            } catch (error) {
-                showStatus('linkStatus', error.message, 'error');
-            } finally {
-                btn.disabled = false;
-            }
-        });
+    // ================= 搜索 =================
+    async function renderSearch() {
+        const el = $('view'); const params = new URLSearchParams(location.hash.split('?')[1] || '');
+        const kw = (params.get('keyword') || '').trim();
+        const d = await loadVideos();
+        const list = Object.values(d.videos).filter(v => !kw || (v.title + ' ' + (v.upName || '') + ' ' + (v.tags || []).join(' ')).toLowerCase().includes(kw.toLowerCase())).sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+        el.innerHTML = `${renderPartitionBar()}
+            <div class="mt-4"><h1 class="text-lg font-bold">搜索：${escapeHtml(kw || '全部')}</h1><span class="text-sm" style="color:var(--text-3);">找到 ${list.length} 个视频</span></div>
+            <div class="mt-5">${list.length ? `<div class="grid gap-x-4 gap-y-6 grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">${list.map(videoCard).join('')}</div>` : '<div class="empty-hint">没有找到相关视频</div>'}</div>`;
+    }
 
-        document.getElementById('logoutBtn').addEventListener('click', function () {
-            logout();
-            closeProfileModal();
-        });
+    // ================= 个人空间 =================
+    async function renderSpace(uid) {
+        const el = $('view'); const d = await loadVideos();
+        const my = Object.values(d.videos).filter(v => (v.upId || '') === uid).sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+        const name = my.length ? my[0].upName : (uid === (currentUser && currentUser.username) ? currentUser.name : uid);
+        el.innerHTML = `${renderPartitionBar()}
+            <div class="mt-6 space-head"><div class="text-center">${avatarHTML(name, 72)}</div><div><h1 class="text-xl font-bold">${escapeHtml(name)}</h1><div class="text-sm" style="color:var(--text-3);">@${escapeHtml(uid)} · ${my.length} 投稿</div></div></div>
+            <div class="mt-6"><h2 class="text-base font-medium mb-3">TA 的投稿</h2>${my.length ? `<div class="grid gap-x-4 gap-y-6 grid-cols-2 md:grid-cols-3 xl:grid-cols-4">${my.map(videoCard).join('')}</div>` : '<div class="empty-hint">该用户还没有投稿</div>'}</div>`;
+    }
 
-        // 恢复登录态
-        const savedUser = localStorage.getItem('currentUser');
-        if (savedUser) {
-            try {
-                currentUser = JSON.parse(savedUser);
-            } catch (e) { localStorage.removeItem('currentUser'); }
+    // ================= 动态/收藏/历史/消息 =================
+    async function renderFollowing() {
+        const el = $('view'); if (!currentUser) { el.innerHTML = `<div class="empty-hint">请先 <button class="text-[var(--brand)]" onclick="openAuth()">登录</button> 后查看动态</div>`; return; }
+        const d = await loadVideos();
+        const list = Object.values(d.videos).filter(v => v.upId === currentUser.username).sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+        el.innerHTML = `${renderPartitionBar()}<div class="mt-5"><h1 class="text-lg font-bold mb-4">我的动态</h1>${list.length ? list.map(v => `<div class="lx-card p-4 mb-3 flex items-center gap-3"><span class="bk-badge">${v.bj}</span><span class="flex-1 truncate">${escapeHtml(v.title)}</span><a class="btn btn-sm" href="#/video/${encodeURIComponent(v.bj)}">观看</a></div>`).join('') : '<div class="empty-hint">暂无动态</div>'}</div>`;
+    }
+    async function renderFavorites() {
+        const el = $('view'); const d = await loadVideos();
+        const stats = JSON.parse(localStorage.getItem('videoStats') || '{}');
+        const favs = Object.keys(stats).filter(k => stats[k] && stats[k].fav).map(k => d.videos[k]).filter(Boolean);
+        el.innerHTML = `${renderPartitionBar()}<div class="mt-5"><h1 class="text-lg font-bold mb-4">我的收藏</h1>${favs.length ? `<div class="grid gap-x-4 gap-y-6 grid-cols-2 md:grid-cols-3 xl:grid-cols-4">${favs.map(videoCard).join('')}</div>` : '<div class="empty-hint">还没有收藏视频</div>'}</div>`;
+    }
+    async function renderHistory() {
+        const el = $('view'); const d = await loadVideos();
+        const h = JSON.parse(localStorage.getItem('watchHistory') || '[]');
+        const list = h.map(id => d.videos[id]).filter(Boolean).reverse();
+        el.innerHTML = `${renderPartitionBar()}<div class="mt-5"><h1 class="text-lg font-bold mb-4">观看历史</h1>${list.length ? list.map(v => `<div class="lx-card p-4 mb-3 flex items-center gap-3"><span class="bk-badge">${v.bj}</span><span class="flex-1 truncate">${escapeHtml(v.title)}</span><a class="btn btn-sm" href="#/video/${encodeURIComponent(v.bj)}">再看</a></div>`).join('') : '<div class="empty-hint">暂无观看历史</div>'}</div>`;
+    }
+    async function renderMessages() {
+        const el = $('view');
+        el.innerHTML = `${renderPartitionBar()}<div class="mt-5"><h1 class="text-lg font-bold mb-4">消息</h1><div class="empty-hint">消息系统建设中</div></div>`;
+    }
+    async function renderAbout() {
+        const el = $('view');
+        el.innerHTML = `${renderPartitionBar()}<div class="mx-auto mt-8 max-w-2xl"><h1 class="text-xl font-bold mb-3">关于斑鸠视频</h1><p class="text-sm" style="color:var(--text-2);">斑鸠视频（BanJiu Video）是一个基于 GitHub 存储的弹幕视频社区。视频以分片形式存入 BanJiu-Video 仓库，每个视频分配唯一 BJ 编号，索引与弹幕均通过 YAML 文件管理。</p></div>`;
+    }
+
+    // ================= 路由 =================
+    const routes = [
+        { re: /^#\/$/, fn: renderHome }, { re: /^#\/c\/([^\/]+)$/, fn: (el, m) => renderPartition(decodeURIComponent(m[1])) },
+        { re: /^#\/video\/([^\/]+)$/, fn: (el, m) => renderVideo(decodeURIComponent(m[1])) },
+        { re: /^#\/space\/([^\/]*)$/, fn: (el, m) => renderSpace(decodeURIComponent(m[1])) },
+        { re: /^#\/upload$/, fn: renderUpload }, { re: /^#\/ranking$/, fn: renderRanking },
+        { re: /^#\/search$/, fn: renderSearch }, { re: /^#\/following$/, fn: renderFollowing },
+        { re: /^#\/favorites$/, fn: renderFavorites }, { re: /^#\/history$/, fn: renderHistory },
+        { re: /^#\/messages$/, fn: renderMessages }, { re: /^#\/about$/, fn: renderAbout }
+    ];
+    function router() {
+        const hash = location.hash || '#/';
+        if (hash === '#/' || hash === '') { renderHome(); return; }
+        for (const r of routes) { const m = hash.match(r.re); if (m) { const fn = r.fn; if (fn.length > 1) { fn(0, m); } else { fn(); } return; } }
+        renderHome();
+    }
+
+    // ================= 导航 =================
+    function buildPartMenu() {
+        $('partMenu').innerHTML = PARTITIONS.map(p => `<a class="block rounded-lg px-3 py-1.5 text-sm hover:bg-[var(--bg-soft)]" href="#/c/${p.slug}" style="color:var(--text-1);">${p.name}</a>`).join('');
+    }
+    function updateAuthUI() {
+        const area = $('authArea');
+        document.body.classList.toggle('logged-in', !!currentUser);
+        if (currentUser) {
+            area.innerHTML = `<button class="flex items-center gap-2" onclick="openProfile()">${avatarHTML(currentUser.name, 30)}<span class="text-sm font-medium hidden sm:inline">${escapeHtml(currentUser.name)}</span></button>`;
+        } else {
+            area.innerHTML = `<div class="flex items-center gap-2"><button class="btn btn-sm btn-ghost" onclick="openAuth()">登录</button><button class="btn btn-sm hidden sm:inline-flex" onclick="openAuth('reg')">注册</button></div>`;
         }
+    }
+    function openAuth(mode) {
+        $('authModal').classList.add('open');
+        if (mode === 'reg') switchAuthPanel('reg');
+        else switchAuthPanel('login');
+    }
+    function closeAuth() { $('authModal').classList.remove('open'); }
+    function switchAuthPanel(p) {
+        document.querySelectorAll('#authModal .tab-btn').forEach(b => b.classList.toggle('active', b.dataset.p === p));
+        document.querySelectorAll('#authModal .panel').forEach(x => x.classList.toggle('active', x.id === p + 'Panel'));
+    }
+    function openProfile() {
+        if (!currentUser) { openAuth(); return; }
+        $('profileBox').innerHTML = `${avatarHTML(currentUser.name, 48)}<div><div class="font-bold">${escapeHtml(currentUser.name)}</div><div class="text-sm" style="color:var(--text-3);">@${escapeHtml(currentUser.username)} · ${escapeHtml(currentUser.email)}</div>${currentUser.linkedMain ? `<div class="text-xs mt-1" style="color:var(--brand);">已关联主站账号：${escapeHtml(currentUser.linkedMain)}</div>` : '<div class="text-xs mt-1" style="color:var(--text-3);">未关联主站账号</div>'}</div>`;
+        $('linkStatus').className = 'status-box'; $('linkStatus').textContent = ''; $('linkMainInput').value = '';
+        $('profileModal').classList.add('open');
+    }
+    function closeProfile() { $('profileModal').classList.remove('open'); }
+    async function doLogin() {
+        const b = $('loginStatus'); b.className = 'status-box info'; b.textContent = '登录中…';
+        try { const u = await loginUser($('loginUsername').value.trim(), $('loginPassword').value.trim()); currentUser = u; localStorage.setItem('currentUser', JSON.stringify(currentUser)); updateAuthUI(); closeAuth(); router(); toast('登录成功'); }
+        catch (e) { b.className = 'status-box err'; b.textContent = e.message; }
+    }
+    async function doRegister() {
+        const b = $('regStatus'); b.className = 'status-box info'; b.textContent = '注册中…';
+        try { const u = await registerUser($('regUsername').value.trim(), $('regName').value.trim(), $('regEmail').value.trim(), $('regPassword').value.trim()); currentUser = { ...u, username: $('regUsername').value.trim() }; localStorage.setItem('currentUser', JSON.stringify(currentUser)); updateAuthUI(); closeAuth(); router(); toast('注册成功'); }
+        catch (e) { b.className = 'status-box err'; b.textContent = e.message; }
+    }
+    async function doLinkMain() {
+        const b = $('linkStatus'); b.className = 'status-box info'; b.textContent = '关联中…';
+        try { const t = await linkMainAccount($('linkMainInput').value); b.className = 'status-box ok'; b.textContent = `已关联主站账号：${t}`; openProfile(); }
+        catch (e) { b.className = 'status-box err'; b.textContent = e.message; }
+    }
+    function doLogout() { currentUser = null; localStorage.removeItem('currentUser'); updateAuthUI(); closeProfile(); router(); toast('已退出登录'); }
+
+    // ================= 初始化 =================
+    function refreshStats() {
+        loadVideos().then(d => {
+            const dc = Object.keys(d.videos).length;
+            const dl = $('footStats'); dl.textContent = `稿件 ${dc} · 弹幕 0 · 用户 ${Object.keys(d.videos).length ? Object.keys(d.videos).length : 0} 位UP主`;
+        }).catch(() => {});
+    }
+    function init() {
+        buildPartMenu();
+        const saved = localStorage.getItem('currentUser');
+        if (saved) { try { currentUser = JSON.parse(saved); } catch (e) { localStorage.removeItem('currentUser'); } }
         updateAuthUI();
+        router();
+        refreshStats();
+        $('partBtn').addEventListener('click', e => { $('partMenu').classList.toggle('hidden'); e.stopPropagation(); });
+        document.addEventListener('click', e => { if (!e.target.closest('#partMenu') && !e.target.closest('#partBtn')) $('partMenu').classList.add('hidden'); });
+        $('searchInput').addEventListener('keydown', e => { if (e.key === 'Enter') { const kw = e.target.value.trim(); go('#/search' + (kw ? '?keyword=' + encodeURIComponent(kw) : '')); } });
+        window.addEventListener('hashchange', () => { window._incremented = {}; router(); });
+    }
+    init();
     </script>
 </body>
 </html>
