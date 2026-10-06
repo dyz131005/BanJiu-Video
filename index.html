@@ -3724,18 +3724,34 @@ html[data-theme=dark] {
         if (data.download_url) { const raw = await fetch(data.download_url, { headers: { 'Authorization': `token ${apiKey}` } }); if (raw.ok) return await raw.text(); }
         throw new Error(`无法解析${filename}内容`);
     }
+        const __writeLocks = {};
     async function saveYamlFile(filename, content, message, repo = VIDEO_REPO) {
         const apiKey = decodeApiKey(); if (!apiKey) throw new Error("API Key解码失败");
-        const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${repo}/contents/${filename}`;
-        let sha = null;
-        const ex = await fetch(url, { headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3+json' }, cache: 'no-store' });
-        if (ex.ok) { const d = await ex.json(); if (d.sha) sha = d.sha; }
-        const body = { message, content: btoa(unescape(encodeURIComponent(content))), sha };
-        if (sha) body.sha = sha;
-        const r = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-        if (!r.ok) { const t = await r.text(); throw new Error(`保存${filename}失败: ${r.status} - ${t.substring(0, 120)}`); }
-        return true;
+        const url = 'https://api.github.com/repos/' + GITHUB_USERNAME + '/' + repo + '/contents/' + filename;
+        const lockKey = repo + '/' + filename;
+        const prev = __writeLocks[lockKey] || Promise.resolve();
+        const run = prev.then(async function() {
+            let lastErr = null;
+            for (let attempt = 0; attempt < 5; attempt++) {
+                let sha = null;
+                try {
+                    const ex = await fetch(url, { headers: { 'Authorization': 'token ' + apiKey, 'Accept': 'application/vnd.github.v3+json' }, cache: 'no-store' });
+                    if (ex.ok) { const d = await ex.json(); if (d.sha) sha = d.sha; }
+                } catch (e) {}
+                const body = { message: message, content: btoa(unescape(encodeURIComponent(content))) };
+                if (sha) body.sha = sha;
+                const r = await fetch(url, { method: 'PUT', headers: { 'Authorization': 'token ' + apiKey, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+                if (r.ok) return true;
+                const t = await r.text();
+                if (r.status === 409) { lastErr = new Error('保存' + filename + '失败: 并发冲突(409)'); await new Promise(function(res){ setTimeout(res, 400 + attempt * 350); }); continue; }
+                throw new Error('保存' + filename + '失败: ' + r.status + ' - ' + t.substring(0, 120));
+            }
+            throw lastErr || new Error('保存' + filename + '失败: 409');
+        });
+        __writeLocks[lockKey] = run.catch(function(){});
+        return run;
     }
+
     function arrayBufferToBase64(buffer) {
         const bytes = new Uint8Array(buffer); let bin = '';
         const cs = 8192;
@@ -3830,23 +3846,55 @@ html[data-theme=dark] {
     }
 
     // ================= 下载重建（分片合并） =================
+            async function fetchRetry(url, opts, tries) {
+        let lastErr;
+        for (let i = 0; i < (tries || 3); i++) {
+            try {
+                const r = await fetch(url, opts);
+                return r;
+            } catch (e) { lastErr = e; await new Promise(res => setTimeout(res, 500 + i * 400)); }
+        }
+        throw lastErr || new Error('fetch 失败');
+    }
+    async function downloadByRange(url, size) {
+        const SLICE = 4 * 1024 * 1024;
+        const parts = [];
+        for (let start = 0; start < size; start += SLICE) {
+            const end = Math.min(size - 1, start + SLICE - 1);
+            const r = await fetchRetry(url, { headers: { 'Range': 'bytes=' + start + '-' + end } }, 3);
+            if (!r.ok) throw new Error('分段下载失败: ' + r.status);
+            const b = await r.arrayBuffer();
+            if (!b.byteLength) throw new Error('分段下载为空');
+            parts.push(new Uint8Array(b));
+        }
+        const total = parts.reduce((s, p) => s + p.length, 0);
+        const out = new Uint8Array(total); let o = 0;
+        for (const p of parts) { out.set(p, o); o += p.length; }
+        return out.buffer;
+    }
     async function downloadChunk(dir, storedName) {
         const apiKey = decodeApiKey(); if (!apiKey) throw new Error("API Key解码失败");
-        const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${VIDEO_REPO}/contents/files/${dir}/${encodeURIComponent(storedName)}`;
-        const r = await fetch(url, { headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3+json' } });
-        if (!r.ok) throw new Error(`获取分片失败: ${r.status}`);
+        const url = 'https://api.github.com/repos/' + GITHUB_USERNAME + '/' + VIDEO_REPO + '/contents/files/' + dir + '/' + encodeURIComponent(storedName);
+        const r = await fetchRetry(url, { headers: { 'Authorization': 'token ' + apiKey, 'Accept': 'application/vnd.github.v3+json' } }, 3);
+        if (!r.ok) throw new Error('获取分片失败: ' + r.status);
         const info = await r.json();
         if (info.type !== 'file') throw new Error('服务器返回的不是文件');
-        if (info.size === 0) return new ArrayBuffer(0);
+        const size = info.size || 0;
+        if (size === 0) return new ArrayBuffer(0);
         if (info.content) { const bs = atob(info.content.replace(/\n/g, '')); const u8 = new Uint8Array(bs.length); for (let i = 0; i < bs.length; i++) u8[i] = bs.charCodeAt(i); return u8.buffer; }
+        if (info.download_url) {
+            try { return await downloadByRange(info.download_url, size); } catch (e) {}
+        }
         if (!info.sha) throw new Error('无法获取分片 blob SHA');
-        const blobUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${VIDEO_REPO}/git/blobs/${info.sha}`;
-        const br = await fetch(blobUrl, { headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3.raw' } });
-        if (!br.ok) throw new Error(`下载分片失败: ${br.status}`);
-        const ct = br.headers.get('content-type') || '';
-        if (ct.indexOf('application/json') !== -1) throw new Error('服务器返回 JSON 而非内容');
+        const blobUrl = 'https://api.github.com/repos/' + GITHUB_USERNAME + '/' + VIDEO_REPO + '/git/blobs/' + info.sha;
+        const br = await fetchRetry(blobUrl, { headers: { 'Authorization': 'token ' + apiKey, 'Accept': 'application/vnd.github.v3.raw' } }, 3);
+        if (!br.ok) throw new Error('下载分片失败: ' + br.status);
+        const ct2 = br.headers.get('content-type') || '';
+        if (ct2.indexOf('application/json') !== -1) throw new Error('服务器返回 JSON 而非内容');
         return await br.arrayBuffer();
     }
+
+
     async function downloadAndMerge(dir, storedChunks) {
         const parts = [];
         for (const name of storedChunks) { const b = await downloadChunk(dir, name); parts.push(new Uint8Array(b)); }
@@ -3998,7 +4046,7 @@ html[data-theme=dark] {
                 const wrap = $('playerWrap');
                 wrap.innerHTML = `<video controls autoplay playsinline class="w-full" id="videoEl" style="aspect-ratio:16/9;display:block;" src="${url}" poster="${v.cover ? escapeHtml(v.cover) : ''}"></video><div class="dmb-layer" id="dmbLayer"></div>`;
                 initDanmaku(bjId);
-            } catch (e) { $('plLoading').innerHTML = `<span>播放加载失败：${escapeHtml(e.message)}</span>`; }
+            } catch (e) { const _pl=$('plLoading'); if(_pl) _pl.innerHTML = `<span>播放加载失败：${escapeHtml(e.message)}</span>`; }
         })();
         // 加载弹幕列表
         (async () => {
