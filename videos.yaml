@@ -45,8 +45,8 @@ videos:
     totalChunks: 1
     cover: null
     createdAt: '2026-10-06T12:20:53.349Z'
-    viewCount: 1
-    likeCount: 0
+    viewCount: 0
+    likeCount: 1
     coinCount: 0
     favoriteCount: 0
     danmakuCount: 0
