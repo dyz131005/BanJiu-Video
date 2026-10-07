@@ -8,12 +8,4 @@ BJ1:
     likeCount: 1
     likedBy:
       - dyz
-    replies:
-      - id: r_1791350813774
-        uid: dyz
-        name: dyz
-        content: 这是一条测试回复
-        replyTo: dyz
-        createdAt: '2026-10-07T05:26:53.774Z'
-        likeCount: 0
-        likedBy: []
+    replies: []
