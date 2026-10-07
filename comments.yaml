@@ -5,6 +5,7 @@ BJ2:
     content: hi
     replyTo: null
     createdAt: '2026-10-07T05:40:03.080Z'
-    likeCount: 0
-    likedBy: []
+    likeCount: 1
+    likedBy:
+      - dyz
     replies: []
