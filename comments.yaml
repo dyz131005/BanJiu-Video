@@ -5,8 +5,9 @@ BJ1:
     content: 这是一条测试评论：主题切换好呀
     replyTo: null
     createdAt: '2026-10-07T05:26:38.878Z'
-    likeCount: 0
-    likedBy: []
+    likeCount: 1
+    likedBy:
+      - dyz
     replies:
       - id: r_1791350813774
         uid: dyz
