@@ -3678,6 +3678,7 @@ html[data-theme=dark] {
     const ACCOUNTS_FILE = "accounts.yaml";
     const VIDEOS_FILE = "videos.yaml";
     const DANMAKU_FILE = "danmaku.yaml";
+    const AVATARS_FILE = "avatars.yaml";
     const CHUNK_SIZE = 25 * 1024 * 1024;
     const PARTITIONS = [
         { slug: "animation", name: "动画", color: "#ff6685" }, { slug: "bangumi", name: "番剧", color: "#ff9f45" },
@@ -3698,13 +3699,34 @@ html[data-theme=dark] {
         catch (e) { console.error("API Key解码失败", e); return null; }
     }
     function escapeHtml(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
-    function avatarHTML(name, size) {
+        let AVATAR_CACHE = {};
+    async function loadAvatars() { try { const c = await fetchYamlFile(AVATARS_FILE); AVATAR_CACHE = c ? (jsyaml.load(c) || {}) : {}; } catch (e) { AVATAR_CACHE = {}; } return AVATAR_CACHE; }
+    async function saveAvatars(map) { await saveYamlFile(AVATARS_FILE, jsyaml.dump(map), '更新头像映射'); }
+    function avatarFileURL(file) { return file ? `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${VIDEO_REPO}/main/avatars/${encodeURIComponent(file)}` : ''; }
+    function getAvatarURL(username) { const e = AVATAR_CACHE && AVATAR_CACHE[username]; return (e && e.file) ? avatarFileURL(e.file) : ''; }
+    function avatarHTML(name, size, username) {
         const s = String(name || '?').trim(); const ch = escapeHtml(s.charAt(0) || '?');
-        let hue = 0; for (let i = 0; i < s.length; i++) hue = (hue * 31 + s.charCodeAt(i)) % 360;
         const px = size || 32;
+        const av = username ? getAvatarURL(username) : '';
+        if (av) return `<span class="avatar-circle" style="width:${px}px;height:${px}px;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;"><img src="${escapeHtml(av)}" alt="" style="width:100%;height:100%;object-fit:cover;"></span>`;
+        let hue = 0; for (let i = 0; i < s.length; i++) hue = (hue * 31 + s.charCodeAt(i)) % 360;
         return `<span class="avatar-circle" style="width:${px}px;height:${px}px;background:hsl(${hue},65%,48%);font-size:${Math.max(10, Math.round(px * 0.42))}px;">${ch}</span>`;
     }
-    function badgeAvatar(name, size) { return `<span class="badged-avatar">${avatarHTML(name, size)}</span>`; }
+    function badgeAvatar(name, size, username) { return `<span class="badged-avatar">${avatarHTML(name, size, username)}</span>`; }
+    async function uploadImageToRepo(arrayBuffer, dir, name) {
+        const apiKey = decodeApiKey(); if (!apiKey) throw new Error("API Key解码失败");
+        const filePath = `${dir}/${encodeURIComponent(name)}`;
+        const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${VIDEO_REPO}/contents/${filePath}`;
+        const bytes = new Uint8Array(arrayBuffer); let bin = ''; const cs = 8192;
+        for (let i = 0; i < bytes.length; i += cs) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + cs));
+        const base64Content = btoa(bin);
+        let sha = null;
+        try { const ex = await fetch(url, { headers: { 'Authorization': `token ${apiKey}`, 'Accept': 'application/vnd.github.v3+json' } }); if (ex.ok) { const d = await ex.json(); if (d.sha) sha = d.sha; } } catch (e) {}
+        const body = { message: `上传文件: ${name}`, content: base64Content }; if (sha) body.sha = sha;
+        const r = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (!r.ok) { const t = await r.text(); throw new Error(`上传失败: ${r.status} - ${t.substring(0, 100)}`); }
+        return name;
+    }
     function go(h) { location.hash = h; }
     function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 2600); }
     function durFmt(s) { s = Math.max(0, Math.floor(s || 0)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60; return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(sec).padStart(2, '0'); }
@@ -3771,7 +3793,7 @@ html[data-theme=dark] {
     // ================= 账号 =================
     async function loadAccounts() { try { const c = await fetchYamlFile(ACCOUNTS_FILE); return c ? (jsyaml.load(c) || {}) : {}; } catch (e) { console.error(e); return {}; } }
     async function saveAccounts(a) { await saveYamlFile(ACCOUNTS_FILE, jsyaml.dump(a), '更新斑鸠视频账号'); }
-    async function registerUser(u, n, e, p) { const a = await loadAccounts(); if (a[u]) throw new Error("用户名已存在"); a[u] = { name: n, email: e, password: p, createdAt: new Date().toISOString() }; await saveAccounts(a); return a[u]; }
+    async function registerUser(u, n, e, p) { const a = await loadAccounts(); if (a[u]) throw new Error("用户名已存在"); const nn = String(n || "").trim(); for (const k of Object.keys(a)) { if (String(a[k].name) === nn) throw new Error("该昵称已被使用，请换一个昵称"); } a[u] = { name: n, email: e, password: p, bio: "", createdAt: new Date().toISOString() }; await saveAccounts(a); return a[u]; }
     async function loginUser(u, p) { const a = await loadAccounts(); const acc = a[u]; if (!acc) throw new Error("用户不存在"); if (acc.password !== p) throw new Error("密码错误"); return { ...acc, username: u }; }
     async function verifyMainUser(name, password) {
         try { const c = await fetchYamlFile(ACCOUNTS_FILE, MAIN_REPO); if (!c) return { found: false, reason: '主网站账号文件为空' }; const a = jsyaml.load(c) || {}; if (!a[name]) return { found: false, reason: '主网站用户 ' + name + ' 不存在' }; if (String(a[name].password) !== String(password)) return { found: false, reason: '主网站账号密码错误' }; return { found: true }; } catch (e) { return { found: false, reason: '校验失败：' + (e.message || e) }; }
@@ -3917,7 +3939,7 @@ html[data-theme=dark] {
         return `<div class="video-card">
             <a class="block" href="#/video/${encodeURIComponent(v.bj)}"><div class="video-card-cover">${cover}</div><h3 class="video-card-title">${escapeHtml(v.title)}</h3></a>
             <div class="flex items-center justify-between gap-2">
-                <a class="flex min-w-0 items-center gap-1.5 text-xs hover:text-[var(--brand)]" href="#/space/${encodeURIComponent(v.upId || '')}" style="color:var(--text-3);">${badgeAvatar(up, 20)}<span class="truncate">${escapeHtml(up)}</span></a>
+                <a class="flex min-w-0 items-center gap-1.5 text-xs hover:text-[var(--brand)]" href="#/space/${encodeURIComponent(v.upId || '')}" style="color:var(--text-3);">${badgeAvatar(up, 20, v.upId)}<span class="truncate">${escapeHtml(up)}</span></a>
                 <span class="shrink-0 text-xs" style="color:var(--text-3);">${v.createdAt ? timeAgo(v.createdAt) : ''}</span>
             </div>
         </div>`;
@@ -3960,7 +3982,7 @@ html[data-theme=dark] {
                             <a class="relative block aspect-video overflow-hidden border-r" href="#/video/${encodeURIComponent(featured[0].bj)}" style="border-color:var(--border);">
                                 <div class="cover-placeholder h-full">${featured[0].cover ? `<img alt="" class="h-full w-full object-cover" src="${escapeHtml(featured[0].cover)}">` : '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg>'}</div>
                                 <span class="absolute left-3 top-3 flex items-center gap-1 rounded-[4px] px-2 py-0.5 text-xs text-white" style="background:var(--brand);">精选</span>
-                                <span class="absolute bottom-3 left-3 right-3 text-white"><span class="mb-1.5 flex items-center gap-2 text-xs">${badgeAvatar(featured[0].upName, 20)}${escapeHtml(featured[0].upName)}<span>${featured[0].viewCount || 0} 播放</span></span><span class="line-clamp-2 block text-lg font-medium md:text-xl" style="text-shadow:rgba(0,0,0,.6) 0 1px 6px;">${escapeHtml(featured[0].title)}</span></span>
+                                <span class="absolute bottom-3 left-3 right-3 text-white"><span class="mb-1.5 flex items-center gap-2 text-xs">${badgeAvatar(featured[0].upName, 20, featured[0].upId)}${escapeHtml(featured[0].upName)}<span>${featured[0].viewCount || 0} 播放</span></span><span class="line-clamp-2 block text-lg font-medium md:text-xl" style="text-shadow:rgba(0,0,0,.6) 0 1px 6px;">${escapeHtml(featured[0].title)}</span></span>
                             </a>
                             <div class="flex flex-col justify-between gap-2 p-4">
                                 <div class="flex items-center justify-between"><h3 class="text-sm" style="color:var(--text-2);">推荐轮播</h3></div>
@@ -3990,7 +4012,7 @@ html[data-theme=dark] {
                         <div class="mt-3 flex flex-col gap-1">${ranked.slice(0, 8).map((v, i) => rankItem(v, i)).join('') || '<div class="text-xs p-4 text-center text-[var(--text-3)]">暂无数据</div>'}</div>
                     </section>
                     <section class="lx-card p-4"><h3 class="text-sm font-semibold">热门标签</h3><div class="mt-3 flex flex-wrap gap-2">${[...new Set(videos.flatMap(v => v.tags || []))].slice(0, 12).map(t => `<a class="lx-chip" href="#/search?keyword=${encodeURIComponent(t)}"># ${escapeHtml(t)}</a>`).join('') || '<div class="text-xs p-2 text-[var(--text-3)]">暂无标签</div>'}</div></section>
-                    <section class="lx-card p-4"><h3 class="text-sm font-semibold">推荐 UP 主</h3><div class="mt-3 flex flex-col gap-3">${[...new Map(videos.map(v => [v.upId, v])).values()].slice(0, 5).map(v => `<div class="flex items-center gap-3">${badgeAvatar(v.upName, 38)}<div class="min-w-0 flex-1"><a class="line-clamp-1 text-[13px] font-medium hover:text-[var(--brand)]" href="#/space/${encodeURIComponent(v.upId)}">${escapeHtml(v.upName)}</a><div class="text-[11px] text-[var(--text-3)]">${videos.filter(x => x.upId === v.upId).length} 投稿</div></div></div>`).join('') || '<div class="text-xs p-2 text-[var(--text-3)]">暂无 UP 主</div>'}</div></section>
+                    <section class="lx-card p-4"><h3 class="text-sm font-semibold">推荐 UP 主</h3><div class="mt-3 flex flex-col gap-3">${[...new Map(videos.map(v => [v.upId, v])).values()].slice(0, 5).map(v => `<div class="flex items-center gap-3">${badgeAvatar(v.upName, 38, v.upId)}<div class="min-w-0 flex-1"><a class="line-clamp-1 text-[13px] font-medium hover:text-[var(--brand)]" href="#/space/${encodeURIComponent(v.upId)}">${escapeHtml(v.upName)}</a><div class="text-[11px] text-[var(--text-3)]">${videos.filter(x => x.upId === v.upId).length} 投稿</div></div></div>`).join('') || '<div class="text-xs p-2 text-[var(--text-3)]">暂无 UP 主</div>'}</div></section>
                 </aside>
             </div>`;
     }
@@ -4026,7 +4048,7 @@ html[data-theme=dark] {
                     <div class="dmb-input mt-2"><input id="dmbText" class="h-9 min-w-0 flex-1 rounded-full border px-4 text-sm" placeholder="${currentUser ? '发个友善的弹幕见证当下' : '登录后可发送弹幕'}" style="border-color:var(--border);background:var(--bg-soft);color:var(--text-1);" ${currentUser ? '' : 'disabled'}><button class="btn btn-sm" onclick="sendDanmaku('${bjId}')" ${currentUser ? '' : 'disabled'} >发送</button></div>
                     <h1 class="mt-4 text-xl font-bold">${escapeHtml(v.title)}</h1>
                     <div class="mt-2 flex flex-wrap items-center gap-3">
-                        <a class="flex items-center gap-2" href="#/space/${encodeURIComponent(v.upId || '')}">${badgeAvatar(v.upName, 36)}<span><span class="text-sm font-medium block">${escapeHtml(v.upName)}</span><span class="text-xs block" style="color:var(--text-3);">@${escapeHtml(v.upId || '')}</span></span></a>
+                        <a class="flex items-center gap-2" href="#/space/${encodeURIComponent(v.upId || '')}">${badgeAvatar(v.upName, 36, v.upId)}<span><span class="text-sm font-medium block">${escapeHtml(v.upName)}</span><span class="text-xs block" style="color:var(--text-3);">@${escapeHtml(v.upId || '')}</span></span></a>
                         <span class="text-xs" style="color:var(--text-3);">${v.viewCount || 0} 播放 · ${v.danmakuCount || 0} 弹幕 · ${v.createdAt ? timeAgo(v.createdAt) : ''}</span>
                         <span class="ml-auto flex gap-2">
                             <button class="stat-btn ${liked ? 'active' : ''}" onclick="toggleStat('${bjId}','like',this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="${liked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path></svg>赞 ${v.likeCount || 0}</button>
@@ -4233,7 +4255,7 @@ html[data-theme=dark] {
         const my = Object.values(d.videos).filter(v => (v.upId || '') === uid).sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
         const name = my.length ? my[0].upName : (uid === (currentUser && currentUser.username) ? currentUser.name : uid);
         el.innerHTML = `${renderPartitionBar()}
-            <div class="mt-6 space-head"><div class="text-center">${avatarHTML(name, 72)}</div><div><h1 class="text-xl font-bold">${escapeHtml(name)}</h1><div class="text-sm" style="color:var(--text-3);">@${escapeHtml(uid)} · ${my.length} 投稿</div></div></div>
+            <div class="mt-6 space-head"><div class="text-center">${avatarHTML(name, 72, uid)}</div><div><h1 class="text-xl font-bold">${escapeHtml(name)}</h1><div class="text-sm" style="color:var(--text-3);">@${escapeHtml(uid)} · ${my.length} 投稿</div></div></div>
             <div class="mt-6"><h2 class="text-base font-medium mb-3">TA 的投稿</h2>${my.length ? `<div class="grid gap-x-4 gap-y-6 grid-cols-2 md:grid-cols-3 xl:grid-cols-4">${my.map(videoCard).join('')}</div>` : '<div class="empty-hint">该用户还没有投稿</div>'}</div>`;
     }
 
@@ -4288,7 +4310,7 @@ html[data-theme=dark] {
             ${renderPartitionBar()}
             <div class="mx-auto mt-6 max-w-3xl">
                 <div class="lx-card p-6 flex items-center gap-4 flex-wrap">
-                    ${avatarHTML(currentUser.name, 72)}
+                    ${avatarHTML(currentUser.name, 72, currentUser.username)}
                     <div class="min-w-0 flex-1">
                         <div class="flex items-center gap-2 flex-wrap"><h1 class="text-xl font-bold">${escapeHtml(currentUser.name)}</h1>${linked ? `<span class="bk-badge" style="color:var(--brand);">已关联主站：${escapeHtml(linked)}</span>` : ''}</div>
                         <div class="text-sm mt-1" style="color:var(--text-3);">@${escapeHtml(currentUser.username)}${joined ? ' · ' + escapeHtml(joined) : ''}</div>
@@ -4298,6 +4320,21 @@ html[data-theme=dark] {
                 </div>
                 <div class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
                     ${settingsStat('投稿', my.length)}${settingsStat('播放', totalViews)}${settingsStat('弹幕', totalDms)}${settingsStat('收藏', favN)}
+                </div>
+                <div class="mt-4 lx-card p-5">
+                    <h2 class="text-base font-semibold mb-1">个人资料</h2>
+                    <p class="text-xs mb-3" style="color:var(--text-3);">可上传头像、修改昵称与个性签名</p>
+                    <div class="status-box" id="setProfileStatus"></div>
+                    <div class="flex items-center gap-4">
+                        <span id="setAvatarPreview">${avatarHTML(currentUser.name, 72, currentUser.username)}</span>
+                        <div class="flex flex-col gap-2">
+                            <label class="btn btn-sm cursor-pointer rounded-full">更换头像<input type="file" id="setAvatarFile" accept="image/*" class="hidden" onchange="previewAvatar(this)"></label>
+                            <button class="btn btn-ghost btn-sm" onclick="clearAvatar()">清除头像</button>
+                        </div>
+                    </div>
+                    <div class="field mt-3"><label>昵称</label><input id="setNick" maxlength="20" value="${escapeHtml(currentUser.name)}"></div>
+                    <div class="field"><label>个性签名</label><textarea id="setBio" rows="3" maxlength="300" placeholder="介绍一下自己…">${escapeHtml(currentUser.bio || '')}</textarea></div>
+                    <button class="btn mt-3" onclick="doSaveProfile()">保存资料</button>
                 </div>
                 <div class="mt-4 lx-card p-5">
                     <h2 class="text-base font-semibold mb-1">关联主网站账号</h2>
@@ -4350,6 +4387,56 @@ html[data-theme=dark] {
         toast('已解除关联主站账号'); router();
     }
 
+    let _pendingAvatar = null;
+    function previewAvatar(input) {
+        const f = input && input.files && input.files[0]; if (!f) return;
+        if (f.size > 2 * 1024 * 1024) { toast('头像图片需小于 2MB'); input.value = ''; return; }
+        const rd = new FileReader();
+        rd.onload = e => { _pendingAvatar = { file: f, url: e.target.result }; const p = $('setAvatarPreview'); if (p) p.innerHTML = `<span class="avatar-circle" style="width:72px;height:72px;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;"><img src="${e.target.result}" alt="" style="width:100%;height:100%;object-fit:cover;"></span>`; };
+        rd.readAsDataURL(f);
+    }
+    function clearAvatar() {
+        _pendingAvatar = { clear: true };
+        const p = $('setAvatarPreview'); if (p) p.innerHTML = avatarHTML(currentUser ? currentUser.name : '?', 72, currentUser ? currentUser.username : '');
+        toast('将恢复为默认首字符头像（保存后生效）');
+    }
+    async function doSaveProfile() {
+        if (!currentUser) { toast('请先登录'); return; }
+        const b = $('setProfileStatus'); if (!b) return;
+        b.className = 'status-box info'; b.textContent = '保存中…';
+        try {
+            const nick = $('setNick').value.trim();
+            const bio = $('setBio').value.trim();
+            if (!nick) throw new Error('昵称不能为空');
+            if (nick.length > 20) throw new Error('昵称最多 20 个字符');
+            // 防重名：与其他用户的昵称比对
+            const acc = await loadAccounts();
+            for (const u of Object.keys(acc)) { if (u !== currentUser.username && String(acc[u].name) === nick) throw new Error('该昵称已被其他用户使用'); }
+            // 头像处理
+            const avMap = await loadAvatars();
+            if (_pendingAvatar && _pendingAvatar.clear) { delete avMap[currentUser.username]; }
+            else if (_pendingAvatar && _pendingAvatar.file) {
+                if (!/^image\//.test(_pendingAvatar.file.type)) throw new Error('请选择图片文件');
+                const fname = currentUser.username + '_' + Date.now() + '.' + fileExt(_pendingAvatar.file.name);
+                const buf = await _pendingAvatar.file.arrayBuffer();
+                await uploadImageToRepo(buf, 'avatars', fname);
+                avMap[currentUser.username] = { file: fname, updatedAt: new Date().toISOString() };
+            }
+            await saveAvatars(avMap);
+            AVATAR_CACHE = avMap;
+            // 更新账号昵称与签名
+            if (!acc[currentUser.username]) acc[currentUser.username] = {};
+            acc[currentUser.username].name = nick;
+            acc[currentUser.username].bio = bio;
+            await saveAccounts(acc);
+            currentUser.name = nick; currentUser.bio = bio;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            _pendingAvatar = null;
+            b.className = 'status-box ok'; b.textContent = '资料已更新';
+            updateAuthUI(); setTimeout(() => router(), 800);
+        } catch (e) { b.className = 'status-box err'; b.textContent = e.message; }
+    }
+
     // ================= 路由 =================
     const routes = [
         { re: /^#\/$/, fn: renderHome }, { re: /^#\/c\/([^\/]+)$/, fn: (el, m) => renderPartition(decodeURIComponent(m[1])) },
@@ -4375,7 +4462,7 @@ html[data-theme=dark] {
         const area = $('authArea');
         document.body.classList.toggle('logged-in', !!currentUser);
         if (currentUser) {
-            area.innerHTML = `<button class="flex items-center gap-2" onclick="go('#/settings')">${avatarHTML(currentUser.name, 30)}<span class="text-sm font-medium hidden sm:inline">${escapeHtml(currentUser.name)}</span></button>`;
+            area.innerHTML = `<button class="flex items-center gap-2" onclick="go('#/settings')">${avatarHTML(currentUser.name, 30, currentUser.username)}<span class="text-sm font-medium hidden sm:inline">${escapeHtml(currentUser.name)}</span></button>`;
         } else {
             area.innerHTML = `<div class="flex items-center gap-2"><button class="btn btn-sm btn-ghost" onclick="openAuth()">登录</button><button class="btn btn-sm hidden sm:inline-flex" onclick="openAuth('reg')">注册</button></div>`;
         }
@@ -4392,7 +4479,7 @@ html[data-theme=dark] {
     }
     function openProfile() {
         if (!currentUser) { openAuth(); return; }
-        $('profileBox').innerHTML = `${avatarHTML(currentUser.name, 48)}<div><div class="font-bold">${escapeHtml(currentUser.name)}</div><div class="text-sm" style="color:var(--text-3);">@${escapeHtml(currentUser.username)} · ${escapeHtml(currentUser.email)}</div>${currentUser.linkedMain ? `<div class="text-xs mt-1" style="color:var(--brand);">已关联主站账号：${escapeHtml(currentUser.linkedMain)}</div>` : '<div class="text-xs mt-1" style="color:var(--text-3);">未关联主站账号</div>'}</div>`;
+        $('profileBox').innerHTML = `${avatarHTML(currentUser.name, 48, currentUser.username)}<div><div class="font-bold">${escapeHtml(currentUser.name)}</div><div class="text-sm" style="color:var(--text-3);">@${escapeHtml(currentUser.username)} · ${escapeHtml(currentUser.email)}</div>${currentUser.linkedMain ? `<div class="text-xs mt-1" style="color:var(--brand);">已关联主站账号：${escapeHtml(currentUser.linkedMain)}</div>` : '<div class="text-xs mt-1" style="color:var(--text-3);">未关联主站账号</div>'}</div>`;
         $('linkStatus').className = 'status-box'; $('linkStatus').textContent = ''; $('linkMainInput').value = '';
         $('profileModal').classList.add('open');
     }
@@ -4426,12 +4513,12 @@ html[data-theme=dark] {
         const saved = localStorage.getItem('currentUser');
         if (saved) { try { currentUser = JSON.parse(saved); } catch (e) { localStorage.removeItem('currentUser'); } }
         updateAuthUI();
-        router();
+        loadAvatars().then(() => { updateAuthUI(); router(); });
         refreshStats();
         $('partBtn').addEventListener('click', e => { $('partMenu').classList.toggle('hidden'); e.stopPropagation(); });
         document.addEventListener('click', e => { if (!e.target.closest('#partMenu') && !e.target.closest('#partBtn')) $('partMenu').classList.add('hidden'); });
         $('searchInput').addEventListener('keydown', e => { if (e.key === 'Enter') { const kw = e.target.value.trim(); go('#/search' + (kw ? '?keyword=' + encodeURIComponent(kw) : '')); } });
-        window.addEventListener('hashchange', () => { window._incremented = {}; router(); });
+        window.addEventListener('hashchange', () => { window._incremented = {}; loadAvatars().then(() => router()); });
     }
     init();
     </script>
