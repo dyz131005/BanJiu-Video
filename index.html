@@ -4042,21 +4042,43 @@ html[data-theme=dark] {
         }
         throw lastErr || new Error('fetch 失败');
     }
-    async function downloadByRange(url, size) {
-        const SLICE = 4 * 1024 * 1024;
-        const parts = [];
-        for (let start = 0; start < size; start += SLICE) {
-            const end = Math.min(size - 1, start + SLICE - 1);
-            const r = await fetchRetry(url, { headers: { 'Range': 'bytes=' + start + '-' + end } }, 3);
-            if (!r.ok) throw new Error('分段下载失败: ' + r.status);
-            const b = await r.arrayBuffer();
-            if (!b.byteLength) throw new Error('分段下载为空');
-            parts.push(new Uint8Array(b));
+    function rawCandidates(rawUrl, dir, storedName) {
+        const enc = encodeURIComponent(storedName);
+        const rel = `files/${dir}/${enc}`;
+        const list = [];
+        list.push(`https://fastly.jsdelivr.net/gh/${GITHUB_USERNAME}/${VIDEO_REPO}@main/${rel}`);
+        list.push(`https://cdn.jsdelivr.net/gh/${GITHUB_USERNAME}/${VIDEO_REPO}@main/${rel}`);
+        list.push(rawUrl);
+        return list;
+    }
+    async function downloadByRange(url, size, candidates) {
+        const SLICE = 2 * 1024 * 1024;
+        const cands = candidates && candidates.length ? candidates : [url];
+        let lastErr = null;
+        for (const cu of cands) {
+            try {
+                if (cu.indexOf('jsdelivr.net') !== -1) {
+                    if (size > 20 * 1024 * 1024) throw new Error('jsDelivr 超过 20MB 限制');
+                    const r = await fetchRetry(cu, {}, 2);
+                    if (!r.ok) throw new Error('jsDelivr 失败: ' + r.status);
+                    return await r.arrayBuffer();
+                }
+                const parts = [];
+                for (let start = 0; start < size; start += SLICE) {
+                    const end = Math.min(size - 1, start + SLICE - 1);
+                    const r = await fetchRetry(cu, { headers: { 'Range': 'bytes=' + start + '-' + end } }, 2);
+                    if (!r.ok) throw new Error('分段下载失败: ' + r.status);
+                    const b = await r.arrayBuffer();
+                    if (!b.byteLength) throw new Error('分段下载为空');
+                    parts.push(new Uint8Array(b));
+                }
+                const total = parts.reduce((s, p) => s + p.length, 0);
+                const out = new Uint8Array(total); let o = 0;
+                for (const p of parts) { out.set(p, o); o += p.length; }
+                return out.buffer;
+            } catch (e) { lastErr = e; }
         }
-        const total = parts.reduce((s, p) => s + p.length, 0);
-        const out = new Uint8Array(total); let o = 0;
-        for (const p of parts) { out.set(p, o); o += p.length; }
-        return out.buffer;
+        throw lastErr || new Error('所有下载源均失败');
     }
     async function downloadChunk(dir, storedName) {
         const apiKey = decodeApiKey(); if (!apiKey) throw new Error("API Key解码失败");
@@ -4069,7 +4091,7 @@ html[data-theme=dark] {
         if (size === 0) return new ArrayBuffer(0);
         if (info.content) { const bs = atob(info.content.replace(/\n/g, '')); const u8 = new Uint8Array(bs.length); for (let i = 0; i < bs.length; i++) u8[i] = bs.charCodeAt(i); return u8.buffer; }
         if (info.download_url) {
-            try { return await downloadByRange(info.download_url, size); } catch (e) {}
+            try { return await downloadByRange(info.download_url, size, rawCandidates(info.download_url, dir, storedName)); } catch (e) {}
         }
         if (!info.sha) throw new Error('无法获取分片 blob SHA');
         const blobUrl = 'https://api.github.com/repos/' + GITHUB_USERNAME + '/' + VIDEO_REPO + '/git/blobs/' + info.sha;
