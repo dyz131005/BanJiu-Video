@@ -3,3 +3,8 @@ BJ1:
     text: ddd
     user: dyz
     color: '#ffffff'
+BJ2:
+  - time: 0
+    text: test2
+    user: dyz
+    color: '#ffffff'
