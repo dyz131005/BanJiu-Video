@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 2
+  lastBJ: 3
 videos:
   BJ1:
     bj: BJ1
@@ -50,3 +50,25 @@ videos:
     coinCount: 0
     favoriteCount: 0
     danmakuCount: 1
+  BJ3:
+    bj: BJ3
+    title: 【Caimarble官方投稿】Algodoo VS 现实
+    upId: Caimarble
+    upName: Caimarble
+    slug: game
+    tags:
+      - Algodoo
+    description: Caimarble官方投稿awa
+    duration: 215
+    originalName: 202608052329.mp4
+    size: 19761893
+    storedChunks:
+      - v_202608052329_chunk0.bin
+    totalChunks: 1
+    cover: null
+    createdAt: '2026-10-09T12:23:16.046Z'
+    viewCount: 0
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
