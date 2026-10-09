@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 3
+  lastBJ: 4
 videos:
   BJ1:
     bj: BJ1
@@ -68,6 +68,29 @@ videos:
     cover: null
     createdAt: '2026-10-09T12:23:16.046Z'
     viewCount: 4
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ4:
+    bj: BJ4
+    title: 伤心太平洋
+    upId: DerolexTV
+    upName: 处刑拍手
+    slug: music
+    tags:
+      - 音乐
+    description: 你好。
+    duration: 265
+    originalName: qmmv_0b53fiaaaaaa2eanx4d5avrvikqaaavaaaca.f9934.mp4
+    size: 37610367
+    storedChunks:
+      - v_qmmv_0b53fiaaaaaa2eanx4d5avrvikqaaavaaaca_f9934_chunk0.bin
+      - v_qmmv_0b53fiaaaaaa2eanx4d5avrvikqaaavaaaca_f9934_chunk1.bin
+    totalChunks: 2
+    cover: null
+    createdAt: '2026-10-09T14:43:07.035Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
