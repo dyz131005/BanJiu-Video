@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 4
+  lastBJ: 5
 videos:
   BJ1:
     bj: BJ1
@@ -95,3 +95,74 @@ videos:
     coinCount: 0
     favoriteCount: 0
     danmakuCount: 1
+  BJ5:
+    bj: BJ5
+    title: 让NeXTSTEP系列系统连接到现代互联网！
+    upId: CHUA-X
+    upName: CHUA某人
+    slug: tech
+    tags:
+      - NeXT
+      - NEXTSTEP
+      - NeXTStep
+      - NeXTSTEP
+      - VMware
+      - 操作系统虚拟化
+      - 虚拟机
+    description: >-
+      此方法适用于VMware上安装的NEXTSTEP 3.3和所有OPENSTEP 4.x系统，Rhapsody DR1和DR2不适用
+
+
+      2026年9月27日追加：已找到能在NeXTSTEP系列上运行的浏览器，效果见视频ac48876141
+
+
+      参考资料：
+
+      @奇怪的502的视频：《使用VMware安装NeXTSTEP
+      3.3》https://www.bilibili.com/video/BV17Ui4BwEdS
+
+      蓬岸的文章:
+
+      《重现WWW的起源（上）：安装并配置X86版NeXTSTEP 3.3 》https://zhuanlan.zhihu.com/p/697953965
+
+      《重现WWW的起源（下）：编译运行WWW 0.15源码》https://zhuanlan.zhihu.com/p/698328259
+    duration: 363
+    originalName: 让NeXTSTEP系列系统连接到现代互联网！.mp4
+    size: 681623311
+    storedChunks:
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk0.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk1.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk2.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk3.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk4.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk5.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk6.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk7.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk8.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk9.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk10.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk11.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk12.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk13.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk14.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk15.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk16.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk17.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk18.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk19.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk20.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk21.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk22.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk23.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk24.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk25.bin
+      - v_让NeXTSTEP系列系统连接到现代互联网__chunk26.bin
+    totalChunks: 27
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/5/cover_%E6%97%A0%E6%A0%87%E9%A2%981.png
+    createdAt: '2026-10-10T06:04:51.817Z'
+    viewCount: 0
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
