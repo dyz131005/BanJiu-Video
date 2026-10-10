@@ -49,3 +49,22 @@ BJ3:
     likeCount: 0
     likedBy: []
     replies: []
+BJ5:
+  - id: c_1791612410756
+    uid: CHUA-X
+    name: CHUA某人
+    content: >-
+      其实给VMware
+      Workstation上的NeXTSTEP系列配置网络的事早在半年前就尝试了，当时第一感觉就是要用配的VMXNet驱动+vmxnet3网卡，结果翻来覆去就是死活不识别；直到后来我无意间发现直接用其它默认兼容性时,发现开机时弹出了“No
+      response from network configuration
+      server”提示框，这才阴差阳错地解决了网卡驱动识别问题（默认情况下其它兼容性使用AMD PCNet
+      32网卡），遂跟着蓬岸老师的文章完成网络剩余设置。
+
+
+      在此之后由于学业原因，我没办法细细制作视频分享操作过程（期间我也尝试了在OPENSTEP
+      4.x和Rhapsody上配置网络，故有视频简介开头的结论），只是在奇怪的502相关视频底下以文字形式讲述方法，如今趁着现在放假有空，干脆把坑填上了，并且我发誓再也不会做以前那种惹人不愉快的事了（φωφ）
+    replyTo: null
+    createdAt: '2026-10-10T06:06:50.756Z'
+    likeCount: 0
+    likedBy: []
+    replies: []
