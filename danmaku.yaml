@@ -8,3 +8,8 @@ BJ2:
     text: test2
     user: dyz
     color: '#ffffff'
+BJ4:
+  - time: 37.75
+    text: dyz
+    user: dyz
+    color: '#ffffff'
