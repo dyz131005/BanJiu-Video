@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 6
+  lastBJ: 7
 videos:
   BJ1:
     bj: BJ1
@@ -209,6 +209,54 @@ videos:
       https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/6/cover_%E6%97%A0%E6%A0%87%E9%A2%982.png
     createdAt: '2026-10-11T07:05:02.241Z'
     viewCount: 1
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ7:
+    bj: BJ7
+    title: 让Rhapsody DR2系统连接到现代互联网！
+    upId: CHUA-X
+    upName: CHUA某人
+    slug: tech
+    tags:
+      - Rhapsody
+      - Apple
+      - VMware
+      - 虚拟机
+      - 操作系统虚拟化
+      - 联网
+    description: "此方法适用于Rhapsody DR2系统，目前Rhapsody DR1联网方法暂时无解\n\n参考资料：\n\uFEFF@奇怪的502\uFEFF 视频：《使用VMware安装Rhapsody Developer Release 2》https://www.bilibili.com/video/BV1UNDDBUEiD\n\uFEFF@paizhangpi\uFEFF 的视频:《VMWare品尝Rhapsody》https://www.bilibili.com/video/BV1Zx411V7Xh（当然也可以前往http://paizhang.info/archives/733品尝文字版）\nRhapsody DR2 install guide：https://soosun.tistory.com/164 （你可能需要霍格沃兹魔法+翻译器以轻松阅读）\n\n特别鸣谢：\n\uFEFF@水樹小春\uFEFF （提供动图）"
+    duration: 346
+    originalName: 让Rhapsody DR2系统连接到现代互联网！.mp4
+    size: 534854927
+    storedChunks:
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk0.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk1.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk2.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk3.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk4.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk5.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk6.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk7.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk8.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk9.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk10.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk11.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk12.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk13.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk14.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk15.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk16.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk17.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk18.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk19.bin
+      - v_让Rhapsody_DR2系统连接到现代互联网__chunk20.bin
+    totalChunks: 21
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/7/cover_%E6%97%A0%E6%A0%87%E9%A2%983.png
+    createdAt: '2026-10-11T07:37:21.355Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
