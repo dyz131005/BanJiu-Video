@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 5
+  lastBJ: 6
 videos:
   BJ1:
     bj: BJ1
@@ -162,6 +162,53 @@ videos:
       https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/5/cover_%E6%97%A0%E6%A0%87%E9%A2%981.png
     createdAt: '2026-10-10T06:04:51.817Z'
     viewCount: 8
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ6:
+    bj: BJ6
+    title: 【补充】在NeXTSTEP系列系统上浏览网页
+    upId: CHUA-X
+    upName: CHUA某人
+    slug: tech
+    tags:
+      - NeXT
+      - NEXTSTEP
+      - NeXTStep
+      - NeXTSTEP
+      - VMware
+      - 操作系统虚拟化
+      - 虚拟机
+    description: >-
+      这是上一期《让NeXTSTEP系列系统连接到现代互联网！》的补充，没看过的可以去https://dyz131005.github.io/BanJiu-Video/#/video/BJ5观看
+
+      视频内资源见上期视频简介
+
+      ----------------------------------------------------------------------------------------------------------------------------------------------
+
+      视频使用BGM：
+
+      Incyde - YbeLL(Sta)
+
+      冬の花 - 宮本浩次
+    duration: 212
+    originalName: 【补充】在NeXTSTEP系列系统上浏览网页.mp4
+    size: 202162918
+    storedChunks:
+      - v__补充_在NeXTSTEP系列系统上浏览网页_chunk0.bin
+      - v__补充_在NeXTSTEP系列系统上浏览网页_chunk1.bin
+      - v__补充_在NeXTSTEP系列系统上浏览网页_chunk2.bin
+      - v__补充_在NeXTSTEP系列系统上浏览网页_chunk3.bin
+      - v__补充_在NeXTSTEP系列系统上浏览网页_chunk4.bin
+      - v__补充_在NeXTSTEP系列系统上浏览网页_chunk5.bin
+      - v__补充_在NeXTSTEP系列系统上浏览网页_chunk6.bin
+      - v__补充_在NeXTSTEP系列系统上浏览网页_chunk7.bin
+    totalChunks: 8
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/6/cover_%E6%97%A0%E6%A0%87%E9%A2%982.png
+    createdAt: '2026-10-11T07:05:02.241Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
