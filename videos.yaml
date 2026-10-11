@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 9
+  lastBJ: 10
 videos:
   BJ1:
     bj: BJ1
@@ -310,7 +310,33 @@ videos:
     totalChunks: 5
     cover: null
     createdAt: '2026-10-11T08:59:38.168Z'
-    viewCount: 4
+    viewCount: 3
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ10:
+    bj: BJ10
+    title: 首都
+    upId: Laomu
+    upName: 一石二鸟的老牧师
+    slug: guichu
+    tags:
+      - 不属于任何分类
+    description: ''
+    duration: 337
+    originalName: 1744987396209994.mp4
+    size: 117825005
+    storedChunks:
+      - v_1744987396209994_chunk0.bin
+      - v_1744987396209994_chunk1.bin
+      - v_1744987396209994_chunk2.bin
+      - v_1744987396209994_chunk3.bin
+      - v_1744987396209994_chunk4.bin
+    totalChunks: 5
+    cover: null
+    createdAt: '2026-10-11T09:16:16.946Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
