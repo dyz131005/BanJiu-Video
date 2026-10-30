@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 10
+  lastBJ: 11
 videos:
   BJ1:
     bj: BJ1
@@ -340,4 +340,37 @@ videos:
     likeCount: 0
     coinCount: 0
     favoriteCount: 1
+    danmakuCount: 0
+  BJ11:
+    bj: BJ11
+    title: 在ES40模拟器上安装Windows Whistler Build 2210
+    upId: CHUA-X
+    upName: CHUA某人
+    slug: tech
+    tags:
+      - Windows
+      - DEC
+      - Compaq
+      - Alpha
+      - Alpha AXP
+      - Windows Whistler
+    description: "剪到一半电脑坏了（报VIDEO_SCHEDULER_INTERNAL_ERROR蓝屏），不得已转战手机/iPad，剪出来可能有点怪，请见谅\n\n视频压缩包资源提供：\n1849574129.share.123pan.cn/123pan/ZUDkvd-0uAS?pwd=2210#\n\n参考资料：\n\uFEFF@奇怪的502\uFEFF的视频：《首发-使用QEMU安装Windows XP build 2210》https://www.bilibili.com/video/BV1Jf5B67EBf\n\uFEFF@weiyysz\uFEFF的视频：《Windows NT 4 Alpha版 安装体验》https://www.bilibili.com/video/BV1E5TF6EEig\nBetaworld的《如何安装Alpha版本Windows NT》：www.betaworld.cn/如何安装Alpha版本Windows_NT\nVirtually Fun的《Windows 2000 64-bit for Alpha AXP / AXP64 / ALPHA64 (build 2210)》：\nvirtuallyfun.com/2023/05/15/windows-2000-64-bit-for-alpha-axp/\nVirtually Fun的《AXP64 2210 Installation Media Reconstruction》\nvirtuallyfun.com/2023/06/26/axp64-2210-installation-media-reconstruction/\nZXnet的《AlphaServer ES40 Emulation》：www.zx.net.nz/computers/dec/axpemu-es40.shtml\n（这里提供了很多系统系统在Alpha架构机型的安装方法，除了OpenVMSdoge）\n（2210安装参考直联：www.zx.net.nz/computers/dec/axpemu-es40.shtml#2210）"
+    duration: 1094
+    originalName: 在ES40模拟器上安装Windows Whistler Build 2210.mp4
+    size: 153137367
+    storedChunks:
+      - v_在ES40模拟器上安装Windows_Whistler_Build_2210_chunk0.bin
+      - v_在ES40模拟器上安装Windows_Whistler_Build_2210_chunk1.bin
+      - v_在ES40模拟器上安装Windows_Whistler_Build_2210_chunk2.bin
+      - v_在ES40模拟器上安装Windows_Whistler_Build_2210_chunk3.bin
+      - v_在ES40模拟器上安装Windows_Whistler_Build_2210_chunk4.bin
+      - v_在ES40模拟器上安装Windows_Whistler_Build_2210_chunk5.bin
+    totalChunks: 6
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/11/cover_%E5%9C%A8ES40%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%8A%E5%AE%89%E8%A3%85Windows_Whistler_Build_2210.jpg
+    createdAt: '2026-10-30T01:03:27.987Z'
+    viewCount: 0
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
     danmakuCount: 0
