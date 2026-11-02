@@ -396,8 +396,8 @@ videos:
     cover: null
     createdAt: '2026-11-02T01:25:17.654Z'
     viewCount: 2
-    likeCount: 0
-    coinCount: 1
+    likeCount: 1
+    coinCount: 0
     favoriteCount: 0
     danmakuCount: 0
   BJ13:
