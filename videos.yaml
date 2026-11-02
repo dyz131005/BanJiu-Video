@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 11
+  lastBJ: 12
 videos:
   BJ1:
     bj: BJ1
@@ -373,4 +373,30 @@ videos:
     likeCount: 2
     coinCount: 0
     favoriteCount: 1
+    danmakuCount: 0
+  BJ12:
+    bj: BJ12
+    title: 「Digital Project」2019年up主小学秋游时的视频
+    upId: CHUA-X
+    upName: CHUA某人
+    slug: life
+    tags:
+      - 「Digital Project」
+    description: >-
+      2019年，up五年级，参加了学校中断20多年后的第一次秋游 这个视频是up当时的班主任用手机拍的，也是当时拍的唯一（？）视频
+      为纪念这段时光，特加入「Digital Project」中 
+
+       P.S.：「Digital Project」是up主全程本人处理的，具有东大特色的互联网胶囊，本项目力求在迅速更迭的时代中，以原汁原味的格式保留逝去的回忆，让我们和我们的子孙们一起重返历史的瞬间！
+    duration: 14
+    originalName: 21ce53f6b7819da791e9e0a2a0dc4917.mp4
+    size: 1799849
+    storedChunks:
+      - v_21ce53f6b7819da791e9e0a2a0dc4917_chunk0.bin
+    totalChunks: 1
+    cover: null
+    createdAt: '2026-11-02T01:25:17.654Z'
+    viewCount: 0
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
     danmakuCount: 0
