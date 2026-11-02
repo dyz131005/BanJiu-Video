@@ -424,8 +424,8 @@ videos:
     createdAt: '2026-11-02T01:26:09.118Z'
     viewCount: 2
     likeCount: 0
-    coinCount: 1
-    favoriteCount: 0
+    coinCount: 0
+    favoriteCount: 1
     danmakuCount: 0
   BJ14:
     bj: BJ14
