@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 12
+  lastBJ: 13
 videos:
   BJ1:
     bj: BJ1
@@ -396,6 +396,33 @@ videos:
     cover: null
     createdAt: '2026-11-02T01:25:17.654Z'
     viewCount: 1
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ13:
+    bj: BJ13
+    title: 「Digital Project」2021年up主初中竞选班际文艺晚会&五四合唱比赛主持人时的视频
+    upId: CHUA-X
+    upName: CHUA某人
+    slug: life
+    tags:
+      - 「Digital Project」
+    description: >-
+      2021年，up主满怀期待地参加年级的文艺晚会和歌咏比赛主持人，但最后落选了，这件事成为了我整个初中时代的转折，为我一年后的悲剧埋下伏笔
+      这是当时一位评委老师给我拍下的视频，后来视频源经班主任到父母之手，再发给我，因而被我看到 为纪念这段时光，特加入「Digital
+      Project」中 
+
+       P.S.：「Digital Project」是up主全程本人处理的，具有东大特色的互联网胶囊，本项目力求在迅速更迭的时代中，以原汁原味的格式保留逝去的回忆，让我们和我们的子孙们一起重返历史的瞬间！
+    duration: 15
+    originalName: b09166a7605e7840ecac94381ed2955f.mp4
+    size: 1635238
+    storedChunks:
+      - v_b09166a7605e7840ecac94381ed2955f_chunk0.bin
+    totalChunks: 1
+    cover: null
+    createdAt: '2026-11-02T01:26:09.118Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
