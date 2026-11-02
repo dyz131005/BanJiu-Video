@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 13
+  lastBJ: 14
 videos:
   BJ1:
     bj: BJ1
@@ -423,6 +423,35 @@ videos:
     cover: null
     createdAt: '2026-11-02T01:26:09.118Z'
     viewCount: 1
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ14:
+    bj: BJ14
+    title: 「Digital Project」2022年up主初中在班里参加班里举行的演讲比赛时的视频
+    upId: CHUA-X
+    upName: CHUA某人
+    slug: life
+    tags:
+      - 「Digital Project」
+    description: >-
+      2022年，在饱受入团失败的折磨后，up选择了通过这种方式转移注意力以缓解痛苦，虽然没有什么好成绩，但至少我得到了一次向外人表示自身诉求的机会，也延缓我心理防线崩溃:(的时间
+      这个视频是我们那时语文老师（悄悄告诉你，这个演讲比赛就是她举行的）拍给我的，我也一直很感激她，至今留有她的V 为纪念这段时光，特加入「Digital
+      Project」中  
+
+
+      P.S.：「Digital
+      Project」是up主全程本人处理的，具有东大特色的互联网胶囊，本项目力求在迅速更迭的时代中，以原汁原味的格式保留逝去的回忆，让我们和我们的子孙们一起重返历史的瞬间！
+    duration: 248
+    originalName: f96d5fdd933bacbac321d66a69294ce4.mp4
+    size: 14914990
+    storedChunks:
+      - v_f96d5fdd933bacbac321d66a69294ce4_chunk0.bin
+    totalChunks: 1
+    cover: null
+    createdAt: '2026-11-02T01:27:05.415Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
