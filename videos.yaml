@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 15
+  lastBJ: 16
 videos:
   BJ1:
     bj: BJ1
@@ -482,6 +482,35 @@ videos:
       https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/15/cover_0c1e5094-8577-4e48-8ab5-03c52bcc658d-%E5%B0%81%E9%9D%A2.jpg
     createdAt: '2026-11-04T07:24:17.016Z'
     viewCount: 2
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ16:
+    bj: BJ16
+    title: 【神曲警告】我请你赤一托史
+    upId: Laomu
+    upName: 一石二鸟的老牧师
+    slug: guichu
+    tags:
+      - 搬运
+      - 小飞机网盘
+      - 开心锤锤
+      - 神曲警告
+      - AI生成
+    description: |-
+      视频偏鬼畜，所以投鬼畜区
+      搬运至小飞机网盘
+    duration: 10
+    originalName: 1791369910503..mp4
+    size: 1943830
+    storedChunks:
+      - v_1791369910503__chunk0.bin
+    totalChunks: 1
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/16/cover_screenshot_20261105_001309_com_huawei_hmos_photos.png
+    createdAt: '2026-11-04T16:16:24.881Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
