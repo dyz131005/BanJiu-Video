@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 14
+  lastBJ: 15
 videos:
   BJ1:
     bj: BJ1
@@ -455,4 +455,34 @@ videos:
     likeCount: 1
     coinCount: 1
     favoriteCount: 1
+    danmakuCount: 0
+  BJ15:
+    bj: BJ15
+    title: 【转载】剪影廉中 纸蕴合浦 剪纸校本课程成果展顺利开展
+    upId: CHUA-X
+    upName: CHUA某人
+    slug: life
+    tags:
+      - 转载
+      - 廉州中学
+      - 剪纸
+      - 刻纸
+      - 美育
+    description: >-
+      来源：https://mp.weixin.qq.com/s/ATpfHuoytPfleWxwVCyYuw（原作者：https://mp.weixin.qq.com/s/5esb4Sxa4COEFo7Bwabddg）
+           为深耕校园特色美育，传承非遗剪纸文化，挖掘合浦本土文化底蕴，我校陈艺华、马艺莹两位美术教师带领高24级学子，圆满完成“剪影廉中，纸蕴合浦” 剪纸校本课程教学工作。
+      （不想写了，有能力的请自行移步原文观看，谢谢支持我们大廉中喵☺  :)  ）
+    duration: 128
+    originalName: 674af6346c745201d1f42e839775d84b.mp4
+    size: 17450493
+    storedChunks:
+      - v_674af6346c745201d1f42e839775d84b_chunk0.bin
+    totalChunks: 1
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/15/cover_0c1e5094-8577-4e48-8ab5-03c52bcc658d-%E5%B0%81%E9%9D%A2.jpg
+    createdAt: '2026-11-04T07:24:17.016Z'
+    viewCount: 0
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
     danmakuCount: 0
