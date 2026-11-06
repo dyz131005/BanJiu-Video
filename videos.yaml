@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 19
+  lastBJ: 20
 videos:
   BJ1:
     bj: BJ1
@@ -581,6 +581,31 @@ videos:
       https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/19/cover_Screenshot_2026-11-03-13-25-26-31_98a3ad1b03a1f4f37bc1b1582cf92d0d.jpg
     createdAt: '2026-11-06T10:02:27.742Z'
     viewCount: 2
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ20:
+    bj: BJ20
+    title: 神秘FB。。。
+    upId: '168_666'
+    upName: 狍你狗狗考试
+    slug: music
+    tags:
+      - 旗帜乐队
+    description: 我尽力跟你亅亅
+    duration: 99
+    originalName: lv_0_20261013185204.mp4
+    size: 55533474
+    storedChunks:
+      - v_lv_0_20261013185204_chunk0.bin
+      - v_lv_0_20261013185204_chunk1.bin
+      - v_lv_0_20261013185204_chunk2.bin
+    totalChunks: 3
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/20/cover_BOXOB_1793946518734_bf141b.png
+    createdAt: '2026-11-06T10:51:51.181Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
