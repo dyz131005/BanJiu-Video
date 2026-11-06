@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 17
+  lastBJ: 18
 videos:
   BJ1:
     bj: BJ1
@@ -534,6 +534,30 @@ videos:
       https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/17/cover_Screenshot_2026-11-03-16-56-14-44_99c04817c0de5652397fc8b56c3b3817.jpg
     createdAt: '2026-11-06T08:56:12.765Z'
     viewCount: 3
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ18:
+    bj: BJ18
+    title: (神曲警告)黑红警告V8
+    upId: '168_666'
+    upName: 狍你狗狗考试
+    slug: guichu
+    tags:
+      - 开心锤锤
+      - 神曲警告
+    description: 听我来段神曲警告。。。
+    duration: 10
+    originalName: 1793958877555..mp4
+    size: 1775517
+    storedChunks:
+      - v_1793958877555__chunk0.bin
+    totalChunks: 1
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/18/cover_1592117939476902.png
+    createdAt: '2026-11-06T09:57:33.077Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
