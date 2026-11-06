@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 18
+  lastBJ: 19
 videos:
   BJ1:
     bj: BJ1
@@ -558,6 +558,29 @@ videos:
       https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/18/cover_1592117939476902.png
     createdAt: '2026-11-06T09:57:33.077Z'
     viewCount: 3
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ19:
+    bj: BJ19
+    title: 风暴追逐者追逐龙卷风。。。
+    upId: '168_666'
+    upName: 狍你狗狗考试
+    slug: life
+    tags:
+      - 风暴追逐者
+    description: 豆包AI发现的好吧
+    duration: 10
+    originalName: 1793683498285.mp4
+    size: 1150943
+    storedChunks:
+      - v_1793683498285_chunk0.bin
+    totalChunks: 1
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/19/cover_Screenshot_2026-11-03-13-25-26-31_98a3ad1b03a1f4f37bc1b1582cf92d0d.jpg
+    createdAt: '2026-11-06T10:02:27.742Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
