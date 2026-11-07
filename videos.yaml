@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 20
+  lastBJ: 21
 videos:
   BJ1:
     bj: BJ1
@@ -606,6 +606,35 @@ videos:
       https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/20/cover_BOXOB_1793946518734_bf141b.png
     createdAt: '2026-11-06T10:51:51.181Z'
     viewCount: 8
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ21:
+    bj: BJ21
+    title: 学生信息管理系统使用视频说明
+    upId: CHUA-X
+    upName: CHUA某人
+    slug: knowledge
+    tags:
+      - 学生信息管理系统
+      - Python
+      - SQLite
+      - 计算机
+    description: 作品《学生信息管理系统》使用方法说明
+    duration: 151
+    originalName: 演示录屏视频.mp4
+    size: 81113623
+    storedChunks:
+      - v_演示录屏视频_chunk0.bin
+      - v_演示录屏视频_chunk1.bin
+      - v_演示录屏视频_chunk2.bin
+      - v_演示录屏视频_chunk3.bin
+    totalChunks: 4
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/21/cover_1.bmp
+    createdAt: '2026-11-07T08:36:06.386Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
