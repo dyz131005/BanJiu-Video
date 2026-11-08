@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 21
+  lastBJ: 22
 videos:
   BJ1:
     bj: BJ1
@@ -638,4 +638,34 @@ videos:
     likeCount: 1
     coinCount: 1
     favoriteCount: 1
+    danmakuCount: 0
+  BJ22:
+    bj: BJ22
+    title: 灵光的神秘视频
+    upId: Laomu
+    upName: 一石二鸟的老牧师
+    slug: guichu
+    tags:
+      - 灵光AI
+      - 搬运
+      - 本家
+      - 本家搬运
+      - 哔哩哔哩
+    description: |-
+      原视频发布于2026年11月2日
+      BV号：BV1jq4F6wEr2
+      （我是本视频的作者，我拥有视频的源文件，不用授权）
+    duration: 8
+    originalName: test.mp4
+    size: 3798131
+    storedChunks:
+      - v_test_chunk0.bin
+    totalChunks: 1
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/22/cover_screenshot_20261108_193949_tv_danmaku_bilibilihd.png
+    createdAt: '2026-11-08T11:40:20.862Z'
+    viewCount: 0
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
     danmakuCount: 0
