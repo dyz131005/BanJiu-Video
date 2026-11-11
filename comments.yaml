@@ -98,19 +98,7 @@ BJ7:
     likeCount: 0
     likedBy: []
     replies: []
-BJ11:
-  - id: c_1794277116053
-    uid: CHUA-X
-    name: CHUA某人
-    content: |-
-      视频压缩包资源提供：
-      123：1849574129.share.123pan.cn/123pan/ZUDkvd-0uAS?pwd=2210#
-      某毒：https://pan.baidu.com/s/1qFRcbtkA1prUwRK_yMBSNA?pwd=2210
-    replyTo: null
-    createdAt: '2026-11-10T02:18:36.053Z'
-    likeCount: 0
-    likedBy: []
-    replies: []
+BJ11: []
 BJ14: []
 BJ16:
   - id: c_1793809117025
