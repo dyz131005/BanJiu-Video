@@ -41,7 +41,7 @@ DerolexTV:
   bio: 来自隔壁凌汐/
   createdAt: '2026-10-09T14:40:41.057Z'
 CHUA-X:
-  name: '1'
+  name: "\x01\x02\x03\x04\x05\x06\a\b\x0E\x0F\x10\x11\x12\x13\x14\x15\x16\x17"
   email: chua-x@outlook.com
   password: 070801xy
   bio: ''
