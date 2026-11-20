@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 22
+  lastBJ: 23
 videos:
   BJ1:
     bj: BJ1
@@ -665,6 +665,27 @@ videos:
       https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/22/cover_screenshot_20261108_193949_tv_danmaku_bilibilihd.png
     createdAt: '2026-11-08T11:40:20.862Z'
     viewCount: 12
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ23:
+    bj: BJ23
+    title: 香香的口味，你尝过没？鬼畜版
+    upId: 迪克
+    upName: 忘本巴迪牢弟
+    slug: animation
+    tags: []
+    description: 无
+    duration: 10
+    originalName: 1000105523.mp4
+    size: 4126835
+    storedChunks:
+      - v_1000105523_chunk0.bin
+    totalChunks: 1
+    cover: null
+    createdAt: '2026-11-20T04:12:18.251Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
