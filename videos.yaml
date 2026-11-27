@@ -1,5 +1,5 @@
 meta:
-  lastBJ: 23
+  lastBJ: 24
 videos:
   BJ1:
     bj: BJ1
@@ -686,6 +686,78 @@ videos:
     cover: null
     createdAt: '2026-11-20T04:12:18.251Z'
     viewCount: 6
+    likeCount: 0
+    coinCount: 0
+    favoriteCount: 0
+    danmakuCount: 0
+  BJ24:
+    bj: BJ24
+    title: 你世界微电影《樱桃小丸子1》HD国语_中字
+    upId: Laomu
+    upName: 一石二鸟的老牧师
+    slug: film
+    tags:
+      - 迷你世界
+      - 自制影视
+      - 微电影
+      - 转载
+    description: |-
+      转载自B站，因制作方（B站：夏江文化（UID:3707000464607381）长时间未回复，所以我免授权搬运
+      BV18mxW6UEPd
+      原简介：
+      微电影 / 中国大陆
+      2026年11月10日上映
+
+      导演：刘天歌  潼仔
+      主演：刘天歌  潼仔  纪凯伦  顾泽轩  江云陶
+
+
+      出品
+      徐州工作室
+      潼总会工作室
+      江苏夏江文化传媒股份有限公司
+      广西潼字牌文化传播有限公司
+      广西伍德影视制作有限公司
+      联瑞（上海）影业有限公司
+      南京台幕影业有限公司
+      广东凯伦工作室有限公司
+      上海群星文化传媒有限公司
+
+
+      联合出品
+      北京星航影业有限公司
+      南京秦淮影业有限公司
+      江苏刘镇美术动画制作有限公司
+      杭州高云文化创意有限公司
+      苏州园林电影股份有限公司
+      严波（徐州）文化科技发展有限公司
+      徐州严波文化传播股份有限公司
+      木方（苏州）文化科技发展有限公司
+      苏州木方文化传媒有限公司
+      兰州沙绿文化传播有限公司
+      上海和平动画股份有限公司
+      福州夏江影业股份有限公司
+      江西鄱阳影业有限公司
+      广东凯伦文化传媒有限公司
+      沈阳诗野文化传媒有限公司
+    duration: 3183
+    originalName: 迷你世界微电影《樱桃小丸子1》HD国语_中字.mp4
+    size: 229825201
+    storedChunks:
+      - v_迷你世界微电影_樱桃小丸子1_HD国语_中字_chunk0.bin
+      - v_迷你世界微电影_樱桃小丸子1_HD国语_中字_chunk1.bin
+      - v_迷你世界微电影_樱桃小丸子1_HD国语_中字_chunk2.bin
+      - v_迷你世界微电影_樱桃小丸子1_HD国语_中字_chunk3.bin
+      - v_迷你世界微电影_樱桃小丸子1_HD国语_中字_chunk4.bin
+      - v_迷你世界微电影_樱桃小丸子1_HD国语_中字_chunk5.bin
+      - v_迷你世界微电影_樱桃小丸子1_HD国语_中字_chunk6.bin
+      - v_迷你世界微电影_樱桃小丸子1_HD国语_中字_chunk7.bin
+      - v_迷你世界微电影_樱桃小丸子1_HD国语_中字_chunk8.bin
+    totalChunks: 9
+    cover: >-
+      https://raw.githubusercontent.com/dyz131005/BanJiu-Video/main/files/24/cover_screenshot_20261126_170614.png
+    createdAt: '2026-11-27T13:38:14.725Z'
+    viewCount: 0
     likeCount: 0
     coinCount: 0
     favoriteCount: 0
